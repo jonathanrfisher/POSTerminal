@@ -10,4 +10,12 @@
 
 @interface POSTerminalViewController : UIViewController
 
+//- (void) PopulateMenuItems:(NSString *)itemsFilePathToReadFrom;
+//- (void) UpdatePOS: (NSString *)itemsFilePathToWriteTo;
+//- (NSString *) Login:(NSString *)userID;
+//- (void) MenuTransition;
+//- (void) BeginTransaction;
+//- (void) VoidTransaction;
+//- (void) Logout;
+
 @end

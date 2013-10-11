@@ -21,6 +21,23 @@
 		7C0FD54A180475370028FC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52C180475370028FC3D /* UIKit.framework */; };
 		7C0FD552180475370028FC3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD550180475370028FC3D /* InfoPlist.strings */; };
 		7C0FD554180475370028FC3D /* POSTerminalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD553180475370028FC3D /* POSTerminalTests.m */; };
+		7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5A218049D470028FC3D /* POSTerminal.m */; };
+		7C0FD5AC1804A4F90028FC3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD528180475370028FC3D /* Foundation.framework */; };
+		7C0FD5AD1804A4FA0028FC3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52A180475370028FC3D /* CoreGraphics.framework */; };
+		7C0FD5AE1804A4FA0028FC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52C180475370028FC3D /* UIKit.framework */; };
+		7C0FD5B41804A4FA0028FC3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5B21804A4FA0028FC3D /* InfoPlist.strings */; };
+		7C0FD5B61804A4FA0028FC3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5B51804A4FA0028FC3D /* main.m */; };
+		7C0FD5BA1804A4FA0028FC3D /* POSTerminalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5B91804A4FA0028FC3D /* POSTerminalAppDelegate.m */; };
+		7C0FD5BD1804A4FA0028FC3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5BB1804A4FA0028FC3D /* Main.storyboard */; };
+		7C0FD5C01804A4FA0028FC3D /* POSTerminalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5BF1804A4FA0028FC3D /* POSTerminalViewController.m */; };
+		7C0FD5C21804A4FA0028FC3D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5C11804A4FA0028FC3D /* Images.xcassets */; };
+		7C0FD5C81804A4FA0028FC3D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD547180475370028FC3D /* XCTest.framework */; };
+		7C0FD5C91804A4FA0028FC3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD528180475370028FC3D /* Foundation.framework */; };
+		7C0FD5CA1804A4FA0028FC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52C180475370028FC3D /* UIKit.framework */; };
+		7C0FD5D21804A4FA0028FC3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5D01804A4FA0028FC3D /* InfoPlist.strings */; };
+		7C0FD5D41804A4FA0028FC3D /* LoginPortalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5D31804A4FA0028FC3D /* LoginPortalTests.m */; };
+		7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */; };
+		7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +47,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7C0FD524180475370028FC3D;
 			remoteInfo = POSTerminal;
+		};
+		7C0FD5CB1804A4FA0028FC3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C0FD51D180475370028FC3D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C0FD5AA1804A4F90028FC3D;
+			remoteInfo = LoginPortal;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,6 +77,26 @@
 		7C0FD54F180475370028FC3D /* POSTerminalTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "POSTerminalTests-Info.plist"; sourceTree = "<group>"; };
 		7C0FD551180475370028FC3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C0FD553180475370028FC3D /* POSTerminalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POSTerminalTests.m; sourceTree = "<group>"; };
+		7C0FD5A118049D470028FC3D /* POSTerminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POSTerminal.h; sourceTree = "<group>"; };
+		7C0FD5A218049D470028FC3D /* POSTerminal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POSTerminal.m; sourceTree = "<group>"; };
+		7C0FD5AB1804A4F90028FC3D /* LoginPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C0FD5B11804A4FA0028FC3D /* LoginPortal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoginPortal-Info.plist"; sourceTree = "<group>"; };
+		7C0FD5B31804A4FA0028FC3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7C0FD5B51804A4FA0028FC3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7C0FD5B71804A4FA0028FC3D /* LoginPortal-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoginPortal-Prefix.pch"; sourceTree = "<group>"; };
+		7C0FD5B81804A4FA0028FC3D /* POSTerminalAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POSTerminalAppDelegate.h; sourceTree = "<group>"; };
+		7C0FD5B91804A4FA0028FC3D /* POSTerminalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POSTerminalAppDelegate.m; sourceTree = "<group>"; };
+		7C0FD5BC1804A4FA0028FC3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C0FD5BE1804A4FA0028FC3D /* POSTerminalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POSTerminalViewController.h; sourceTree = "<group>"; };
+		7C0FD5BF1804A4FA0028FC3D /* POSTerminalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = POSTerminalViewController.m; sourceTree = "<group>"; };
+		7C0FD5C11804A4FA0028FC3D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7C0FD5C71804A4FA0028FC3D /* LoginPortalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginPortalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C0FD5CF1804A4FA0028FC3D /* LoginPortalTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LoginPortalTests-Info.plist"; sourceTree = "<group>"; };
+		7C0FD5D11804A4FA0028FC3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7C0FD5D31804A4FA0028FC3D /* LoginPortalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPortalTests.m; sourceTree = "<group>"; };
+		7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image_grey.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +120,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C0FD5A81804A4F90028FC3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C0FD5AD1804A4FA0028FC3D /* CoreGraphics.framework in Frameworks */,
+				7C0FD5AE1804A4FA0028FC3D /* UIKit.framework in Frameworks */,
+				7C0FD5AC1804A4F90028FC3D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C0FD5C41804A4FA0028FC3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C0FD5C81804A4FA0028FC3D /* XCTest.framework in Frameworks */,
+				7C0FD5CA1804A4FA0028FC3D /* UIKit.framework in Frameworks */,
+				7C0FD5C91804A4FA0028FC3D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +148,8 @@
 			children = (
 				7C0FD52E180475370028FC3D /* POSTerminal */,
 				7C0FD54D180475370028FC3D /* POSTerminalTests */,
+				7C0FD5AF1804A4FA0028FC3D /* LoginPortal */,
+				7C0FD5CD1804A4FA0028FC3D /* LoginPortalTests */,
 				7C0FD527180475370028FC3D /* Frameworks */,
 				7C0FD526180475370028FC3D /* Products */,
 			);
@@ -94,6 +160,8 @@
 			children = (
 				7C0FD525180475370028FC3D /* POSTerminal.app */,
 				7C0FD546180475370028FC3D /* POSTerminalTests.xctest */,
+				7C0FD5AB1804A4F90028FC3D /* LoginPortal.app */,
+				7C0FD5C71804A4FA0028FC3D /* LoginPortalTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,13 +180,18 @@
 		7C0FD52E180475370028FC3D /* POSTerminal */ = {
 			isa = PBXGroup;
 			children = (
+				7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */,
 				7C0FD537180475370028FC3D /* POSTerminalAppDelegate.h */,
 				7C0FD538180475370028FC3D /* POSTerminalAppDelegate.m */,
 				7C0FD53A180475370028FC3D /* Main.storyboard */,
+				7C0FD5A118049D470028FC3D /* POSTerminal.h */,
+				7C0FD5A218049D470028FC3D /* POSTerminal.m */,
 				7C0FD53D180475370028FC3D /* POSTerminalViewController.h */,
 				7C0FD53E180475370028FC3D /* POSTerminalViewController.m */,
 				7C0FD540180475370028FC3D /* Images.xcassets */,
 				7C0FD52F180475370028FC3D /* Supporting Files */,
+				7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */,
+				7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
@@ -148,6 +221,49 @@
 			children = (
 				7C0FD54F180475370028FC3D /* POSTerminalTests-Info.plist */,
 				7C0FD550180475370028FC3D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C0FD5AF1804A4FA0028FC3D /* LoginPortal */ = {
+			isa = PBXGroup;
+			children = (
+				7C0FD5B81804A4FA0028FC3D /* POSTerminalAppDelegate.h */,
+				7C0FD5B91804A4FA0028FC3D /* POSTerminalAppDelegate.m */,
+				7C0FD5BB1804A4FA0028FC3D /* Main.storyboard */,
+				7C0FD5BE1804A4FA0028FC3D /* POSTerminalViewController.h */,
+				7C0FD5BF1804A4FA0028FC3D /* POSTerminalViewController.m */,
+				7C0FD5C11804A4FA0028FC3D /* Images.xcassets */,
+				7C0FD5B01804A4FA0028FC3D /* Supporting Files */,
+			);
+			path = LoginPortal;
+			sourceTree = "<group>";
+		};
+		7C0FD5B01804A4FA0028FC3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C0FD5B11804A4FA0028FC3D /* LoginPortal-Info.plist */,
+				7C0FD5B21804A4FA0028FC3D /* InfoPlist.strings */,
+				7C0FD5B51804A4FA0028FC3D /* main.m */,
+				7C0FD5B71804A4FA0028FC3D /* LoginPortal-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C0FD5CD1804A4FA0028FC3D /* LoginPortalTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C0FD5D31804A4FA0028FC3D /* LoginPortalTests.m */,
+				7C0FD5CE1804A4FA0028FC3D /* Supporting Files */,
+			);
+			path = LoginPortalTests;
+			sourceTree = "<group>";
+		};
+		7C0FD5CE1804A4FA0028FC3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C0FD5CF1804A4FA0028FC3D /* LoginPortalTests-Info.plist */,
+				7C0FD5D01804A4FA0028FC3D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -190,6 +306,41 @@
 			productReference = 7C0FD546180475370028FC3D /* POSTerminalTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7C0FD5AA1804A4F90028FC3D /* LoginPortal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C0FD5D51804A4FA0028FC3D /* Build configuration list for PBXNativeTarget "LoginPortal" */;
+			buildPhases = (
+				7C0FD5A71804A4F90028FC3D /* Sources */,
+				7C0FD5A81804A4F90028FC3D /* Frameworks */,
+				7C0FD5A91804A4F90028FC3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoginPortal;
+			productName = LoginPortal;
+			productReference = 7C0FD5AB1804A4F90028FC3D /* LoginPortal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7C0FD5C61804A4FA0028FC3D /* LoginPortalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C0FD5D81804A4FA0028FC3D /* Build configuration list for PBXNativeTarget "LoginPortalTests" */;
+			buildPhases = (
+				7C0FD5C31804A4FA0028FC3D /* Sources */,
+				7C0FD5C41804A4FA0028FC3D /* Frameworks */,
+				7C0FD5C51804A4FA0028FC3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C0FD5CC1804A4FA0028FC3D /* PBXTargetDependency */,
+			);
+			name = LoginPortalTests;
+			productName = LoginPortalTests;
+			productReference = 7C0FD5C71804A4FA0028FC3D /* LoginPortalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -201,6 +352,9 @@
 				ORGANIZATIONNAME = "Jonathan Fisher";
 				TargetAttributes = {
 					7C0FD545180475370028FC3D = {
+						TestTargetID = 7C0FD524180475370028FC3D;
+					};
+					7C0FD5C61804A4FA0028FC3D = {
 						TestTargetID = 7C0FD524180475370028FC3D;
 					};
 				};
@@ -220,6 +374,8 @@
 			targets = (
 				7C0FD524180475370028FC3D /* POSTerminal */,
 				7C0FD545180475370028FC3D /* POSTerminalTests */,
+				7C0FD5AA1804A4F90028FC3D /* LoginPortal */,
+				7C0FD5C61804A4FA0028FC3D /* LoginPortalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C0FD541180475370028FC3D /* Images.xcassets in Resources */,
+				7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */,
 				7C0FD533180475370028FC3D /* InfoPlist.strings in Resources */,
 				7C0FD53C180475370028FC3D /* Main.storyboard in Resources */,
 			);
@@ -243,6 +400,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C0FD5A91804A4F90028FC3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C0FD5C21804A4FA0028FC3D /* Images.xcassets in Resources */,
+				7C0FD5B41804A4FA0028FC3D /* InfoPlist.strings in Resources */,
+				7C0FD5BD1804A4FA0028FC3D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C0FD5C51804A4FA0028FC3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C0FD5D21804A4FA0028FC3D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,7 +427,9 @@
 			files = (
 				7C0FD53F180475370028FC3D /* POSTerminalViewController.m in Sources */,
 				7C0FD535180475370028FC3D /* main.m in Sources */,
+				7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */,
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
+				7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +441,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C0FD5A71804A4F90028FC3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C0FD5C01804A4FA0028FC3D /* POSTerminalViewController.m in Sources */,
+				7C0FD5B61804A4FA0028FC3D /* main.m in Sources */,
+				7C0FD5BA1804A4FA0028FC3D /* POSTerminalAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C0FD5C31804A4FA0028FC3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C0FD5D41804A4FA0028FC3D /* LoginPortalTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -271,6 +466,11 @@
 			isa = PBXTargetDependency;
 			target = 7C0FD524180475370028FC3D /* POSTerminal */;
 			targetProxy = 7C0FD54B180475370028FC3D /* PBXContainerItemProxy */;
+		};
+		7C0FD5CC1804A4FA0028FC3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7C0FD5AA1804A4F90028FC3D /* LoginPortal */;
+			targetProxy = 7C0FD5CB1804A4FA0028FC3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -295,6 +495,30 @@
 			isa = PBXVariantGroup;
 			children = (
 				7C0FD551180475370028FC3D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7C0FD5B21804A4FA0028FC3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C0FD5B31804A4FA0028FC3D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7C0FD5BB1804A4FA0028FC3D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C0FD5BC1804A4FA0028FC3D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7C0FD5D01804A4FA0028FC3D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C0FD5D11804A4FA0028FC3D /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -444,6 +668,80 @@
 			};
 			name = Release;
 		};
+		7C0FD5D61804A4FA0028FC3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LoginPortal/LoginPortal-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LoginPortal/LoginPortal-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7C0FD5D71804A4FA0028FC3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LoginPortal/LoginPortal-Prefix.pch";
+				INFOPLIST_FILE = "LoginPortal/LoginPortal-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7C0FD5D91804A4FA0028FC3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/POSTerminal.app/POSTerminal";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LoginPortal/LoginPortal-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LoginPortalTests/LoginPortalTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7C0FD5DA1804A4FA0028FC3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/POSTerminal.app/POSTerminal";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LoginPortal/LoginPortal-Prefix.pch";
+				INFOPLIST_FILE = "LoginPortalTests/LoginPortalTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -463,12 +761,30 @@
 				7C0FD559180475370028FC3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C0FD55A180475370028FC3D /* Build configuration list for PBXNativeTarget "POSTerminalTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7C0FD55B180475370028FC3D /* Debug */,
 				7C0FD55C180475370028FC3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C0FD5D51804A4FA0028FC3D /* Build configuration list for PBXNativeTarget "LoginPortal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C0FD5D61804A4FA0028FC3D /* Debug */,
+				7C0FD5D71804A4FA0028FC3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7C0FD5D81804A4FA0028FC3D /* Build configuration list for PBXNativeTarget "LoginPortalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C0FD5D91804A4FA0028FC3D /* Debug */,
+				7C0FD5DA1804A4FA0028FC3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
