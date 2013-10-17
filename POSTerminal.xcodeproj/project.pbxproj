@@ -779,6 +779,7 @@
 				7C0FD5D71804A4FA0028FC3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C0FD5D81804A4FA0028FC3D /* Build configuration list for PBXNativeTarget "LoginPortalTests" */ = {
 			isa = XCConfigurationList;
@@ -787,6 +788,7 @@
 				7C0FD5DA1804A4FA0028FC3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
