@@ -10,29 +10,46 @@
 
 @interface LoginViewController ()
 
+@property (nonatomic, strong) NSArray *userData;
+@property (nonatomic, strong) NSString *userID;
+@property (weak, nonatomic) IBOutlet UILabel *idLabel;
+
 @end
 
 @implementation LoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize delegate;
+
+- (void) returnUserData
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    
+    if ([self.delegate isKindOfClass:[UIViewController class]])
+    {
+        [self.delegate addItemViewController:self didFinishEnteringItem:self.userData];
     }
-    return self;
 }
 
-- (void)viewDidLoad
+
+- (IBAction)digitPressed:(UIButton *)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    NSLog(@"Button: %@",[sender currentTitle]);
+    
+    
+    NSString *labelString = self.idLabel.text;
+    
+    
+    self.idLabel.text = [labelString stringByReplacingCharactersInRange:NSMakeRange(self.userID.length,1) withString:@"*"];
+    
+    
+    if(self.userID.length == 4 && [self.userID isEqualToString:@"1234"])
+    {
+        self.userData = @[@"Sweet Ass Manager",@"Jonathan",@"Fisher"];
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
+
+
 
 @end

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class LoginViewController;
+
+@protocol LoginViewControllerDelegate <NSObject>
+- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData;
+@end
+
+
 @interface LoginViewController : UIViewController
+
+@property (nonatomic, weak) id <LoginViewControllerDelegate> delegate;
 
 @end

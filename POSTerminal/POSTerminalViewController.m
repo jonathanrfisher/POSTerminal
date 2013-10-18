@@ -10,12 +10,23 @@
 #import "POSTerminal.h"
 
 @interface POSTerminalViewController ()
-//@property (nonatomic) NSString *userID;
+@property (nonatomic,strong) NSArray *userData;
 //@property (nonatomic) POSTerminalViewController *loginView;
+@property (nonatomic, strong) LoginViewController *loginPortal;
+@property (weak, nonatomic) IBOutlet UILabel *whereHaveYouBeanLabel;
+@property (nonatomic, strong) UIPopoverController *loginPopover;
+
 
 @end
 
 @implementation POSTerminalViewController
+
+- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData
+{
+    NSLog(@"This was returned from LoginViewController: %@",[userData description]);
+    self.userData = userData;
+    NSLog(@"self.userData: %@",[self.userData description]);
+}
 
 //@synthesize userID = _userID;
 //@synthesize loginView = _loginView;
@@ -40,7 +51,10 @@
 -(void) viewDidLoad {
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_image_grey.jpg"]];
     [super viewDidLoad];
+    
 }
+
+
 
 - (void) PopulateMenuItems:(NSString *)itemsFilePathToReadFrom
 {
@@ -85,7 +99,28 @@
     
 }
 
-
+- (void) viewDidAppear:(BOOL)animated
+{
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    //LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+    //UIPopoverController *loginPortal = [[UIPopoverController alloc] initWithContentViewController:loginViewController];
+    
+    self.loginPortal = lvc;
+    
+    self.loginPortal.delegate = self;
+    
+    self.loginPopover = [[UIPopoverController alloc] initWithContentViewController:self.loginPortal];
+    
+    if (!self.userData)
+    {
+        NSLog(@"Inside !self.userData for the POSTerminalViewController");
+        CGRect whereHaveYouBeanRect = self.whereHaveYouBeanLabel.bounds;
+        //[self presentViewController:self.loginPortal animated:YES completion:nil];
+        [self.loginPopover presentPopoverFromRect:whereHaveYouBeanRect inView:self.view permittedArrowDirections:0 animated:YES];
+    }
+}
 
 
 

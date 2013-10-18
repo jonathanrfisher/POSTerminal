@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginViewController.h"
 
-@interface POSTerminalViewController : UIViewController
+@class POSTerminalViewController;
+
+@interface POSTerminalViewController : UIViewController <LoginViewControllerDelegate, UIPopoverControllerDelegate>
 
 //- (void) PopulateMenuItems:(NSString *)itemsFilePathToReadFrom;
 //- (void) UpdatePOS: (NSString *)itemsFilePathToWriteTo;
