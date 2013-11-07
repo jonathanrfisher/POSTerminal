@@ -11,7 +11,7 @@
 
 @class POSTerminalViewController;
 
-@interface POSTerminalViewController : UIViewController <LoginViewControllerDelegate, UIPopoverControllerDelegate>
+@interface POSTerminalViewController : UIViewController <LoginViewControllerDelegate>
 
 //- (void) PopulateMenuItems:(NSString *)itemsFilePathToReadFrom;
 //- (void) UpdatePOS: (NSString *)itemsFilePathToWriteTo;
@@ -20,5 +20,6 @@
 //- (void) BeginTransaction;
 //- (void) VoidTransaction;
 //- (void) Logout;
+- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData;
 
 @end

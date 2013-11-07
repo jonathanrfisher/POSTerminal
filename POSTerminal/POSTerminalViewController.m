@@ -15,6 +15,7 @@
 @property (nonatomic, strong) LoginViewController *loginPortal;
 @property (weak, nonatomic) IBOutlet UILabel *whereHaveYouBeanLabel;
 @property (nonatomic, strong) UIPopoverController *loginPopover;
+@property (nonatomic, strong) UIViewController *loginViewController;
 
 
 @end
@@ -26,6 +27,7 @@
     NSLog(@"This was returned from LoginViewController: %@",[userData description]);
     self.userData = userData;
     NSLog(@"self.userData: %@",[self.userData description]);
+    
 }
 
 //@synthesize userID = _userID;
@@ -111,15 +113,49 @@
     
     self.loginPortal.delegate = self;
     
-    self.loginPopover = [[UIPopoverController alloc] initWithContentViewController:self.loginPortal];
+//    self.loginPopover = [[UIPopoverController alloc] initWithContentViewController:self.loginPortal];
+//    
+//    if (!self.userData)
+//    {
+//        NSLog(@"Inside !self.userData for the POSTerminalViewController");
+//        CGRect whereHaveYouBeanRect = self.whereHaveYouBeanLabel.bounds;
+//        //[self presentViewController:self.loginPortal animated:YES completion:nil];
+//        [self.loginPopover presentPopoverFromRect:whereHaveYouBeanRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//    }
+    self.loginViewController = [[UIViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     
-    if (!self.userData)
-    {
-        NSLog(@"Inside !self.userData for the POSTerminalViewController");
-        CGRect whereHaveYouBeanRect = self.whereHaveYouBeanLabel.bounds;
-        //[self presentViewController:self.loginPortal animated:YES completion:nil];
-        [self.loginPopover presentPopoverFromRect:whereHaveYouBeanRect inView:self.view permittedArrowDirections:0 animated:YES];
-    }
+    
+    
+        if (!self.userData)
+        {
+            NSLog(@"Inside !self.userData for the POSTerminalViewController");
+            UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            
+            lvc.delegate = self;
+            
+            //LoginViewController *lvc2 = [LoginViewController new];
+            
+            
+            self.loginViewController = lvc;
+            
+            
+            
+            
+            //CGRect whereHaveYouBeanRect = self.whereHaveYouBeanLabel.bounds;
+            //[self presentViewController:self.loginPortal animated:YES completion:nil];
+            //[self.loginPopover presentPopoverFromRect:whereHaveYouBeanRect inView:self.view
+            //               permittedArrowDirections: UIPopoverArrowDirectionAny animated:YES];
+            //UINavigationController *nav = [[UINavigationController alloc]
+              //                             initWithRootViewController:lvc2];
+            
+            
+            
+            [self presentViewController:self.loginViewController animated:YES completion:nil];
+            
+            //[self addChildViewController:self.loginViewController];
+        }
+    
 }
 
 

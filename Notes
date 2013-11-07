@@ -1,0 +1,52 @@
+- (void) performSOAPConnection
+{
+    // SOAP request settings
+    
+    NSURL *url = [NSURL URLWithString:@"http://jt.serveftp.net/Datacom/Server.asmx"];
+    
+    // the name of the webservice
+    NSString *method = @"SOAP";
+    
+    // the namespace
+    NSString *namespace = @"http://jt.serveftp.net/";
+    
+    
+    // SOAP request params
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"**username**",
+                            @"string",
+                            @"**password**",
+                            @"string0",
+                            nil];
+    
+    // the parameters itself are in a dictionary, a dictionary is an unordered collection
+    // so to define the order in which the parameters must be sent
+    // you need to fill an array with the NAMES of the parameters
+    
+    NSArray *paramOrder = [NSArray arrayWithObjects:@"string", @"string0"];
+    
+    
+    // set SOAP request http headers -- some SOAP server impls require even empty SOAPAction headers
+    
+    
+    NSDictionary *reqHeaders = [NSDictionary dictionaryWithObject:@"" forKey:@"SOAPAction"];
+    
+    
+    // create SOAP request
+    
+    WSMethodInvocationRef soapReq = createsoapReq(url, method, namespace, params, paramOrder, reqHeaders);
+    
+    
+    // invoke SOAP request
+    
+    NSDictionary *result = (NSDictionary *)WSMethodInvocationInvoke(soapReq);
+    
+    
+    // get HTTP response from SOAP request so we can see response HTTP status code
+    
+    CFHTTPMessageRef res = (CFHTTPMessageRef)[result objectForKey:(id)kWSHTTPResponseMessage];
+    
+    
+    
+    
+}
