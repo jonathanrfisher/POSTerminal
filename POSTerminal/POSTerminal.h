@@ -7,14 +7,37 @@
 //
 
 #import <Foundation/Foundation.h>
+//DataClass.h
 
-@interface POSTerminal : NSObject
-
-@property (nonatomic) NSNumber *userID;
-@property (nonatomic, strong) NSString *userType;
-
-
-
+@interface POSTerminal : NSObject {
+    
+    NSString *str;
+    
+}
+@property(nonatomic,retain)NSString *str;
++(POSTerminal*)getInstance;
 @end
 
+//@interface POSTerminal : NSObject
+//
+//
+//
+//
+//@property (nonatomic) NSNumber *userID;
+//@property (nonatomic, strong) NSString *userType;
+//@property (nonatomic, strong) POSTerminal *instance;
+//
+//+(POSTerminal*)getInstance;
+//
+//
+//@end
 
+
+//@interface DataClass : NSObject {
+//    
+//    NSString *str;
+//    
+//}
+//@property(nonatomic,retain)NSString *str;
+//+(DataClass*)getInstance;
+//@end  

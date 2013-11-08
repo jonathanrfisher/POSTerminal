@@ -40,6 +40,7 @@
 		7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */; };
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
+		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +101,10 @@
 		7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image_grey.jpg; sourceTree = "<group>"; };
 		7C6D54281829A9B100E8A479 /* SOAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPConnection.h; sourceTree = "<group>"; };
-		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; };
+		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
+		7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertXMLtoJSON.h; sourceTree = "<group>"; };
+		7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertXMLtoJSON.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 				7C0FD538180475370028FC3D /* POSTerminalAppDelegate.m */,
 				7C0FD53A180475370028FC3D /* Main.storyboard */,
 				7C0FD5A118049D470028FC3D /* POSTerminal.h */,
+				7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */,
+				7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */,
 				7C0FD5A218049D470028FC3D /* POSTerminal.m */,
 				7C0FD53D180475370028FC3D /* POSTerminalViewController.h */,
 				7C0FD53E180475370028FC3D /* POSTerminalViewController.m */,
@@ -440,6 +445,7 @@
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
 				7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */,
 				7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */,
+				7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

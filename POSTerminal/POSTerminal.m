@@ -10,7 +10,43 @@
 #import "POSTerminalViewController.h"
 
 
+//DataClass.m
 @implementation POSTerminal
 
+@synthesize str;
+
+static POSTerminal *instance =nil;
+
++(POSTerminal *)getInstance
+{
+    @synchronized(self)
+    {
+        if(instance==nil)
+        {
+            
+            instance= [POSTerminal new];
+        }
+    }
+    return instance;
+}
 
 @end
+
+//@implementation POSTerminal
+//
+//+(POSTerminal *)getInstance
+//{
+//    @synchronized(self)
+//    {
+//        if(!instance)
+//        {
+//            
+//            instance= [POSTerminal new];
+//        }
+//    }
+//    return instance;
+//}
+//
+//@end
+
+

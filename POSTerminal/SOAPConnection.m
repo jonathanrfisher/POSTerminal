@@ -7,6 +7,7 @@
 //
 
 #import "SOAPConnection.h"
+#import "convertXMLtoJSON.h"
 
 @interface SOAPConnection ()
 
@@ -18,7 +19,8 @@
 @property (nonatomic) NSString *methodType;
 @property (nonatomic) NSDictionary *params;
 @property (nonatomic) NSString *soapAction;
-
+@property (nonatomic) id JSONObject;
+//@property (nonatomic) BOOL connectionFinished;
 
 @end
 
@@ -90,7 +92,7 @@
 }
 
 
-
+//- (id) makeConnection: (NSURL *) inputURL
 - (void) makeConnection: (NSURL *) inputURL
          withMethodType: (NSString *) methodType
              withParams: (NSDictionary *) params
@@ -101,6 +103,8 @@
     self.methodType = methodType;
     self.params = params;
     self.soapAction = soapAction;
+    
+    NSLog(@"makeConnection PARAMETERS:\ninpuURL = %@\nmethodType = %@\nparams = %@\nparamOrder = %@\nsoapAction = %@",[inputURL description],methodType,[params description],[paramOrder description],soapAction);
     
     // Get the SOAP message format from the CRM Developer's Guide
     NSString *soapMsg =    [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n" "<soap:Body>\n<"];
@@ -135,8 +139,8 @@
     [req setHTTPMethod:@"POST"];
     [req setHTTPBody:[soapMsg dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSLog(@"req description:  %@",[req description]);
-    NSLog(@"soapMsg Contents:  %@",soapMsg);
+    //NSLog(@"req description:  %@",[req description]);
+    //NSLog(@"soapMsg Contents:  %@",soapMsg);
     
     self.conn = [[NSURLConnection alloc] initWithRequest:req delegate:self];
     
@@ -144,8 +148,18 @@
         self.webData = [NSMutableData data];
     }
     
-    
+//    dispatch_queue_t q = dispatch_queue_create("com.foo.samplequeue", NULL);
+//    
+//    dispatch_sync(q,
+//                  ^{
+//                      self.JSONObject = [soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:dict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
+//                  }
+//                  );
+
+    //return self.JSONObject;
 }
+
+
 
 -(void) connection:(NSURLConnection *) connection
 didReceiveResponse:(NSURLResponse *) response
@@ -166,14 +180,57 @@ didReceiveResponse:(NSURLResponse *) response
 
 -(void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    NSLog(@"DONE. Received Bytes: %d", [self.webData length]);
+    
+    //NSLog(@"DONE. Received Bytes: %d", [self.webData length]);
     NSString *theXML = [[NSString alloc]
                         initWithBytes:[self.webData mutableBytes]
                         length:[self.webData length]
                         encoding:NSUTF8StringEncoding];
     
     //---shows the XML--
-    NSLog(@"%@",theXML);
+    //NSLog(@"%@",theXML);
+    
+    NSString *JSONString = [self getSubstring:theXML betweenString:[self.methodType stringByAppendingString:@"Result"]];
+    
+    NSRange rangeToGetFromJSONString = NSMakeRange(1, JSONString.length - 3);
+    
+    JSONString = [JSONString substringWithRange:rangeToGetFromJSONString];
+    
+    //NSLog(@"%@",JSONString);
+    
+    convertXMLtoJSON *JSONConverter = [[convertXMLtoJSON alloc] init];
+    
+    id JSONObject = [JSONConverter convertToJSON:JSONString];
+    
+    self.JSONObject = JSONObject;
+    
+    NSLog(@"Inside SOAPConnection after conversion from XML to JSON, self.JSONObject description = %@",[self.JSONObject description]);
+    
+    
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"playNotification" object:stuff];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isTheJSONReady" object:nil];
+    NSLog(@"INSIDE CONNECTIONDIDFINISH AFTER notification has been sent...");
+    //self.connectionFinished = true;
+    
+//    NSData *JSONData = [NSJSONSerialization
+//                        dataWithJSONObject:dictionary
+//                        // Converts data - i.e. NSString, NSArray, NSDictionary - into JSON
+//                        options:NSJSONWritingPrettyPrinted
+//                        error:&error];
+}
+
+- (id) returnJSON
+{
+    return self.JSONObject;
+}
+
+- (NSString *)getSubstring:(NSString *)value betweenString:(NSString *)separator
+{
+    NSRange firstInstance = [value rangeOfString:separator];
+    NSRange secondInstance = [[value substringFromIndex:firstInstance.location + firstInstance.length] rangeOfString:separator];
+    NSRange finalRange = NSMakeRange(firstInstance.location + separator.length, secondInstance.location);
+    
+    return [value substringWithRange:finalRange];
 }
     
 @end

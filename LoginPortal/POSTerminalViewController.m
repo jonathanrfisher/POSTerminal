@@ -25,5 +25,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)printData:(id)sender {
+}
+- (IBAction)buttonPressed:(UIButton *)sender {
+}
+- (IBAction)print {
+}
+- (IBAction)print:(UIButton *)sender {
+}
+- (IBAction)dataButtonPressed:(id)sender {
+}
+- (IBAction)displayData:(UIButton *)sender {
+}
+- (IBAction)displayDataPressed:(UIButton *)sender {
+}
 
 @end

@@ -10,24 +10,42 @@
 #import "POSTerminal.h"
 
 @interface POSTerminalViewController ()
+
 @property (nonatomic,strong) NSArray *userData;
 //@property (nonatomic) POSTerminalViewController *loginView;
-@property (nonatomic, strong) LoginViewController *loginPortal;
+@property (nonatomic, strong, retain) LoginViewController *loginPortal;
 @property (weak, nonatomic) IBOutlet UILabel *whereHaveYouBeanLabel;
-@property (nonatomic, strong) UIPopoverController *loginPopover;
-@property (nonatomic, strong) UIViewController *loginViewController;
+//@property (nonatomic, strong) UIPopoverController *loginPopover;
+@property (nonatomic, strong, retain) UIViewController *loginViewController;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+@property (weak, nonatomic) IBOutlet UILabel *userDisplayName;
 
 
 @end
 
 @implementation POSTerminalViewController
 
+
+- (IBAction)printData:(UIButton *)sender
+{
+    
+    NSLog(@"Done Logging in.\nself.userData: %@",[self.userData description]);
+}
+
+
 - (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData
 {
-    NSLog(@"This was returned from LoginViewController: %@",[userData description]);
+    //NSLog(@"This was returned from LoginViewController: %@",[userData description]);
     self.userData = userData;
-    NSLog(@"self.userData: %@",[self.userData description]);
     
+    //[FirstName,LastName,Position]
+    NSString *fullName = [[self.userData[0] stringByAppendingString:@" "] stringByAppendingString:self.userData[1]];
+    self.userDisplayName.text = fullName;
+    NSLog(@"didFinishEnteringItem:userData => self.userData: %@",[self.userData description]);
+    
+}
+
+- (IBAction)dataButtonPressed:(UIButton *)sender {
 }
 
 //@synthesize userID = _userID;
@@ -53,6 +71,7 @@
 -(void) viewDidLoad {
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_image_grey.jpg"]];
     [super viewDidLoad];
+    self.userDisplayName.text = @"";
     
 }
 
@@ -96,9 +115,14 @@
 }
 
 
-- (void) Logout
+
+
+- (IBAction) Logout:(id)sender
 {
-    
+    NSLog(@"Logout Bitch.");
+    self.userData = nil;
+    self.userDisplayName.text = @"";
+    [self presentViewController:self.loginViewController animated:YES completion:nil];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -128,7 +152,7 @@
     
         if (!self.userData)
         {
-            NSLog(@"Inside !self.userData for the POSTerminalViewController");
+            //NSLog(@"Inside !self.userData for the POSTerminalViewController");
             UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
             
@@ -155,6 +179,7 @@
             
             //[self addChildViewController:self.loginViewController];
         }
+    
     
 }
 

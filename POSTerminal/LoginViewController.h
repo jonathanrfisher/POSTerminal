@@ -18,5 +18,6 @@
 @interface LoginViewController : UIViewController
 
 @property (nonatomic, weak) id <LoginViewControllerDelegate> delegate;
+- (void) getJSON:(NSNotification *) notification;
 
 @end
