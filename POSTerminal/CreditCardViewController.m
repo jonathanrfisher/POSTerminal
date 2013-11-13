@@ -7,6 +7,9 @@
 //
 
 #import "CreditCardViewController.h"
+#import "SOAPConnection.h"
+#import "POSTerminal.h"
+#define URL @"http://jt.serveftp.net/Datacom/Server.asmx"
 
 @interface CreditCardViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *creditNumField;
@@ -18,7 +21,10 @@
 @property (nonatomic) NSString *expText;
 @property (nonatomic) NSString *cvvText;
 
-@property (nonatomic) NSString *validationString;
+
+//For SOAP connection
+@property (nonatomic) id JSONObject;
+@property (nonatomic) SOAPConnection *soap;
 @property (weak, nonatomic) NSURL *url;
 
 @end
@@ -26,16 +32,15 @@
 @implementation CreditCardViewController
 
 - (void) viewDidAppear:(BOOL)animated {
+    
     _cardInfo = nil;
     _creditNumField.text = nil;
     _expDateField.text = nil;
     _cvvNumField.text = nil;
     
-    
-    // for SOAP Connection
-    //    _JSONObject = nil;
-    //    _soap = nil;
-    //    _validationString = nil;
+    //for SOAP connection
+    _JSONObject = nil;
+    _soap = nil;
     
 }
 
@@ -74,6 +79,37 @@
     
 }
 
+- (IBAction)submitBtn:(UIButton *)sender {
+    
+    if(self.validateInput){
+        
+        _creditText = _creditNumField.text;
+        _expText = _expDateField.text;
+        _cvvText = _cvvNumField.text;
+        _cardInfo = @[_creditText,_expText,_cvvText];
+        
+        NSLog(@"Description of cardInfo: %@", [_cardInfo description]);
+        
+        //        [self validateCardInfo:_creditText];
+        //        [self validateCardInfo:_expText];
+        //        [self validateCardInfo:_creditText];
+        
+        
+    }
+    
+}
+
+- (void) validateCardInfo:(NSString *)cardInfo{
+    
+    self.soap = [[SOAPConnection alloc] init];
+    self.JSONObject = [self.soap returnJSON];
+    
+
+    
+//    [self.soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:cardInfoDict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -86,17 +122,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)submitBtn:(UIButton *)sender {
-    
-    if(self.validateInput){
-    
-        _creditText = _creditNumField.text;
-        _expText = _expDateField.text;
-        _cvvText = _cvvNumField.text;
-        _cardInfo = @[_creditText,_expText,_cvvText];
-    
-        NSLog(@"Description of cardInfo: %@", [_cardInfo description]);
-    }
-    
-}
+
 @end
