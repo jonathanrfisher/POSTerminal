@@ -88,6 +88,8 @@
         
         [self.delegate addItemViewController:self didFinishEnteringItem:self.userData];
         
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
         
         //[presenter addItemViewController:self didFinishEnteringItem:self.userData];
