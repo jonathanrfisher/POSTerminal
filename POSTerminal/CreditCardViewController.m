@@ -44,6 +44,31 @@
     
 }
 
+
+
+- (IBAction)submitBtn:(UIButton *)sender {
+    
+    //if(self.validateInput == YES){
+        
+        _creditText = _creditNumField.text;
+        _expText = _expDateField.text;
+        _cvvText = _cvvNumField.text;
+        _cardInfo = @[_creditText,_expText,_cvvText];
+        
+        NSLog(@"Description of cardInfo: %@", [_cardInfo description]);
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:[_cardInfo description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+        //        [self validateCardInfo:_creditText];
+        //        [self validateCardInfo:_expText];
+        //        [self validateCardInfo:_creditText];
+        
+        
+    //}
+    
+}
 -(BOOL)validateInput{
     
     BOOL retvalue=YES;
@@ -79,30 +104,10 @@
     
 }
 
-- (IBAction)submitBtn:(UIButton *)sender {
-    
-    if(self.validateInput){
-        
-        _creditText = _creditNumField.text;
-        _expText = _expDateField.text;
-        _cvvText = _cvvNumField.text;
-        _cardInfo = @[_creditText,_expText,_cvvText];
-        
-        NSLog(@"Description of cardInfo: %@", [_cardInfo description]);
-        
-        //        [self validateCardInfo:_creditText];
-        //        [self validateCardInfo:_expText];
-        //        [self validateCardInfo:_creditText];
-        
-        
-    }
-    
-}
-
 - (void) validateCardInfo:(NSString *)cardInfo{
     
-    self.soap = [[SOAPConnection alloc] init];
-    self.JSONObject = [self.soap returnJSON];
+//    self.soap = [[SOAPConnection alloc] init];
+//    self.JSONObject = [self.soap returnJSON];
     
 
     

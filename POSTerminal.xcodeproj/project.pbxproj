@@ -160,6 +160,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A972D81835605D00F17C37 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				04125EAC18332B6A00946556 /* Coffee-Cup.png */,
+				04125EA91833271500946556 /* BeginT_Background.jpg */,
+				04125EA418331E0100946556 /* Background_Brown.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		7C0FD51C180475370028FC3D = {
 			isa = PBXGroup;
 			children = (
@@ -198,9 +208,6 @@
 		7C0FD52E180475370028FC3D /* POSTerminal */ = {
 			isa = PBXGroup;
 			children = (
-				04125EAC18332B6A00946556 /* Coffee-Cup.png */,
-				04125EA91833271500946556 /* BeginT_Background.jpg */,
-				04125EA418331E0100946556 /* Background_Brown.jpg */,
 				7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */,
 				7C0FD537180475370028FC3D /* POSTerminalAppDelegate.h */,
 				7C0FD538180475370028FC3D /* POSTerminalAppDelegate.m */,
@@ -215,6 +222,7 @@
 				7C6D54291829A9B100E8A479 /* SOAPConnection.m */,
 				04125EB51833361C00946556 /* CreditCardViewController.h */,
 				04125EB61833361C00946556 /* CreditCardViewController.m */,
+				04A972D81835605D00F17C37 /* images */,
 				7C0FD540180475370028FC3D /* Images.xcassets */,
 				7C0FD52F180475370028FC3D /* Supporting Files */,
 				7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */,
