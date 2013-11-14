@@ -41,6 +41,7 @@
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
+		7CE27EFE1832C9F80004C76F /* MenuItemsColletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
 		7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertXMLtoJSON.h; sourceTree = "<group>"; };
 		7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertXMLtoJSON.m; sourceTree = "<group>"; };
+		7CE27EFC1832C9F80004C76F /* MenuItemsColletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemsColletionViewController.h; sourceTree = "<group>"; };
+		7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemsColletionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 				7C0FD52F180475370028FC3D /* Supporting Files */,
 				7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */,
 				7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */,
+				7CE27EFC1832C9F80004C76F /* MenuItemsColletionViewController.h */,
+				7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				7C0FD535180475370028FC3D /* main.m in Sources */,
 				7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */,
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
+				7CE27EFE1832C9F80004C76F /* MenuItemsColletionViewController.m in Sources */,
 				7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */,
 				7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */,
 				7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */,
