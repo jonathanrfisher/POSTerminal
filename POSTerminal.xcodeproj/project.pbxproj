@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04125EB71833361C00946556 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04125EB61833361C00946556 /* CreditCardViewController.m */; };
 		7C0FD529180475370028FC3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD528180475370028FC3D /* Foundation.framework */; };
 		7C0FD52B180475370028FC3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52A180475370028FC3D /* CoreGraphics.framework */; };
 		7C0FD52D180475370028FC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52C180475370028FC3D /* UIKit.framework */; };
@@ -38,6 +39,9 @@
 		7C0FD5D41804A4FA0028FC3D /* LoginPortalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5D31804A4FA0028FC3D /* LoginPortalTests.m */; };
 		7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */; };
 		7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */; };
+		7C13B9FC183595AB008CB9A4 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */; };
+		7C13B9FE183595B3008CB9A4 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */; };
+		7C13BA00183595C0008CB9A4 /* Coffee-Cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */; };
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
@@ -62,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04125EB51833361C00946556 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
+		04125EB61833361C00946556 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
 		7C0FD525180475370028FC3D /* POSTerminal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POSTerminal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0FD528180475370028FC3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C0FD52A180475370028FC3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +107,9 @@
 		7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image_grey.jpg; sourceTree = "<group>"; };
+		7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background_Brown.jpg; path = ../../../../Downloads/Background_Brown.jpg; sourceTree = "<group>"; };
+		7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BeginT_Background.jpg; path = ../../../../Downloads/BeginT_Background.jpg; sourceTree = "<group>"; };
+		7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Coffee-Cup.png"; path = "../../../../Downloads/Coffee-Cup.png"; sourceTree = "<group>"; };
 		7C6D54281829A9B100E8A479 /* SOAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPConnection.h; sourceTree = "<group>"; };
 		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
@@ -154,6 +163,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A972D81835605D00F17C37 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */,
+				7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */,
+				7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		7C0FD51C180475370028FC3D = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +223,9 @@
 				7C0FD53E180475370028FC3D /* POSTerminalViewController.m */,
 				7C6D54281829A9B100E8A479 /* SOAPConnection.h */,
 				7C6D54291829A9B100E8A479 /* SOAPConnection.m */,
+				04125EB51833361C00946556 /* CreditCardViewController.h */,
+				04125EB61833361C00946556 /* CreditCardViewController.m */,
+				04A972D81835605D00F17C37 /* images */,
 				7C0FD540180475370028FC3D /* Images.xcassets */,
 				7C0FD52F180475370028FC3D /* Supporting Files */,
 				7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */,
@@ -405,8 +427,11 @@
 			files = (
 				7C0FD541180475370028FC3D /* Images.xcassets in Resources */,
 				7C6D542C1829B17000E8A479 /* Notes in Resources */,
+				7C13B9FC183595AB008CB9A4 /* Background_Brown.jpg in Resources */,
+				7C13B9FE183595B3008CB9A4 /* BeginT_Background.jpg in Resources */,
 				7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */,
 				7C0FD533180475370028FC3D /* InfoPlist.strings in Resources */,
+				7C13BA00183595C0008CB9A4 /* Coffee-Cup.png in Resources */,
 				7C0FD53C180475370028FC3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C0FD53F180475370028FC3D /* POSTerminalViewController.m in Sources */,
+				04125EB71833361C00946556 /* CreditCardViewController.m in Sources */,
 				7C0FD535180475370028FC3D /* main.m in Sources */,
 				7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */,
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
