@@ -21,6 +21,6 @@
 //- (void) VoidTransaction;
 //- (void) Logout;
 - (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData;
-- (IBAction)dataButtonPressed:(UIButton *)sender;
+//- (IBAction)dataButtonPressed:(UIButton *)sender;
 
 @end

@@ -57,12 +57,6 @@
     
 }
 
-- (IBAction)dataButtonPressed:(UIButton *)sender
-{
-    
-    
-}
-
 //@synthesize userID = _userID;
 //@synthesize loginView = _loginView;
 
@@ -90,47 +84,30 @@
     
 }
 
-
-
-- (void) PopulateMenuItems:(NSString *)itemsFilePathToReadFrom
+- (IBAction) BeginTransaction
 {
-    
+    NSLog(@"Begin Transaction was pressed!!!");
 }
 
 
-- (void) UpdatePOS: (NSString *)itemsFilePathToWriteTo
-{
-    NSLog(@"UpdatePOS was pressed! Way to go!");
-}
-
-
-- (NSString *) Login:(NSString *)userID
-{
-    NSString *result = @"Nothing";
-    
-    return result;
-}
-
-
-- (void) MenuTransition
-{
-    
-}
-
-
-- (void) BeginTransaction
-{
-    NSLog(@"Begin Transaction was pressed! You're so damn cool!");
-}
-
-
-- (void) VoidTransaction
+- (IBAction) VoidTransaction
 {
     NSLog(@"Void Transaction was pressed! You're the best!");
+    //Get a SOAP connection that returns list of the days transactions
+    
+    
+    //Make another SOAP connection that sends a transaction ID to be voided and returns success or not.
+    
+    
+    //Alert the user that the void was successful.
 }
 
 
 
+- (IBAction) UpdatePOS
+{
+    NSLog(@"you pressed updatePOS!!");
+}
 
 - (IBAction) Logout:(id)sender
 {

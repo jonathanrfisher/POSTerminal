@@ -31,6 +31,9 @@
                                     <color key="titleColor" red="0.0078431377187371254" green="0.89019614458084106" blue="0.9960784912109375" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="BeginTransaction" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dxo-Nt-bgq"/>
+                                </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aTJ-lm-wst">
                                 <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
@@ -38,10 +41,16 @@
                                 <items>
                                     <barButtonItem enabled="NO" title="Update POS" id="vf9-Zv-soI">
                                         <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="UpdatePOS" destination="BYZ-38-t0r" id="dny-hV-qPT"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="AuP-LU-G3Q"/>
                                     <barButtonItem enabled="NO" title="Void Transaction" id="DbB-hf-yEq">
                                         <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="VoidTransaction" destination="BYZ-38-t0r" id="1zJ-Qp-2iC"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lyr-9r-nn6"/>
                                     <barButtonItem title="Logout" id="TMo-E3-F63">
