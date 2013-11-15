@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Product" syncable="YES">
+    <entity name="CurrentTransaction" syncable="YES">
+        <attribute name="transactionID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="listOfProducts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="transactionsIn" inverseEntity="Product" syncable="YES"/>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="productDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="productID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transactionsIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CurrentTransaction" inverseName="listOfProducts" inverseEntity="CurrentTransaction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Product" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Product" positionX="0" positionY="0" width="128" height="133"/>
+        <element name="CurrentTransaction" positionX="196" positionY="14" width="128" height="73"/>
     </elements>
 </model>

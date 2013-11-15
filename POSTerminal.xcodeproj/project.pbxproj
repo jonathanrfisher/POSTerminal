@@ -46,6 +46,9 @@
 		7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */; };
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
+		7CB6B2051835BB6000E083EE /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B2041835BB6000E083EE /* Product.m */; };
+		7CB6B2081835BD0C00E083EE /* Product+POSproducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B2071835BD0C00E083EE /* Product+POSproducts.m */; };
+		7CB6B20B183660B300E083EE /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B20A183660B300E083EE /* TransactionViewController.m */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
 		7CE27EFE1832C9F80004C76F /* MenuItemsColletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */; };
 /* End PBXBuildFile section */
@@ -118,6 +121,12 @@
 		7C6D54281829A9B100E8A479 /* SOAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPConnection.h; sourceTree = "<group>"; };
 		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
+		7CB6B2031835BB6000E083EE /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		7CB6B2041835BB6000E083EE /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		7CB6B2061835BD0C00E083EE /* Product+POSproducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Product+POSproducts.h"; sourceTree = "<group>"; };
+		7CB6B2071835BD0C00E083EE /* Product+POSproducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Product+POSproducts.m"; sourceTree = "<group>"; };
+		7CB6B209183660B300E083EE /* TransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionViewController.h; sourceTree = "<group>"; };
+		7CB6B20A183660B300E083EE /* TransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionViewController.m; sourceTree = "<group>"; };
 		7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertXMLtoJSON.h; sourceTree = "<group>"; };
 		7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertXMLtoJSON.m; sourceTree = "<group>"; };
 		7CE27EFC1832C9F80004C76F /* MenuItemsColletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemsColletionViewController.h; sourceTree = "<group>"; };
@@ -220,6 +229,8 @@
 				7C0FD537180475370028FC3D /* POSTerminalAppDelegate.h */,
 				7C0FD538180475370028FC3D /* POSTerminalAppDelegate.m */,
 				7C0FD53A180475370028FC3D /* Main.storyboard */,
+				7CB6B209183660B300E083EE /* TransactionViewController.h */,
+				7CB6B20A183660B300E083EE /* TransactionViewController.m */,
 				7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */,
 				7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */,
 				7C0FD5A118049D470028FC3D /* POSTerminal.h */,
@@ -240,6 +251,10 @@
 				7C13BA041835A4A8008CB9A4 /* MenuItemsCells.h */,
 				7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */,
 				7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */,
+				7CB6B2031835BB6000E083EE /* Product.h */,
+				7CB6B2061835BD0C00E083EE /* Product+POSproducts.h */,
+				7CB6B2071835BD0C00E083EE /* Product+POSproducts.m */,
+				7CB6B2041835BB6000E083EE /* Product.m */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
@@ -484,10 +499,13 @@
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
 				7CE27EFE1832C9F80004C76F /* MenuItemsColletionViewController.m in Sources */,
 				7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */,
+				7CB6B2081835BD0C00E083EE /* Product+POSproducts.m in Sources */,
 				7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */,
 				7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */,
+				7CB6B2051835BB6000E083EE /* Product.m in Sources */,
 				7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */,
 				7C13BA061835A4A8008CB9A4 /* MenuItemsCells.m in Sources */,
+				7CB6B20B183660B300E083EE /* TransactionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

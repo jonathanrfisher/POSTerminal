@@ -102,6 +102,21 @@
     //Alert the user that the void was successful.
 }
 
+-(IBAction)createSomeProducts
+{
+    //Photomania Demo, video 14 for 2013, describes using CoreDataTableViewController
+    
+    
+    
+}
+
+
+-(IBAction)makeFakeTransactions
+{
+    
+    
+}
+
 
 
 - (IBAction) UpdatePOS
