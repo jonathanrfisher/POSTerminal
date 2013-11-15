@@ -11,7 +11,7 @@
 
 @interface POSTerminalViewController ()
 
-@property (nonatomic,strong) NSArray *userData;
+@property (nonatomic,strong) NSDictionary *userData;
 //@property (nonatomic) POSTerminalViewController *loginView;
 @property (nonatomic, strong, retain) LoginViewController *loginPortal;
 @property (weak, nonatomic) IBOutlet UILabel *whereHaveYouBeanLabel;
@@ -19,7 +19,10 @@
 @property (nonatomic, strong, retain) UIViewController *loginViewController;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 @property (weak, nonatomic) IBOutlet UILabel *userDisplayName;
+@property (nonatomic, strong) NSString *userType;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *voidTransactionButton;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *updatePOSButton;
 
 @end
 
@@ -33,19 +36,31 @@
 }
 
 
-- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData
+- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSDictionary *)userData
 {
     //NSLog(@"This was returned from LoginViewController: %@",[userData description]);
     self.userData = userData;
     
     //[FirstName,LastName,Position]
-    NSString *fullName = [[self.userData[0] stringByAppendingString:@" "] stringByAppendingString:self.userData[1]];
+    NSString *fullName = [[[self.userData objectForKey:@"firstname"] stringByAppendingString:@" "] stringByAppendingString:[self.userData objectForKey:@"lastname"]];
     self.userDisplayName.text = fullName;
     NSLog(@"didFinishEnteringItem:userData => self.userData: %@",[self.userData description]);
     
+    self.userType = [self.userData objectForKey:@"position"];
+    
+    if([self.userType  isEqual: @"ADMIN"])
+    {
+        [self.voidTransactionButton setEnabled:true];
+        [self.updatePOSButton setEnabled:true];
+        
+    }
+    
 }
 
-- (IBAction)dataButtonPressed:(UIButton *)sender {
+- (IBAction)dataButtonPressed:(UIButton *)sender
+{
+    
+    
 }
 
 //@synthesize userID = _userID;
@@ -85,7 +100,7 @@
 
 - (void) UpdatePOS: (NSString *)itemsFilePathToWriteTo
 {
-    
+    NSLog(@"UpdatePOS was pressed! Way to go!");
 }
 
 
@@ -105,13 +120,13 @@
 
 - (void) BeginTransaction
 {
-    
+    NSLog(@"Begin Transaction was pressed! You're so damn cool!");
 }
 
 
 - (void) VoidTransaction
 {
-    
+    NSLog(@"Void Transaction was pressed! You're the best!");
 }
 
 
@@ -122,6 +137,8 @@
     NSLog(@"Logout Bitch.");
     self.userData = nil;
     self.userDisplayName.text = @"";
+    [self.voidTransactionButton setEnabled:false];
+    [self.updatePOSButton setEnabled:false];
     [self presentViewController:self.loginViewController animated:YES completion:nil];
 }
 

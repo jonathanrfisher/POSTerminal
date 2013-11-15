@@ -42,6 +42,8 @@
 		7C13B9FC183595AB008CB9A4 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */; };
 		7C13B9FE183595B3008CB9A4 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */; };
 		7C13BA00183595C0008CB9A4 /* Coffee-Cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */; };
+		7C13BA061835A4A8008CB9A4 /* MenuItemsCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */; };
+		7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */; };
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
@@ -110,6 +112,9 @@
 		7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background_Brown.jpg; path = ../../../../Downloads/Background_Brown.jpg; sourceTree = "<group>"; };
 		7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BeginT_Background.jpg; path = ../../../../Downloads/BeginT_Background.jpg; sourceTree = "<group>"; };
 		7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Coffee-Cup.png"; path = "../../../../Downloads/Coffee-Cup.png"; sourceTree = "<group>"; };
+		7C13BA041835A4A8008CB9A4 /* MenuItemsCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemsCells.h; sourceTree = "<group>"; };
+		7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemsCells.m; sourceTree = "<group>"; };
+		7C13BA081835A4FA008CB9A4 /* POSTerminal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = POSTerminal.xcdatamodel; sourceTree = "<group>"; };
 		7C6D54281829A9B100E8A479 /* SOAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPConnection.h; sourceTree = "<group>"; };
 		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
@@ -232,6 +237,9 @@
 				7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */,
 				7CE27EFC1832C9F80004C76F /* MenuItemsColletionViewController.h */,
 				7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */,
+				7C13BA041835A4A8008CB9A4 /* MenuItemsCells.h */,
+				7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */,
+				7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
@@ -478,6 +486,8 @@
 				7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */,
 				7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */,
 				7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */,
+				7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */,
+				7C13BA061835A4A8008CB9A4 /* MenuItemsCells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +849,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7C13BA081835A4FA008CB9A4 /* POSTerminal.xcdatamodel */,
+			);
+			currentVersion = 7C13BA081835A4FA008CB9A4 /* POSTerminal.xcdatamodel */;
+			path = POSTerminal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7C0FD51D180475370028FC3D /* Project object */;
 }

@@ -11,7 +11,7 @@
 @class LoginViewController;
 
 @protocol LoginViewControllerDelegate <NSObject>
-- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSArray *)userData;
+- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSDictionary *)userData;
 @end
 
 

@@ -13,7 +13,7 @@
 
 @interface LoginViewController ()
 
-@property (nonatomic, strong) NSArray *userData;
+@property (nonatomic, strong) NSDictionary *userData;
 @property (nonatomic, strong) NSString *userID;
 @property (weak, nonatomic) IBOutlet UILabel *idLabel;
 @property (weak, nonatomic) NSURL *url;
@@ -35,7 +35,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    self.userData = nil;
+        self.userData = nil;
     self.userID = nil;
     self.idLabel.text = @"----";
     self.url = nil;
@@ -87,8 +87,8 @@
         
         
         [self.delegate addItemViewController:self didFinishEnteringItem:self.userData];
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+        //[[NSNotificationCenter defaultCenter] removeObserver:self];
         
         [self dismissViewControllerAnimated:YES completion:nil];
         
@@ -151,7 +151,7 @@
         
         if(self.firstName && self.lastName && self.position)
         {
-            self.userData = @[self.firstName,self.lastName,self.position];
+            self.userData = [NSDictionary dictionaryWithObjects:@[self.firstName,self.lastName,self.position] forKeys:@[@"firstname",@"lastname",@"position"]];
             [self returnUserData];
         }
         
@@ -201,25 +201,30 @@
     {
         self.userID = @"";
     }
+    
+    
     NSString *labelString = self.idLabel.text;
-    //NSString *buttonTitleString = [sender currentTitle];
+//    NSString *buttonTitleString = [sender currentTitle];
     
     
-    //NSLog(@"Button: %@",buttonTitleString);
-    //NSLog(@"self.userID.length: %d",self.userID.length);
+//    NSLog(@"Button: %@",buttonTitleString);
+//    NSLog(@"self.userID.length: %d",self.userID.length);
     
-    self.idLabel.text = [labelString stringByReplacingCharactersInRange:NSMakeRange(self.userID.length,1) withString:@"*"];
+    //if (self.userID.length < 4)
+    //{
+        self.idLabel.text = [labelString stringByReplacingCharactersInRange:NSMakeRange(self.userID.length,1) withString:@"*"];
+        
+        self.userID = [self.userID stringByAppendingString:[sender currentTitle]];
+    //}
     
-    self.userID = [self.userID stringByAppendingString:[sender currentTitle]];
-    
-    //NSLog(@"self.userID.length: %d",self.userID.length);
-    //NSLog(@"self.userID: %@",self.userID);
-    //NSLog(@"self.userID with \"testing\" appended to it: %@",[self.userID stringByAppendingString:@"testing"]);
-    //NSLog(@"self.userID isEqualToString:@\"1234\": %i",[self.userID isEqualToString:@"1234"]);
+//    NSLog(@"self.userID.length: %d",self.userID.length);
+//    NSLog(@"self.userID: %@",self.userID);
+//    NSLog(@"self.userID with \"testing\" appended to it: %@",[self.userID stringByAppendingString:@"testing"]);
+//    NSLog(@"self.userID isEqualToString:@\"1234\": %i",[self.userID isEqualToString:@"1234"]);
     
     if(self.userID.length == 4) //&& [self.userID isEqualToString:@"1234"])
     {
-        self.userData = @[@"Sweet Ass Manager",@"Jonathan",@"Fisher"];
+        //self.userData = @[@"Sweet Ass Manager",@"Jonathan",@"Fisher"];
         //NSLog(@"Inside the main if statment...");
         
         
@@ -256,7 +261,7 @@
     NSArray *paramOrder = @[@"username",@"password"];
     
   
-//                      self.JSONObject = [soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:dict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
+//self.JSONObject = [soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:dict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
     
     
     [self.soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:dict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
@@ -291,11 +296,13 @@
 
 - (void) viewDidLoad
 {
-    
     NSLog(@"Before signing up for notification");
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSON:) name:@"isTheJSONReady" object:self.soap];
     NSLog(@"AFTER signing up for notification");
+    
+
+    
 }
 
 
