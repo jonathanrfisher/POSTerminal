@@ -19,6 +19,9 @@
     
     //<<<<<<<<<==================================>>>>>>>>>>>>>
     //Need to figure out exactly what is going on here
+    //I understand it now,
+    //the sortDescriptors tells the request how to sort the fetched items
+    //the predicate adds parameters to our query
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     request.predicate = [NSPredicate predicateWithFormat:@"productID = %@",[productDictionary objectForKey:@"productID"]];

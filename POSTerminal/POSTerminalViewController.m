@@ -8,6 +8,7 @@
 
 #import "POSTerminalViewController.h"
 #import "POSTerminal.h"
+#import "POSTerminalAppDelegate.h"
 
 @interface POSTerminalViewController ()
 
@@ -24,10 +25,54 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *updatePOSButton;
 
+@property (weak, nonatomic) NSDictionary *transactionsForTheDay;
+@property (strong, nonatomic) UIManagedDocument *document;
+
 @end
 
 @implementation POSTerminalViewController
 
+
+-(IBAction)createSomeProducts
+{
+    //Photomania Demo, video 14 for 2013, describes using CoreDataTableViewController
+    //That controller seems contstructed though, I need to watch both core data videos again.
+    [self getDocumentContext];
+    [self createTheProducts];
+    
+}
+
+-(void) getDocumentContext
+{
+    //Video 12, 39:34
+//    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    
+    
+    //URL *url = [
+//    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
+    
+    //POSTerminalAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    //NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    
+    
+}
+
+-(void) createTheProducts
+{
+    NSArray *names = @[@"Coffee",@"Capucino",@"Hot Chocolate",@"Apple Cider",@"Cake",@"Fruit",@"Juice"];
+    NSArray *prices = @[@1.39,@2.49,@1.49,@1.99,@1.99,@.79,@2.49];
+    NSArray *descriptions = @[@"Jamacain cocoa beans",@"Only the best froth!",@"70% Dark Chocolate",@"The perfect sweetness with a touch of caramel",@"Lemon Cake! Yum!",@"Banana, Apple, or Orange",@"Apple, Orange, or Grape"];
+    NSArray *types = @[@"Drink",@"Drink",@"Drink",@"Drink",@"Food",@"Food",@"Drink"];
+    NSArray *IDs = @[@1,@2,@3,@4,@5,@6,@7];
+    
+    for (int i = 0; i < [IDs count]; i++)
+    {
+        //do something
+        NSLog(@"%u,%@,%@,%@,%@,%@",i,[names objectAtIndex:i],[prices objectAtIndex:i],[descriptions objectAtIndex:i],[types objectAtIndex:i],[IDs objectAtIndex:i]);
+    }
+}
 
 - (IBAction)printData:(UIButton *)sender
 {
@@ -102,18 +147,19 @@
     //Alert the user that the void was successful.
 }
 
--(IBAction)createSomeProducts
-{
-    //Photomania Demo, video 14 for 2013, describes using CoreDataTableViewController
-    
-    
-    
-}
+
 
 
 -(IBAction)makeFakeTransactions
 {
+    //What would a transaction contain?
+    //For the purposes of our app, it will only have a transaction ID and an amount
+    //The DB on our server would have the list of products from that transaction, we would have to use the web app to see that list.
     
+    NSArray *amounts = @[@"27.99",@"19.39",@"7.49",@"3.99",@"12.29"];
+    NSArray *transactionIDs = @[@1,@2,@3,@4,@5];
+    
+    self.transactionsForTheDay = [NSDictionary dictionaryWithObjects:amounts forKeys:transactionIDs];
     
 }
 
