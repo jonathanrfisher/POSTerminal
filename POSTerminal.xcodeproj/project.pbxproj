@@ -204,12 +204,12 @@
 				7C0FD53E180475370028FC3D /* POSTerminalViewController.m */,
 				7C6D54281829A9B100E8A479 /* SOAPConnection.h */,
 				7C6D54291829A9B100E8A479 /* SOAPConnection.m */,
-				7C0FD540180475370028FC3D /* Images.xcassets */,
-				7C0FD52F180475370028FC3D /* Supporting Files */,
 				7C0FD5DB1804B0D50028FC3D /* LoginViewController.h */,
 				7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */,
 				7CE27EFC1832C9F80004C76F /* MenuItemsColletionViewController.h */,
 				7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */,
+				7C0FD540180475370028FC3D /* Images.xcassets */,
+				7C0FD52F180475370028FC3D /* Supporting Files */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
