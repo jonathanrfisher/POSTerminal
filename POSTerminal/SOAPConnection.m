@@ -109,7 +109,7 @@
     self.params = params;
     self.soapAction = soapAction;
     
-    NSLog(@"makeConnection PARAMETERS:\ninpuURL = %@\nmethodType = %@\nparams = %@\nparamOrder = %@\nsoapAction = %@",[inputURL description],methodType,[params description],[paramOrder description],soapAction);
+    //NSLog(@"makeConnection PARAMETERS:\ninpuURL = %@\nmethodType = %@\nparams = %@\nparamOrder = %@\nsoapAction = %@",[inputURL description],methodType,[params description],[paramOrder description],soapAction);
     
     // Get the SOAP message format from the CRM Developer's Guide
     NSString *soapMsg =    [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n" "<soap:Body>\n<"];
@@ -166,16 +166,16 @@
     //return self.JSONObject;
 }
 
-- (void) makeConnection: (NSURL *) inputURL
-         withMethodType: (NSString *) methodType
-         withSOAPAction: (NSString *) soapAction;
-{
-    NSLog(@"Called make connection with no params");
-    
-    
-    
-    
-}
+//- (void) makeConnection: (NSURL *) inputURL
+//         withMethodType: (NSString *) methodType
+//         withSOAPAction: (NSString *) soapAction;
+//{
+//    NSLog(@"Called make connection with no params");
+//    
+//    
+//    
+//    
+//}
 
 
 
@@ -222,12 +222,12 @@ didReceiveResponse:(NSURLResponse *) response
     
     self.JSONObject = JSONObject;
     
-    NSLog(@"Inside SOAPConnection after conversion from XML to JSON, self.JSONObject description = %@",[self.JSONObject description]);
+    //NSLog(@"Inside SOAPConnection after conversion from XML to JSON, self.JSONObject description = %@",[self.JSONObject description]);
     
     
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"playNotification" object:stuff];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"isTheJSONReady" object:nil];
-    NSLog(@"INSIDE CONNECTIONDIDFINISH AFTER notification has been sent...");
+    //NSLog(@"INSIDE CONNECTIONDIDFINISH AFTER notification has been sent...");
     //self.connectionFinished = true;
     
 //    NSData *JSONData = [NSJSONSerialization

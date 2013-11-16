@@ -11,6 +11,12 @@
 @implementation convertXMLtoJSON
 
 
+//EXAMPLE OF CREATING A JSON OBJECT
+//NSArray *objects=[[NSArray alloc]initWithObjects:objects here,nil];
+//NSArray *keys=[[NSArray alloc]initWithObjects:corresponding keys of objects,nil];
+//NSDictionary *dict=[NSDictionary dictionaryWithObjects:objects forKeys:keys];
+//NSData *jsonData=[NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+
 - (id) convertToJSON: (NSString *) inputString
 {
 //    NSString *jsonString = @"{\"ID\":{\"Content\":268,\"type\":\"text\"},\"ContractTemplateID\":{\"Content\":65,\"type\":\"text\"}}";
@@ -49,7 +55,7 @@
 //                     options:NSJSONReadingAllowFragments
 //                     error:nil];
     
-    NSLog(@"Print out of our converted JSON: %@",[json description]);
+    //NSLog(@"Print out of our converted JSON: %@",[json description]);
     
     return json;
 }

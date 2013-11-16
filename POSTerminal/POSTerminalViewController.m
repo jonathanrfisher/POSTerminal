@@ -76,6 +76,9 @@
     
     // Execute the fetch
     
+    if(!self.managedObjectContext)
+        [self getDocumentContext];
+    
     NSError *error = nil;
     NSArray *matches = [self.managedObjectContext executeFetchRequest:request error:&error];
     //Product *productHolder = [[Product alloc] init];
@@ -193,7 +196,7 @@
                 self.document = document;
                 self.managedObjectContext = document.managedObjectContext;
             }
-            [self createTheProducts];
+            //[self createTheProducts];
         }];
     } else {
         self.document = document;
@@ -204,13 +207,51 @@
     
 }
 
+-(IBAction)removeAllProducts
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"name != nil"];
+    
+    // Execute the fetch
+    
+    if(!self.managedObjectContext)
+        [self getDocumentContext];
+    
+    NSError *error = nil;
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:request error:&error];
+    //Product *productHolder = [[Product alloc] init];
+    
+    if (matches)
+    {
+        for (Product *productItem in matches)
+        {
+            //productHolder = [[Product alloc] init];
+            //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
+            //productHolder = productItem;
+            [self.managedObjectContext deleteObject:productItem];
+            NSLog(@"product name: %@ DELETED", [productItem.name description]);
+        }
+    }
+    else
+    {
+        NSLog(@"Nothing was returned! Matches was nil!!");
+    }
+    
+    [self.document updateChangeCount:UIDocumentChangeDone];
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+
+}
+
 -(void) createTheProducts
 {
     NSArray *names = @[@"Coffee",@"Capucino",@"Hot Chocolate",@"Apple Cider",@"Cake",@"Fruit",@"Juice"];
     NSArray *prices = @[@1.39,@2.49,@1.49,@1.99,@1.99,@.79,@2.49];
     NSArray *descriptions = @[@"Jamacain cocoa beans",@"Only the best froth!",@"70% Dark Chocolate",@"The perfect sweetness with a touch of caramel",@"Lemon Cake! Yum!",@"Banana, Apple, or Orange",@"Apple, Orange, or Grape"];
     NSArray *types = @[@"Drink",@"Drink",@"Drink",@"Drink",@"Food",@"Food",@"Drink"];
-    NSArray *IDs = @[@1,@2,@3,@4,@5,@6,@7];
+    NSArray *IDs = @[@1001,@1002,@1003,@1004,@1005,@1006,@1007];
     
     NSMutableArray *products = [[NSMutableArray alloc] init];
     NSMutableDictionary *productDict = [[NSMutableDictionary alloc] init];
@@ -300,6 +341,9 @@
 - (IBAction) UpdatePOS
 {
     NSLog(@"you pressed updatePOS!!");
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:nil];
+    [self getDocumentContext];
     [self performUpdatePOS];
 }
 
@@ -312,17 +356,86 @@
     NSArray *paramOrder;
     
     //The soap connection notifies ViewController when the JSON is ready, we signed up to notificationCenter using the following:
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSON:) name:@"isTheJSONReady" object:self.soap];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:nil];
     
     [self.soap makeConnection:self.url withMethodType:SOAPUpdatePOSMethodType withParams:dict  usingParamOrder:paramOrder withSOAPAction:SOAPActionPOSUpdate];
 }
 
 - (void) getJSONandWriteToCoreData:(NSNotification *) notification
 {
-    NSLog(@"INSIDE getJSON notification method");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     self.JSONObject = [self.soap returnJSON];
     
-    NSLog(@"self.JSONObject description : %@",[self.JSONObject description]);
+    NSDictionary *products;
+    
+    for (NSString *key in self.JSONObject)
+    {
+        if ([key isEqual:@"table0"])
+        {
+            products = [self.JSONObject objectForKey:@"table0"];
+        }
+    }
+    
+    NSMutableArray *productsArray = [[NSMutableArray alloc] init];
+    
+    for (NSString *key in products)
+    {
+        [productsArray addObject:[products objectForKey:key]];
+    }
+    
+    NSLog(@"productsArray: %@", [productsArray description]);
+    
+  
+    
+    dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
+    dispatch_async(fetchQ, ^
+                   {
+                       NSLog(@"Before [self.managedObjectContext performBlock with self.manageObjectContext: %@",[self.managedObjectContext description]);
+                       [self.managedObjectContext performBlock:^
+                        {
+                            NSEnumerator *innerKeys;
+                            NSMutableDictionary *temp;
+                            NSString *tempKey;
+                            
+                            NSLog(@"Before the for (NSDictionary *product in products) loop.");
+                            NSLog(@"Contents of products: %@", [productsArray description]);
+                            
+                            for (NSDictionary *product in productsArray)
+                            {
+                                temp = [[NSMutableDictionary alloc] init];
+                                innerKeys = [product keyEnumerator];
+                                for (NSString *key in innerKeys)
+                                {
+                                    tempKey = [key lowercaseString];
+                                    
+                                    if([tempKey isEqual:@"productdescription"])
+                                        tempKey = @"productDescription";
+                                    
+                                    if([tempKey isEqual:@"productid"])
+                                        tempKey = @"productID";
+                                    
+                                    
+                                    [temp setObject:[product objectForKey:key] forKey:tempKey];
+                                }
+                                NSLog(@"trying to insert: %@",[temp description]);
+                                [Product productWithDictionary:temp inManagedObjectContext:self.managedObjectContext];
+                            }
+                            NSLog(@"After our for loop that is supposed to create our products.");
+                            //              dispatch_async(dispatch_get_main_queue(), ^{
+                            //              [self.refreshControl endRefreshing];
+                            //              });
+                            //                 NSError *error;
+                            //                [self.managedObjectContext save:&error];
+                            NSLog(@"self.document description: %@",[self.document description]);
+                            [self.document updateChangeCount:UIDocumentChangeDone];
+                            NSLog(@"Data Saved.");
+                        }];
+                       NSLog(@"AFTER the [self.mana....]");
+                   });
+    
+    NSLog(@"AFTER the dispatch queue.");
+    
     
 //    if([self.JSONObject isKindOfClass:[NSDictionary class]])
 //    {
@@ -382,10 +495,6 @@
     [super viewDidLoad];
     self.userDisplayName.text = @"";
     
-    NSLog(@"Before signing up for notification in POSTerminal");
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:self.soap];
-    NSLog(@"AFTER signing up for notification in POSTerminal");
     
 }
 
@@ -442,22 +551,11 @@
     UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
-    //LoginViewController *loginViewController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    //UIPopoverController *loginPortal = [[UIPopoverController alloc] initWithContentViewController:loginViewController];
     
     self.loginPortal = lvc;
     
     self.loginPortal.delegate = self;
     
-//    self.loginPopover = [[UIPopoverController alloc] initWithContentViewController:self.loginPortal];
-//    
-//    if (!self.userData)
-//    {
-//        NSLog(@"Inside !self.userData for the POSTerminalViewController");
-//        CGRect whereHaveYouBeanRect = self.whereHaveYouBeanLabel.bounds;
-//        //[self presentViewController:self.loginPortal animated:YES completion:nil];
-//        [self.loginPopover presentPopoverFromRect:whereHaveYouBeanRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-//    }
     self.loginViewController = [[UIViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     
     
@@ -470,7 +568,6 @@
             
             lvc.delegate = self;
             
-            //LoginViewController *lvc2 = [LoginViewController new];
             
             
             self.loginViewController = lvc;
@@ -478,18 +575,9 @@
             
             
             
-            //CGRect whereHaveYouBeanRect = self.whereHaveYouBeanLabel.bounds;
-            //[self presentViewController:self.loginPortal animated:YES completion:nil];
-            //[self.loginPopover presentPopoverFromRect:whereHaveYouBeanRect inView:self.view
-            //               permittedArrowDirections: UIPopoverArrowDirectionAny animated:YES];
-            //UINavigationController *nav = [[UINavigationController alloc]
-              //                             initWithRootViewController:lvc2];
-            
-            
-            
             [self presentViewController:self.loginViewController animated:YES completion:nil];
             
-            //[self addChildViewController:self.loginViewController];
+           
         }
     
     

@@ -33,9 +33,11 @@
     if (!matches || [matches count] > 1)
     {
         //handle error
+        NSLog(@"(!matches || [matches count] > 1)");
     }
     else if (![matches count])
     {
+        NSLog(@" (![matches count])");
         //Creates a product using the context passed in
         product = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:context];
         
@@ -51,6 +53,7 @@
     }
     else
     {
+         NSLog(@"product = [matches lastObject];");
         product = [matches lastObject];
     }
     
