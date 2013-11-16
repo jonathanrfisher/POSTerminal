@@ -99,6 +99,11 @@
         usingParamOrder: (NSArray *) paramOrder
          withSOAPAction: (NSString *) soapAction;
 {
+//    if(!params)
+//    {
+//        [self makeConnection:inputURL withMethodType:methodType withSOAPAction:soapAction];
+//    }
+    
     self.urlToUse = inputURL;
     self.methodType = methodType;
     self.params = params;
@@ -121,6 +126,8 @@
         
         soapMsg = [soapMsg stringByAppendingFormat:@"<%@>%@</%@>\n",keyName,keyValue,keyName];
     }
+    
+    
     
     soapMsg = [soapMsg stringByAppendingFormat:@"</%@>\n",self.methodType];
     
@@ -157,6 +164,17 @@
 //                  );
 
     //return self.JSONObject;
+}
+
+- (void) makeConnection: (NSURL *) inputURL
+         withMethodType: (NSString *) methodType
+         withSOAPAction: (NSString *) soapAction;
+{
+    NSLog(@"Called make connection with no params");
+    
+    
+    
+    
 }
 
 

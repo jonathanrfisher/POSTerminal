@@ -243,7 +243,6 @@
 
 - (void) performUserValidation:(NSString *)loginCode
 {
-    self.returnString = @"Base Return String";
     
     NSLog(@"LOGINCODE: %@",loginCode);
     
@@ -264,14 +263,13 @@
 //self.JSONObject = [soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:dict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
     
     
+    //The soap connection notifies LoginViewController when the JSON is ready, we signed up to notificationCenter using the following:
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSON:) name:@"isTheJSONReady" object:self.soap];
     [self.soap makeConnection:self.url withMethodType:@"ValidateCredential" withParams:dict  usingParamOrder:paramOrder withSOAPAction:@"\"http://tempuri.org/ValidateCredential\""];
     
     
     
     //SEL sel = @selector(getJSON:);
-    
-   
-    
                       
                    
 //    NSLog(@"self.JSONObject description : %@",[self.JSONObject description]);
@@ -296,13 +294,11 @@
 
 - (void) viewDidLoad
 {
+    [super viewDidLoad];
     NSLog(@"Before signing up for notification");
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSON:) name:@"isTheJSONReady" object:self.soap];
     NSLog(@"AFTER signing up for notification");
-    
-
-    
 }
 
 

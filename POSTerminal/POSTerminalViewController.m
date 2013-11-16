@@ -9,32 +9,51 @@
 #import "POSTerminalViewController.h"
 #import "POSTerminal.h"
 #import "Product+POSproducts.h"
+#import "SOAPConnection.h"
+#define URL @"http://jt.serveftp.net/Datacom/Server.asmx"
+#define SOAPUpdatePOSMethodType @"GetProducts"
+#define SOAPActionPOSUpdate @"\"http://tempuri.org/GetProducts\""
 
 @interface POSTerminalViewController ()
 
-@property (nonatomic,strong) NSDictionary *userData;
-//@property (nonatomic) POSTerminalViewController *loginView;
+//DEPRICATED PROPERTIES
+//@property (weak, nonatomic) IBOutlet UILabel *whereHaveYouBeanLabel;
+
+//Fake Data Containers
+@property (weak, nonatomic) NSDictionary *transactionsForTheDay;
+
+//LoginViewController Properties
 @property (nonatomic, strong, retain) LoginViewController *loginPortal;
-@property (weak, nonatomic) IBOutlet UILabel *whereHaveYouBeanLabel;
-//@property (nonatomic, strong) UIPopoverController *loginPopover;
 @property (nonatomic, strong, retain) UIViewController *loginViewController;
-@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+
+//User Identifying Properties
 @property (weak, nonatomic) IBOutlet UILabel *userDisplayName;
 @property (nonatomic, strong) NSString *userType;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *voidTransactionButton;
+@property (nonatomic,strong) NSDictionary *userData;
 
+//ADMIN Buttons
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *voidTransactionButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *updatePOSButton;
 
-@property (weak, nonatomic) NSDictionary *transactionsForTheDay;
+//SOAP Connection properties
 @property (strong, nonatomic) UIManagedDocument *document;
-
-
+@property (strong, nonatomic) SOAPConnection *soap;
+@property (weak, nonatomic) NSURL *url;
+@property (weak, nonatomic) id JSONObject;
 
 @end
 
 @implementation POSTerminalViewController
 
-
+- (NSURL *) url
+{
+    if (!_url)
+    {
+        _url = [NSURL URLWithString:URL];
+    }
+    return _url;
+}
 
 
 - (IBAction)printProductsFromCoreData
@@ -47,8 +66,6 @@
     {
         [self printProducts];
     }
-    
-    
 }
 
 -(void) printProducts
@@ -137,29 +154,17 @@
     }
 }
 
-
-
 -(IBAction)createSomeProducts
 {
     //Photomania Demo, video 14 for 2013, describes using CoreDataTableViewController
     //That controller seems contstructed though, I need to watch both core data videos again.
+    //I have a copy of the Photomania demo to learn from, he did make the CoreDataTableViewController class himself, but it has a lot of useful things to learn from it.
     [self getDocumentContext];
-    //[self createTheProducts];
-    
 }
 
 -(void) getDocumentContext
 {
     //Video 12, 39:34
-//    NSFileManager *fileManager = [[NSFileManager alloc] init];
-    
-    
-    //URL *url = [
-//    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-    
-    //POSTerminalAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    //NSManagedObjectContext *context = [appDelegate managedObjectContext];
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     url = [url URLByAppendingPathComponent:@"ProductsDocument"];
     
@@ -288,35 +293,99 @@
     {
         [self.voidTransactionButton setEnabled:true];
         [self.updatePOSButton setEnabled:true];
-        
     }
-    
 }
 
-//@synthesize userID = _userID;
-//@synthesize loginView = _loginView;
 
-//
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//	if (_userID == nil)
+- (IBAction) UpdatePOS
+{
+    NSLog(@"you pressed updatePOS!!");
+    [self performUpdatePOS];
+}
+
+- (void) performUpdatePOS
+{
+    self.soap = [[SOAPConnection alloc] init];
+    
+    NSDictionary *dict;
+    
+    NSArray *paramOrder;
+    
+    //The soap connection notifies ViewController when the JSON is ready, we signed up to notificationCenter using the following:
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSON:) name:@"isTheJSONReady" object:self.soap];
+    
+    [self.soap makeConnection:self.url withMethodType:SOAPUpdatePOSMethodType withParams:dict  usingParamOrder:paramOrder withSOAPAction:SOAPActionPOSUpdate];
+}
+
+- (void) getJSONandWriteToCoreData:(NSNotification *) notification
+{
+    NSLog(@"INSIDE getJSON notification method");
+    self.JSONObject = [self.soap returnJSON];
+    
+    NSLog(@"self.JSONObject description : %@",[self.JSONObject description]);
+    
+//    if([self.JSONObject isKindOfClass:[NSDictionary class]])
 //    {
-//        //self.loginView = [[UIView alloc] initWithFrame:self.view.frame];
-//        //[self.view addSubView: _loginView];
-//        //[self.view addSubview: _loginView.view];
+//        NSLog(@"Our JSON is a dictionary");
 //        
+//        for (NSString *key in self.JSONObject)
+//        {
+//            NSLog(@"key: %@",key);
+//            if([key  isEqual: @"successful"])
+//            {
+//                if(![[self.JSONObject objectForKey:key] isEqual:[NSNumber numberWithInt:1]])
+//                {
+//                    [self clearButton];
+//                    break;
+//                }
+//            }
+//            else
+//            {
+//                NSDictionary *userInfo = [[self.JSONObject objectForKey:key] objectForKey:@"0"];
+//                for (NSString *userKey in userInfo)
+//                {
+//                    NSLog(@"userKey: %@",userKey);
+//                    if ([userKey  isEqualToString: @"FirstName"])
+//                    {
+//                        self.firstName = [userInfo objectForKey:userKey];
+//                    }
+//                    else if ([userKey  isEqualToString: @"LastName"])
+//                    {
+//                        self.lastName = [userInfo objectForKey:userKey];
+//                    }
+//                    else if ([userKey  isEqualToString: @"UserType"])
+//                    {
+//                        self.position = [userInfo objectForKey:userKey];
+//                    }
+//                    else
+//                    {
+//                        NSLog(@"RECIEVED UNEXPECTED KEY IN OUR JSON DICTIONARY: %@",userKey);
+//                    }
+//                }
+//            }
+//        }
 //        
-////        _loginView = [[POSTerminalViewController alloc] initWithNibName:@"POSTerminalViewController" bundle: [NSBundle mainBundle]];
-////        [self.view addSubview: _loginView.view];
+//        if(self.firstName && self.lastName && self.position)
+//        {
+//            self.userData = [NSDictionary dictionaryWithObjects:@[self.firstName,self.lastName,self.position] forKeys:@[@"firstname",@"lastname",@"position"]];
+//            [self returnUserData];
+//        }
+//        
+//        NSLog(@"Description of userData: %@", [self.userData description]);
 //    }
-//
-//}
+}
+
+
 
 -(void) viewDidLoad {
     //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_image_grey.jpg"]];
     [super viewDidLoad];
     self.userDisplayName.text = @"";
+    
+    NSLog(@"Before signing up for notification in POSTerminal");
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:self.soap];
+    NSLog(@"AFTER signing up for notification in POSTerminal");
     
 }
 
@@ -356,10 +425,6 @@
 
 
 
-- (IBAction) UpdatePOS
-{
-    NSLog(@"you pressed updatePOS!!");
-}
 
 - (IBAction) Logout:(id)sender
 {
@@ -373,6 +438,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:NO];
     UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
