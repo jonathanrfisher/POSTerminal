@@ -10,12 +10,6 @@
 
 @interface Product (POSproducts)
 
-//+ (Product *)productWithProductID: (int) productID
-//                        withPrice: (double) price
-//                         withName: (NSString *) name
-//                         withType: (NSString *) type
-//                  withDescription: (NSString *) productDescription;
-
 + (Product *) productWithDictionary:(NSDictionary *) productDictionary
              inManagedObjectContext:(NSManagedObjectContext *) context;
 

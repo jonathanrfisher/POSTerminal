@@ -33,6 +33,22 @@
 }
 - (IBAction)print:(UIButton *)sender {
 }
+- (IBAction)getDoc:(id)sender {
+}
+- (IBAction)getDoc:(id)sender {
+}
+- (IBAction)getDoc:(id)sender {
+}
+- (IBAction)getDoc:(id)sender {
+}
+- (IBAction)documentContextButton {
+}
+- (IBAction)getDocumentContext:(id)sender {
+}
+- (IBAction)printProductsFromCoreData {
+}
+- (IBAction)printProductsFromCoreData {
+}
 - (IBAction)dataButtonPressed:(id)sender {
 }
 - (IBAction)displayData:(UIButton *)sender {

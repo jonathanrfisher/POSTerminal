@@ -8,7 +8,7 @@
 
 #import "POSTerminalViewController.h"
 #import "POSTerminal.h"
-#import "POSTerminalAppDelegate.h"
+#import "Product+POSproducts.h"
 
 @interface POSTerminalViewController ()
 
@@ -28,9 +28,115 @@
 @property (weak, nonatomic) NSDictionary *transactionsForTheDay;
 @property (strong, nonatomic) UIManagedDocument *document;
 
+
+
 @end
 
 @implementation POSTerminalViewController
+
+
+
+
+- (IBAction)printProductsFromCoreData
+{
+    if (!self.document)
+    {
+        [self getDocInformationWithDocument:false];
+    }
+    else
+    {
+        [self printProducts];
+    }
+    
+    
+}
+
+-(void) printProducts
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"name != nil"];
+    
+    // Execute the fetch
+    
+    NSError *error = nil;
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:request error:&error];
+    //Product *productHolder = [[Product alloc] init];
+    
+    if (matches)
+    {
+        for (Product *productItem in matches)
+        {
+            //productHolder = [[Product alloc] init];
+            //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
+            //productHolder = productItem;
+            NSLog(@"product name: %@", [productItem.name description]);
+        }
+    }
+    else
+    {
+        NSLog(@"Nothing was returned! Matches was nil!!");
+    }
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+
+}
+
+-(IBAction)getDocInformationWithDocument:(BOOL *) haveDocument
+{
+    
+    if (!haveDocument) {
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"ProductsDocument"];
+        
+        NSLog(@"URL: %@", [url description]);
+        
+        UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
+        
+        NSLog(@"document: %@",[document description]);
+        
+        NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
+        NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
+            [document saveToURL:url
+               forSaveOperation:UIDocumentSaveForCreating
+              completionHandler:^(BOOL success) {
+                  if (success) {
+                      self.document = document;
+                      self.managedObjectContext = document.managedObjectContext;
+                      NSLog(@"if: self.document: %@", [self.document description]);
+                      NSLog(@"if: self.managedObjectContext: %@", [self.managedObjectContext description]);
+                      [self printProducts];
+                      //[self refresh];
+                  }
+              }];
+        }
+        else if (document.documentState == UIDocumentStateClosed) {
+            [document openWithCompletionHandler:^(BOOL success) {
+                if (success) {
+                    self.document = document;
+                    self.managedObjectContext = document.managedObjectContext;
+                    NSLog(@"else if: self.document: %@", [self.document description]);
+                    NSLog(@"else if: self.managedObjectContext: %@", [self.managedObjectContext description]);
+                    [self printProducts];
+                    
+                }
+                //[self createTheProducts];
+            }];
+        }
+        else {
+            self.document = document;
+            self.managedObjectContext = document.managedObjectContext;
+            NSLog(@"else: self.document: %@", [self.document description]);
+            NSLog(@"else: self.managedObjectContext: %@", [self.managedObjectContext description]);
+            [self printProducts];
+        }
+
+    }
+}
+
 
 
 -(IBAction)createSomeProducts
@@ -38,7 +144,7 @@
     //Photomania Demo, video 14 for 2013, describes using CoreDataTableViewController
     //That controller seems contstructed though, I need to watch both core data videos again.
     [self getDocumentContext];
-    [self createTheProducts];
+    //[self createTheProducts];
     
 }
 
@@ -54,8 +160,42 @@
     //POSTerminalAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     //NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    url = [url URLByAppendingPathComponent:@"ProductsDocument"];
     
+    NSLog(@"URL: %@", [url description]);
     
+    UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
+    
+    NSLog(@"document: %@",[document description]);
+    
+    NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
+    NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
+        [document saveToURL:url
+           forSaveOperation:UIDocumentSaveForCreating
+          completionHandler:^(BOOL success) {
+              if (success) {
+                  self.document = document;
+                  self.managedObjectContext = document.managedObjectContext;
+                  //[self refresh];
+              }
+          }];
+    } else if (document.documentState == UIDocumentStateClosed) {
+        [document openWithCompletionHandler:^(BOOL success) {
+            if (success) {
+                self.document = document;
+                self.managedObjectContext = document.managedObjectContext;
+            }
+            [self createTheProducts];
+        }];
+    } else {
+        self.document = document;
+        self.managedObjectContext = document.managedObjectContext;
+    }
+
+    NSLog(@"self.managedObjectContext: %@", [self.managedObjectContext description]);
     
 }
 
@@ -67,12 +207,63 @@
     NSArray *types = @[@"Drink",@"Drink",@"Drink",@"Drink",@"Food",@"Food",@"Drink"];
     NSArray *IDs = @[@1,@2,@3,@4,@5,@6,@7];
     
-    for (int i = 0; i < [IDs count]; i++)
+    NSMutableArray *products = [[NSMutableArray alloc] init];
+    NSMutableDictionary *productDict = [[NSMutableDictionary alloc] init];
+    
+    NSUInteger i = 0;
+    
+    for (i = 0; i < [IDs count]; i++)
     {
+        productDict = [[NSMutableDictionary alloc] init];
         //do something
         NSLog(@"%u,%@,%@,%@,%@,%@",i,[names objectAtIndex:i],[prices objectAtIndex:i],[descriptions objectAtIndex:i],[types objectAtIndex:i],[IDs objectAtIndex:i]);
+        [productDict setObject:[names objectAtIndex:i] forKey:@"name"];
+        [productDict setObject:[prices objectAtIndex:i] forKey:@"price"];
+        [productDict setObject:[descriptions objectAtIndex:i] forKey:@"productDescription"];
+        [productDict setObject:[types objectAtIndex:i] forKey:@"type"];
+        [productDict setObject:[IDs objectAtIndex:i] forKey:@"productID"];
+        
+        [products addObject:productDict];
+        
     }
+    
+    
+    
+    NSLog(@"Before the dispatch queue.");
+    NSLog(@"Description of products array: %@",[products description]);
+    
+    dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
+    dispatch_async(fetchQ, ^
+    {
+        //NSArray *photos = [FlickrFetcher latestGeoreferencedPhotos];
+        // put the photos in Core Data
+        NSLog(@"Before [self.managedObjectContext performBlock");
+            [self.managedObjectContext performBlock:^
+             {
+                
+                 NSLog(@"Before the for (NSDictionary *product in products) loop.");
+                 for (NSDictionary *product in products)
+                 {
+                     NSLog(@"trying to insert: %@",[product description]);
+                     [Product productWithDictionary:product inManagedObjectContext:self.managedObjectContext];
+                 }
+                 NSLog(@"After our for loop that is supposed to create our products.");
+//              dispatch_async(dispatch_get_main_queue(), ^{
+//              [self.refreshControl endRefreshing];
+//              });
+//                 NSError *error;
+//                [self.managedObjectContext save:&error];
+                 NSLog(@"self.document description: %@",[self.document description]);
+                 [self.document updateChangeCount:UIDocumentChangeDone];
+                 NSLog(@"Data Saved.");
+             }];
+            NSLog(@"AFTER the [self.mana....]");
+    });
+    
+    NSLog(@"AFTER the dispatch queue.");
 }
+
+
 
 - (IBAction)printData:(UIButton *)sender
 {
