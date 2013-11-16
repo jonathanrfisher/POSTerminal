@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0435570F1838170400C4BF48 /* Background_Brown (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043557051838170400C4BF48 /* Background_Brown (1).jpg */; };
+		043557101838170400C4BF48 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043557061838170400C4BF48 /* Background_Brown.jpg */; };
+		043557111838170400C4BF48 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 043557071838170400C4BF48 /* BeginT_Background.jpg */; };
+		043557121838170400C4BF48 /* Coffee-Cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 043557081838170400C4BF48 /* Coffee-Cup.png */; };
+		043557131838170400C4BF48 /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 043557091838170400C4BF48 /* coffee.png */; };
+		043557141838170400C4BF48 /* croissant.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435570A1838170400C4BF48 /* croissant.png */; };
+		043557151838170400C4BF48 /* cupOfTea.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435570B1838170400C4BF48 /* cupOfTea.png */; };
+		043557161838170400C4BF48 /* frappuccino.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435570C1838170400C4BF48 /* frappuccino.png */; };
+		043557171838170400C4BF48 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0435570D1838170400C4BF48 /* images.jpeg */; };
+		043557181838170400C4BF48 /* latte.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435570E1838170400C4BF48 /* latte.png */; };
+		0435571B183819EA00C4BF48 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0435571A183819EA00C4BF48 /* CreditCardViewController.m */; };
 		7C0FD529180475370028FC3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD528180475370028FC3D /* Foundation.framework */; };
 		7C0FD52B180475370028FC3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52A180475370028FC3D /* CoreGraphics.framework */; };
 		7C0FD52D180475370028FC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52C180475370028FC3D /* UIKit.framework */; };
@@ -62,6 +73,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043557051838170400C4BF48 /* Background_Brown (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Background_Brown (1).jpg"; sourceTree = "<group>"; };
+		043557061838170400C4BF48 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background_Brown.jpg; sourceTree = "<group>"; };
+		043557071838170400C4BF48 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BeginT_Background.jpg; sourceTree = "<group>"; };
+		043557081838170400C4BF48 /* Coffee-Cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee-Cup.png"; sourceTree = "<group>"; };
+		043557091838170400C4BF48 /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
+		0435570A1838170400C4BF48 /* croissant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = croissant.png; sourceTree = "<group>"; };
+		0435570B1838170400C4BF48 /* cupOfTea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cupOfTea.png; sourceTree = "<group>"; };
+		0435570C1838170400C4BF48 /* frappuccino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frappuccino.png; sourceTree = "<group>"; };
+		0435570D1838170400C4BF48 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		0435570E1838170400C4BF48 /* latte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = latte.png; sourceTree = "<group>"; };
+		04355719183819EA00C4BF48 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
+		0435571A183819EA00C4BF48 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
 		7C0FD525180475370028FC3D /* POSTerminal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POSTerminal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0FD528180475370028FC3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C0FD52A180475370028FC3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +177,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043557041838170400C4BF48 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				043557051838170400C4BF48 /* Background_Brown (1).jpg */,
+				043557061838170400C4BF48 /* Background_Brown.jpg */,
+				043557071838170400C4BF48 /* BeginT_Background.jpg */,
+				043557081838170400C4BF48 /* Coffee-Cup.png */,
+				043557091838170400C4BF48 /* coffee.png */,
+				0435570A1838170400C4BF48 /* croissant.png */,
+				0435570B1838170400C4BF48 /* cupOfTea.png */,
+				0435570C1838170400C4BF48 /* frappuccino.png */,
+				0435570D1838170400C4BF48 /* images.jpeg */,
+				0435570E1838170400C4BF48 /* latte.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		7C0FD51C180475370028FC3D = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +248,10 @@
 				7C0FD5DC1804B0D50028FC3D /* LoginViewController.m */,
 				7CE27EFC1832C9F80004C76F /* MenuItemsColletionViewController.h */,
 				7CE27EFD1832C9F80004C76F /* MenuItemsColletionViewController.m */,
+				04355719183819EA00C4BF48 /* CreditCardViewController.h */,
+				0435571A183819EA00C4BF48 /* CreditCardViewController.m */,
 				7C0FD540180475370028FC3D /* Images.xcassets */,
+				043557041838170400C4BF48 /* images */,
 				7C0FD52F180475370028FC3D /* Supporting Files */,
 			);
 			path = POSTerminal;
@@ -405,8 +448,18 @@
 			files = (
 				7C0FD541180475370028FC3D /* Images.xcassets in Resources */,
 				7C6D542C1829B17000E8A479 /* Notes in Resources */,
+				043557161838170400C4BF48 /* frappuccino.png in Resources */,
+				043557171838170400C4BF48 /* images.jpeg in Resources */,
+				043557151838170400C4BF48 /* cupOfTea.png in Resources */,
+				043557181838170400C4BF48 /* latte.png in Resources */,
+				043557141838170400C4BF48 /* croissant.png in Resources */,
+				0435570F1838170400C4BF48 /* Background_Brown (1).jpg in Resources */,
 				7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */,
+				043557111838170400C4BF48 /* BeginT_Background.jpg in Resources */,
+				043557131838170400C4BF48 /* coffee.png in Resources */,
 				7C0FD533180475370028FC3D /* InfoPlist.strings in Resources */,
+				043557121838170400C4BF48 /* Coffee-Cup.png in Resources */,
+				043557101838170400C4BF48 /* Background_Brown.jpg in Resources */,
 				7C0FD53C180475370028FC3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C0FD53F180475370028FC3D /* POSTerminalViewController.m in Sources */,
+				0435571B183819EA00C4BF48 /* CreditCardViewController.m in Sources */,
 				7C0FD535180475370028FC3D /* main.m in Sources */,
 				7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */,
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
