@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuButtonView.h"
 
 @interface MenuItemsCells : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet MenuButtonView *menuButtonView;
 
 @end

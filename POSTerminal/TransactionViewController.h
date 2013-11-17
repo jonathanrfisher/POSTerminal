@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Product.h"
 
-@interface TransactionViewController : UIViewController
+@interface TransactionViewController : UIViewController  <UICollectionViewDataSource>
+
+//I won't actually be making these properties and such abstract, just following a tutorial for now and changing later.
+@property (nonatomic) NSArray *arrayOfProducts; //abstract
+@property (nonatomic) NSInteger numberOfProducts; //abstract
+-(void) updateCell:(UICollectionViewCell *) cell usingProduct: (Product *) product; //abstract
 
 @end
