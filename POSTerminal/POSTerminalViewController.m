@@ -55,7 +55,6 @@
     return _url;
 }
 
-
 - (IBAction)printProductsFromCoreData
 {
     if (!self.document)

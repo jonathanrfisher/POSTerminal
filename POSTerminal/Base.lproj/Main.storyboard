@@ -357,7 +357,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="hc7-0w-HwB" id="Zik-xC-c7P"/>
+                                    <outlet property="dataSource" destination="hc7-0w-HwB" id="ASO-yc-7G9"/>
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="J4S-MQ-yiB">
@@ -435,7 +435,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="MenuItemsCollectionView" destination="kCp-1d-xN3" id="vhg-sq-xuR"/>
+                        <outlet property="MenuItemsCollectionView" destination="kCp-1d-xN3" id="GkD-CA-uIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNN-cI-75Q" userLabel="First Responder" sceneMemberID="firstResponder"/>

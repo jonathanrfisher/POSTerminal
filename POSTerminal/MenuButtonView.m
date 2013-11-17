@@ -8,6 +8,12 @@
 
 #import "MenuButtonView.h"
 
+//@interface MenuButtonView ()
+//
+//
+//
+//@end
+
 @implementation MenuButtonView
 
 #pragma mark - Properties
@@ -40,6 +46,7 @@
     [self setNeedsDisplay];
 }
 
+
 //- (void)setFaceUp:(BOOL)faceUp
 //{
 //    _faceUp = faceUp;
@@ -57,6 +64,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
+    NSLog(@"DRAWRECT WAS CALLED");
     // Drawing code
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:CORNER_RADIUS];
     
@@ -84,6 +92,7 @@
     
     [[UIColor blackColor] setStroke];
     [roundedRect stroke];
+    [self drawCorners];
 }
 
 
@@ -95,10 +104,14 @@
 
 - (void)drawCorners
 {
+    NSLog(@"DRAW CORNERS WAS CALLED....");
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
     UIFont *cornerFont = [UIFont systemFontOfSize:self.bounds.size.width * PIP_FONT_SCALE_FACTOR];
+    
+    if (!self.name)
+        self.name = @"name";
     
     NSAttributedString *cornerText = [[NSAttributedString alloc] initWithString:self.name attributes:@{ NSParagraphStyleAttributeName : paragraphStyle, NSFontAttributeName : cornerFont }];
     
@@ -109,7 +122,7 @@
     
     //[self pushContextAndRotateUpsideDown];
     [cornerText drawInRect:textBounds];
-    [self popContext];
+    //[self popContext];
 }
 
 - (void)popContext

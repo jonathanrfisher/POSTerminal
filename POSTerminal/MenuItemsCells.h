@@ -12,4 +12,5 @@
 @interface MenuItemsCells : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet MenuButtonView *menuButtonView;
 
+
 @end

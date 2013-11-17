@@ -43,6 +43,7 @@
 		7C5C9F2418389F1200DF104C /* MenuItemsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F2318389F1200DF104C /* MenuItemsCollectionViewController.m */; };
 		7C5C9F2718389FA600DF104C /* MenuButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F2618389FA600DF104C /* MenuButtonView.m */; };
 		7C5C9F2A1838B16C00DF104C /* CollectionOfProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F291838B16C00DF104C /* CollectionOfProducts.m */; };
+		7C5C9F2F1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F2E1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m */; };
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
 		7CB6B2051835BB6000E083EE /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B2041835BB6000E083EE /* Product.m */; };
@@ -50,7 +51,6 @@
 		7CB6B20B183660B300E083EE /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B20A183660B300E083EE /* TransactionViewController.m */; };
 		7CB6B211183663B100E083EE /* TransactionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B210183663B100E083EE /* TransactionTableViewController.m */; };
 		7CB6B21B1836AF9100E083EE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB6B21A1836AF9100E083EE /* CoreData.framework */; };
-		7CB6B21E1836CD9600E083EE /* LoggingManagedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B21D1836CD9600E083EE /* LoggingManagedDocument.m */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +119,8 @@
 		7C5C9F2618389FA600DF104C /* MenuButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuButtonView.m; sourceTree = "<group>"; };
 		7C5C9F281838B16C00DF104C /* CollectionOfProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionOfProducts.h; sourceTree = "<group>"; };
 		7C5C9F291838B16C00DF104C /* CollectionOfProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionOfProducts.m; sourceTree = "<group>"; };
+		7C5C9F2D1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetAllProductsAsArrayOfProductDictionaries.h; sourceTree = "<group>"; };
+		7C5C9F2E1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetAllProductsAsArrayOfProductDictionaries.m; sourceTree = "<group>"; };
 		7C6D54281829A9B100E8A479 /* SOAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPConnection.h; sourceTree = "<group>"; };
 		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
@@ -131,8 +133,6 @@
 		7CB6B20F183663B100E083EE /* TransactionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionTableViewController.h; path = ../TransactionTableViewController.h; sourceTree = "<group>"; };
 		7CB6B210183663B100E083EE /* TransactionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionTableViewController.m; path = ../TransactionTableViewController.m; sourceTree = "<group>"; };
 		7CB6B21A1836AF9100E083EE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7CB6B21C1836CD9600E083EE /* LoggingManagedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggingManagedDocument.h; sourceTree = "<group>"; };
-		7CB6B21D1836CD9600E083EE /* LoggingManagedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggingManagedDocument.m; sourceTree = "<group>"; };
 		7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertXMLtoJSON.h; sourceTree = "<group>"; };
 		7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertXMLtoJSON.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,8 +234,6 @@
 				7C0FD53A180475370028FC3D /* Main.storyboard */,
 				7C0FD53D180475370028FC3D /* POSTerminalViewController.h */,
 				7C0FD53E180475370028FC3D /* POSTerminalViewController.m */,
-				7CB6B21C1836CD9600E083EE /* LoggingManagedDocument.h */,
-				7CB6B21D1836CD9600E083EE /* LoggingManagedDocument.m */,
 				7CB6B2191836A98700E083EE /* SoapConnection */,
 				7CB6B2181836A97700E083EE /* CreditCardPortal */,
 				7CB6B2171836A94D00E083EE /* TransactionPortal */,
@@ -244,6 +242,8 @@
 				04A972D81835605D00F17C37 /* images */,
 				7C0FD540180475370028FC3D /* Images.xcassets */,
 				7C0FD52F180475370028FC3D /* Supporting Files */,
+				7C5C9F2D1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.h */,
+				7C5C9F2E1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
@@ -543,7 +543,6 @@
 				7C0FD535180475370028FC3D /* main.m in Sources */,
 				7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */,
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
-				7CB6B21E1836CD9600E083EE /* LoggingManagedDocument.m in Sources */,
 				7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */,
 				7CB6B2081835BD0C00E083EE /* Product+POSproducts.m in Sources */,
 				7C5C9F2718389FA600DF104C /* MenuButtonView.m in Sources */,
@@ -553,6 +552,7 @@
 				7C5C2EE91836FE9D00F65D1F /* TotalTableCell.m in Sources */,
 				7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */,
 				7CB6B2051835BB6000E083EE /* Product.m in Sources */,
+				7C5C9F2F1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m in Sources */,
 				7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */,
 				7CB6B211183663B100E083EE /* TransactionTableViewController.m in Sources */,
 				7C13BA061835A4A8008CB9A4 /* MenuItemsCells.m in Sources */,

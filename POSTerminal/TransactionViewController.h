@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Product.h"
 
-@interface TransactionViewController : UIViewController  <UICollectionViewDataSource>
+@interface TransactionViewController : UIViewController  
 
 //I won't actually be making these properties and such abstract, just following a tutorial for now and changing later.
 @property (nonatomic) NSArray *arrayOfProducts; //abstract

@@ -11,6 +11,8 @@
 
 @interface CollectionOfProducts : NSObject
 
--(Product *) productAtIndexPath:(int)indexPathItem;
+-(Product *) productAtIndex:(int)indexPathItem;
+-(void) buildArrayOfProducts;
+@property (strong,nonatomic) NSArray *products;
 
 @end
