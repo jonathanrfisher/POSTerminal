@@ -10,9 +10,26 @@
 
 @implementation Product (POSproducts)
 
+- (NSString *) description
+{
+    NSString *returnString = @"Product with values:";
+    
+    returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"\nname: %@",self.name]];
+    returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"\nprice: %@",self.price]];
+    returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"\nproductDescription: %@",self.productDescription]];
+    returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"\ntype: %@",self.type]];
+    returnString = [returnString stringByAppendingString:[NSString stringWithFormat:@"\nproductID: %@",self.productID]];
+    
+    return returnString;
+}
+
 + (Product *)productWithDictionary:(NSDictionary *)productDictionary inManagedObjectContext:(NSManagedObjectContext *)context
 {
+    
+    
     Product *product = nil;
+    
+    NSLog(@"productDictionary: %@",[productDictionary description]);
     
     //We need to query the DB to see if our product is already in there
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
@@ -35,7 +52,7 @@
         //handle error
         NSLog(@"(!matches || [matches count] > 1)");
     }
-    else if (![matches count])
+    else //if ([matches count])
     {
         NSLog(@" (![matches count])");
         //Creates a product using the context passed in
@@ -46,23 +63,16 @@
         product.name = [productDictionary objectForKey:@"name"];
         product.price = [productDictionary objectForKey:@"price"];
         product.productDescription = [productDictionary objectForKey:@"productDescription"];
-        product.type = [productDictionary objectForKey:@"productDescription"];
+        product.type = [productDictionary objectForKey:@"type"];
         product.productID = [productDictionary objectForKey:@"productID"];
         
         //What is value for key path??? with dictionary???
     }
-    else
-    {
-         NSLog(@"product = [matches lastObject];");
-        product = [matches lastObject];
-    }
-    
-    
-    
-    
-    
-   
-    
+//    else
+//    {
+//        NSLog(@"product = [matches lastObject];");
+//        product = [matches lastObject];
+//    }
     
     return product;
 }

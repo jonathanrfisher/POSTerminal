@@ -89,14 +89,14 @@
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"ProductsDocument"];
         
-        NSLog(@"URL: %@", [url description]);
+        //NSLog(@"URL: %@", [url description]);
         
         UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
         
-        NSLog(@"document: %@",[document description]);
+        //NSLog(@"document: %@",[document description]);
         
-        NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
-        NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
+        //NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
+        //NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
         
         if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
             [document saveToURL:url
@@ -150,14 +150,14 @@
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     url = [url URLByAppendingPathComponent:@"ProductsDocument"];
     
-    NSLog(@"URL: %@", [url description]);
+    //NSLog(@"URL: %@", [url description]);
     
     UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
     
-    NSLog(@"document: %@",[document description]);
+    //NSLog(@"document: %@",[document description]);
     
-    NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
-    NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
+    //NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
+    //NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
         [document saveToURL:url
@@ -182,7 +182,7 @@
         self.managedObjectContext = document.managedObjectContext;
     }
     
-    NSLog(@"self.managedObjectContext: %@", [self.managedObjectContext description]);
+    //NSLog(@"self.managedObjectContext: %@", [self.managedObjectContext description]);
     
 }
 

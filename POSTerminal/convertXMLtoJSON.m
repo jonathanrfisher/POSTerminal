@@ -29,7 +29,7 @@
 //    
    // inputString = [inputString stringByAppendingString:@"]"];
    // inputString = [@"[" stringByAppendingString:inputString];
-    
+    //NSLog(@"JSON Input String: %@",inputString);
 
     NSData *data = [inputString dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

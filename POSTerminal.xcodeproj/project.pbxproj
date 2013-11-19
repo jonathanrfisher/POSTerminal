@@ -35,23 +35,29 @@
 		7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */; };
 		7C13B9FC183595AB008CB9A4 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */; };
 		7C13B9FE183595B3008CB9A4 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */; };
-		7C13BA00183595C0008CB9A4 /* Coffee-Cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */; };
 		7C13BA061835A4A8008CB9A4 /* MenuItemsCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */; };
 		7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */; };
 		7C5C2EE61836FE8600F65D1F /* MenuItemTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C2EE51836FE8600F65D1F /* MenuItemTableCell.m */; };
-		7C5C2EE91836FE9D00F65D1F /* TotalTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C2EE81836FE9D00F65D1F /* TotalTableCell.m */; };
-		7C5C9F2418389F1200DF104C /* MenuItemsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F2318389F1200DF104C /* MenuItemsCollectionViewController.m */; };
 		7C5C9F2718389FA600DF104C /* MenuButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F2618389FA600DF104C /* MenuButtonView.m */; };
 		7C5C9F2A1838B16C00DF104C /* CollectionOfProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F291838B16C00DF104C /* CollectionOfProducts.m */; };
 		7C5C9F2F1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C9F2E1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m */; };
 		7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D54291829A9B100E8A479 /* SOAPConnection.m */; };
 		7C6D542C1829B17000E8A479 /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7C6D542B1829B17000E8A479 /* Notes */; };
-		7CB6B2051835BB6000E083EE /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B2041835BB6000E083EE /* Product.m */; };
 		7CB6B2081835BD0C00E083EE /* Product+POSproducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B2071835BD0C00E083EE /* Product+POSproducts.m */; };
 		7CB6B20B183660B300E083EE /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B20A183660B300E083EE /* TransactionViewController.m */; };
 		7CB6B211183663B100E083EE /* TransactionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B210183663B100E083EE /* TransactionTableViewController.m */; };
 		7CB6B21B1836AF9100E083EE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB6B21A1836AF9100E083EE /* CoreData.framework */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
+		7CFF2BDD183913210004123E /* Coffee-Cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BD7183913210004123E /* Coffee-Cup.png */; };
+		7CFF2BF7183919E00004123E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFF2BF6183919E00004123E /* Product.m */; };
+		7CFF2BFA183919E10004123E /* CurrentTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFF2BF9183919E10004123E /* CurrentTransaction.m */; };
+		7CFF2C01183934860004123E /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BFB183934860004123E /* coffee.png */; };
+		7CFF2C02183934860004123E /* croissant.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BFC183934860004123E /* croissant.png */; };
+		7CFF2C03183934860004123E /* cupOfTea.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BFD183934860004123E /* cupOfTea.png */; };
+		7CFF2C04183934860004123E /* frappuccino.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BFE183934860004123E /* frappuccino.png */; };
+		7CFF2C05183934860004123E /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BFF183934860004123E /* images.jpeg */; };
+		7CFF2C06183934860004123E /* latte.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2C00183934860004123E /* latte.png */; };
+		7CFF2C08183945050004123E /* orangerec.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2C07183945050004123E /* orangerec.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,16 +111,11 @@
 		7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image_grey.jpg; sourceTree = "<group>"; };
 		7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background_Brown.jpg; path = ../../../../Downloads/Background_Brown.jpg; sourceTree = "<group>"; };
 		7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BeginT_Background.jpg; path = ../../../../Downloads/BeginT_Background.jpg; sourceTree = "<group>"; };
-		7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Coffee-Cup.png"; path = "../../../../Downloads/Coffee-Cup.png"; sourceTree = "<group>"; };
 		7C13BA041835A4A8008CB9A4 /* MenuItemsCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemsCells.h; sourceTree = "<group>"; };
 		7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemsCells.m; sourceTree = "<group>"; };
 		7C13BA081835A4FA008CB9A4 /* POSTerminal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = POSTerminal.xcdatamodel; sourceTree = "<group>"; };
 		7C5C2EE41836FE8600F65D1F /* MenuItemTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemTableCell.h; sourceTree = "<group>"; };
 		7C5C2EE51836FE8600F65D1F /* MenuItemTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemTableCell.m; sourceTree = "<group>"; };
-		7C5C2EE71836FE9D00F65D1F /* TotalTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalTableCell.h; sourceTree = "<group>"; };
-		7C5C2EE81836FE9D00F65D1F /* TotalTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalTableCell.m; sourceTree = "<group>"; };
-		7C5C9F2218389F1200DF104C /* MenuItemsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemsCollectionViewController.h; sourceTree = "<group>"; };
-		7C5C9F2318389F1200DF104C /* MenuItemsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemsCollectionViewController.m; sourceTree = "<group>"; };
 		7C5C9F2518389FA600DF104C /* MenuButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuButtonView.h; sourceTree = "<group>"; };
 		7C5C9F2618389FA600DF104C /* MenuButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuButtonView.m; sourceTree = "<group>"; };
 		7C5C9F281838B16C00DF104C /* CollectionOfProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionOfProducts.h; sourceTree = "<group>"; };
@@ -124,8 +125,6 @@
 		7C6D54281829A9B100E8A479 /* SOAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOAPConnection.h; sourceTree = "<group>"; };
 		7C6D54291829A9B100E8A479 /* SOAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOAPConnection.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7C6D542B1829B17000E8A479 /* Notes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
-		7CB6B2031835BB6000E083EE /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		7CB6B2041835BB6000E083EE /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		7CB6B2061835BD0C00E083EE /* Product+POSproducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Product+POSproducts.h"; sourceTree = "<group>"; };
 		7CB6B2071835BD0C00E083EE /* Product+POSproducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Product+POSproducts.m"; sourceTree = "<group>"; };
 		7CB6B209183660B300E083EE /* TransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionViewController.h; sourceTree = "<group>"; };
@@ -135,6 +134,18 @@
 		7CB6B21A1836AF9100E083EE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertXMLtoJSON.h; sourceTree = "<group>"; };
 		7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertXMLtoJSON.m; sourceTree = "<group>"; };
+		7CFF2BD7183913210004123E /* Coffee-Cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee-Cup.png"; sourceTree = "<group>"; };
+		7CFF2BF5183919E00004123E /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = ../Product.h; sourceTree = "<group>"; };
+		7CFF2BF6183919E00004123E /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = ../Product.m; sourceTree = "<group>"; };
+		7CFF2BF8183919E10004123E /* CurrentTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentTransaction.h; path = ../CurrentTransaction.h; sourceTree = "<group>"; };
+		7CFF2BF9183919E10004123E /* CurrentTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentTransaction.m; path = ../CurrentTransaction.m; sourceTree = "<group>"; };
+		7CFF2BFB183934860004123E /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
+		7CFF2BFC183934860004123E /* croissant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = croissant.png; sourceTree = "<group>"; };
+		7CFF2BFD183934860004123E /* cupOfTea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cupOfTea.png; sourceTree = "<group>"; };
+		7CFF2BFE183934860004123E /* frappuccino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frappuccino.png; sourceTree = "<group>"; };
+		7CFF2BFF183934860004123E /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		7CFF2C00183934860004123E /* latte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = latte.png; sourceTree = "<group>"; };
+		7CFF2C07183945050004123E /* orangerec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangerec.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +196,15 @@
 		04A972D81835605D00F17C37 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7CFF2C07183945050004123E /* orangerec.png */,
+				7CFF2BFB183934860004123E /* coffee.png */,
+				7CFF2BFC183934860004123E /* croissant.png */,
+				7CFF2BFD183934860004123E /* cupOfTea.png */,
+				7CFF2BFE183934860004123E /* frappuccino.png */,
+				7CFF2BFF183934860004123E /* images.jpeg */,
+				7CFF2C00183934860004123E /* latte.png */,
+				7CFF2BD7183913210004123E /* Coffee-Cup.png */,
 				7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */,
-				7C13B9FF183595C0008CB9A4 /* Coffee-Cup.png */,
 				7C13B9FD183595B3008CB9A4 /* BeginT_Background.jpg */,
 				7C13B9FB183595AB008CB9A4 /* Background_Brown.jpg */,
 			);
@@ -242,8 +260,6 @@
 				04A972D81835605D00F17C37 /* images */,
 				7C0FD540180475370028FC3D /* Images.xcassets */,
 				7C0FD52F180475370028FC3D /* Supporting Files */,
-				7C5C9F2D1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.h */,
-				7C5C9F2E1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m */,
 			);
 			path = POSTerminal;
 			sourceTree = "<group>";
@@ -302,10 +318,10 @@
 		7C5C9F2B1838B78E00DF104C /* CollectionViewOfMenuItems */ = {
 			isa = PBXGroup;
 			children = (
+				7C5C9F2D1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.h */,
+				7C5C9F2E1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m */,
 				7C13BA041835A4A8008CB9A4 /* MenuItemsCells.h */,
 				7C13BA051835A4A8008CB9A4 /* MenuItemsCells.m */,
-				7C5C9F2218389F1200DF104C /* MenuItemsCollectionViewController.h */,
-				7C5C9F2318389F1200DF104C /* MenuItemsCollectionViewController.m */,
 				7C5C9F2518389FA600DF104C /* MenuButtonView.h */,
 				7C5C9F2618389FA600DF104C /* MenuButtonView.m */,
 				7C5C9F281838B16C00DF104C /* CollectionOfProducts.h */,
@@ -319,8 +335,6 @@
 			children = (
 				7C5C2EE41836FE8600F65D1F /* MenuItemTableCell.h */,
 				7C5C2EE51836FE8600F65D1F /* MenuItemTableCell.m */,
-				7C5C2EE71836FE9D00F65D1F /* TotalTableCell.h */,
-				7C5C2EE81836FE9D00F65D1F /* TotalTableCell.m */,
 				7CB6B20F183663B100E083EE /* TransactionTableViewController.h */,
 				7CB6B210183663B100E083EE /* TransactionTableViewController.m */,
 			);
@@ -330,8 +344,10 @@
 		7CB6B2151836A90600E083EE /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				7CB6B2031835BB6000E083EE /* Product.h */,
-				7CB6B2041835BB6000E083EE /* Product.m */,
+				7CFF2BF8183919E10004123E /* CurrentTransaction.h */,
+				7CFF2BF9183919E10004123E /* CurrentTransaction.m */,
+				7CFF2BF5183919E00004123E /* Product.h */,
+				7CFF2BF6183919E00004123E /* Product.m */,
 				7CB6B2061835BD0C00E083EE /* Product+POSproducts.h */,
 				7CB6B2071835BD0C00E083EE /* Product+POSproducts.m */,
 				7C13BA071835A4FA008CB9A4 /* POSTerminal.xcdatamodeld */,
@@ -496,13 +512,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFF2C04183934860004123E /* frappuccino.png in Resources */,
+				7CFF2C08183945050004123E /* orangerec.png in Resources */,
 				7C0FD541180475370028FC3D /* Images.xcassets in Resources */,
 				7C6D542C1829B17000E8A479 /* Notes in Resources */,
 				7C13B9FC183595AB008CB9A4 /* Background_Brown.jpg in Resources */,
+				7CFF2C03183934860004123E /* cupOfTea.png in Resources */,
 				7C13B9FE183595B3008CB9A4 /* BeginT_Background.jpg in Resources */,
+				7CFF2C06183934860004123E /* latte.png in Resources */,
+				7CFF2C01183934860004123E /* coffee.png in Resources */,
 				7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */,
+				7CFF2C05183934860004123E /* images.jpeg in Resources */,
+				7CFF2C02183934860004123E /* croissant.png in Resources */,
 				7C0FD533180475370028FC3D /* InfoPlist.strings in Resources */,
-				7C13BA00183595C0008CB9A4 /* Coffee-Cup.png in Resources */,
+				7CFF2BDD183913210004123E /* Coffee-Cup.png in Resources */,
 				7C0FD53C180475370028FC3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,19 +562,18 @@
 			files = (
 				7C0FD53F180475370028FC3D /* POSTerminalViewController.m in Sources */,
 				04125EB71833361C00946556 /* CreditCardViewController.m in Sources */,
-				7C5C9F2418389F1200DF104C /* MenuItemsCollectionViewController.m in Sources */,
 				7C0FD535180475370028FC3D /* main.m in Sources */,
 				7C0FD5A318049D470028FC3D /* POSTerminal.m in Sources */,
+				7CFF2BFA183919E10004123E /* CurrentTransaction.m in Sources */,
 				7C0FD539180475370028FC3D /* POSTerminalAppDelegate.m in Sources */,
 				7C6D542A1829A9B100E8A479 /* SOAPConnection.m in Sources */,
 				7CB6B2081835BD0C00E083EE /* Product+POSproducts.m in Sources */,
 				7C5C9F2718389FA600DF104C /* MenuButtonView.m in Sources */,
 				7C5C9F2A1838B16C00DF104C /* CollectionOfProducts.m in Sources */,
 				7C5C2EE61836FE8600F65D1F /* MenuItemTableCell.m in Sources */,
+				7CFF2BF7183919E00004123E /* Product.m in Sources */,
 				7C0FD5DD1804B0D50028FC3D /* LoginViewController.m in Sources */,
-				7C5C2EE91836FE9D00F65D1F /* TotalTableCell.m in Sources */,
 				7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */,
-				7CB6B2051835BB6000E083EE /* Product.m in Sources */,
 				7C5C9F2F1838B88B00DF104C /* GetAllProductsAsArrayOfProductDictionaries.m in Sources */,
 				7C13BA091835A4FA008CB9A4 /* POSTerminal.xcdatamodeld in Sources */,
 				7CB6B211183663B100E083EE /* TransactionTableViewController.m in Sources */,

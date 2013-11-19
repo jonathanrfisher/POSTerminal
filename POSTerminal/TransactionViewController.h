@@ -16,4 +16,6 @@
 @property (nonatomic) NSInteger numberOfProducts; //abstract
 -(void) updateCell:(UICollectionViewCell *) cell usingProduct: (Product *) product; //abstract
 
+@property (nonatomic, strong) NSArray *transactionItems; //Array of Items that have been rung in. It will be an array of NSDictionary
+
 @end

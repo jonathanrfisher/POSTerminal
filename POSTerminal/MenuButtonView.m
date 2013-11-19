@@ -46,6 +46,12 @@
     [self setNeedsDisplay];
 }
 
+- (void) setType:(NSString *)type
+{
+    _type = type;
+    [self setNeedsDisplay];
+}
+
 
 //- (void)setFaceUp:(BOOL)faceUp
 //{
@@ -71,26 +77,58 @@
     [roundedRect addClip];
     
     [[UIColor whiteColor] setFill];
+
+    
     UIRectFill(self.bounds);
     
-//    if (self.faceUp) {
-//        UIImage *faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@.jpg", [self rankAsString], self.suit]];
-//        if (faceImage) {
-//            CGRect imageRect = CGRectInset(self.bounds,
-//                                           self.bounds.size.width * (1.0 - self.faceCardScaleFactor),
-//                                           self.bounds.size.height * (1.0 - self.faceCardScaleFactor));
-//            [faceImage drawInRect:imageRect];
-//        } else {
-//            [self drawPips];
-//        }
-//        [self drawCorners];
-//    } else {
-//        [[UIImage imageNamed:@"cardback.png"] drawInRect:self.bounds];
-//    }
+//    NSFileManager *filemgr;
+//    NSString *currentpath;
+//    
+//    filemgr = [[NSFileManager alloc] init];
+//    
+//    currentpath = [filemgr currentDirectoryPath];
+//    
+//    NSLog(@"currentPath: %@",currentpath);
     
+    UIImage *faceImage = [UIImage imageNamed:@"orangerec.png"];
+    //NSLog(@"image: %@",[faceImage description]);
+    //[faceImage drawAtPoint:CGPointMake(100,50)];
+    //faceImage = nil;
     
+    if (faceImage)
+    {
+        NSLog(@"inside faceImage with image: %@",[faceImage description]);
+        
+        CGRect imageRect = CGRectInset(self.bounds,
+                                       0,
+                                       0);
+                                       
+                                       //self.bounds.size.width,
+                                       //self.bounds.size.height);
+        
+        [faceImage drawInRect:imageRect];
+        //[self drawCorners];
+    }
     
-    [[UIColor blackColor] setStroke];
+//    NSString *title = [NSString stringWithFormat:@"YOUR TITLE"];
+//    NSString *alertMessage = [NSString stringWithFormat:@"YOUR MESSAGE"];
+//    NSString *button1 = [NSString stringWithFormat:@"your button 1"];
+//    NSString *button2 = [NSString stringWithFormat:@"your button 2"];
+//    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:alertMessage delegate:self cancelButtonTitle:button1 otherButtonTitles:button2, nil];
+//    
+//    
+//    
+//    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:faceImage];
+//    backgroundImageView.frame = CGRectMake(0, 0, 282, 130);
+//    backgroundImageView.contentMode = UIViewContentModeScaleToFill;
+//    
+//    [alert addSubview:backgroundImageView];
+//    [alert sendSubviewToBack:backgroundImageView];
+//    [alert show];
+   
+    
+    [[UIColor orangeColor] setStroke];
     [roundedRect stroke];
     [self drawCorners];
 }
@@ -99,7 +137,7 @@
 
 
 
-#define PIP_FONT_SCALE_FACTOR 0.20
+#define PIP_FONT_SCALE_FACTOR 0.14
 #define CORNER_OFFSET 2.0
 
 - (void)drawCorners
@@ -113,15 +151,33 @@
     if (!self.name)
         self.name = @"name";
     
-    NSAttributedString *cornerText = [[NSAttributedString alloc] initWithString:self.name attributes:@{ NSParagraphStyleAttributeName : paragraphStyle, NSFontAttributeName : cornerFont }];
+    NSMutableAttributedString *cornerText = [[NSMutableAttributedString alloc] initWithString:self.name attributes:@{ NSParagraphStyleAttributeName : paragraphStyle, NSFontAttributeName : cornerFont }];
     
-    CGRect textBounds;
-    textBounds.origin = CGPointMake(CORNER_OFFSET, CORNER_OFFSET);
-    textBounds.size = [cornerText size];
+    NSString *string = [cornerText string];
+    
+    NSRange rangeOfString = NSRangeFromString(string);
+    UIColor *white = [UIColor whiteColor];
+    
+    [cornerText addAttribute:NSForegroundColorAttributeName value:white range:rangeOfString];
+    
+//    [string addAttribute:NSForegroundColorAttributeName
+//                   value:[NSColor blueColor]
+//                   range:selectedRange];
+    
+    
+//    [cornerText addAttribute:NSForegroundColorAttributeName
+//                       value:[UIColor whiteColor]
+//                       range:[NSRangeFromString([cornerText string])]];
+    
+    CGRect textBounds = CGRectInset(self.bounds,
+                                   0,
+                                   self.bounds.size.height * .33);
+    //textBounds.origin = CGPointMake(CORNER_OFFSET, CORNER_OFFSET);
+    //textBounds.size = [cornerText size];
     [cornerText drawInRect:textBounds];
     
     //[self pushContextAndRotateUpsideDown];
-    [cornerText drawInRect:textBounds];
+    //[cornerText drawInRect:textBounds];
     //[self popContext];
 }
 

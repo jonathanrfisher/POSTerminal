@@ -89,7 +89,7 @@
             //productHolder = [[Product alloc] init];
             //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
             //productHolder = productItem;
-            NSLog(@"product name: %@", [productItem.name description]);
+            NSLog(@"%@",[productItem description]);
         }
     }
     else
@@ -239,8 +239,11 @@
     
     [self.document updateChangeCount:UIDocumentChangeDone];
     
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    [alert show];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"productsWereRemoved" object:nil];
+
+    
+//    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//    [alert show];
 
 }
 
@@ -340,10 +343,21 @@
 - (IBAction) UpdatePOS
 {
     NSLog(@"you pressed updatePOS!!");
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsWereRemoved) name:@"productsWereRemoved" object:nil];
+    
+    [self removeAllProducts];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
+}
+
+-(void) productsWereRemoved
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:nil];
     [self getDocumentContext];
     [self performUpdatePOS];
+
 }
 
 - (void) performUpdatePOS
@@ -408,13 +422,13 @@
                                 {
                                     tempKey = [key lowercaseString];
                                     
-                                    if([tempKey isEqual:@"productdescription"])
+                                    if([tempKey isEqual:@"description"])
                                         tempKey = @"productDescription";
                                     
                                     if([tempKey isEqual:@"productid"])
                                         tempKey = @"productID";
                                     
-                                    
+                                    NSLog(@"key: %@\nobject: %@",key,[product objectForKey:key]);
                                     [temp setObject:[product objectForKey:key] forKey:tempKey];
                                 }
                                 NSLog(@"trying to insert: %@",[temp description]);

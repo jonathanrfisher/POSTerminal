@@ -11,10 +11,10 @@
 @interface MenuButtonView : UIView
 
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSString *type;
 @property (strong, nonatomic) NSString *productDescription;
 
 
 //- (void)pinch:(UIPinchGestureRecognizer *)gesture;
-
 
 @end
