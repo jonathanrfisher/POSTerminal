@@ -506,9 +506,12 @@
 -(void) viewDidLoad {
     //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_image_grey.jpg"]];
     [super viewDidLoad];
-    self.userDisplayName.text = @"";
+    
+    if (!self.userData)
+        self.userDisplayName.text = @"";
     
     
+
 }
 
 - (IBAction) BeginTransaction
@@ -561,37 +564,44 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:NO];
-    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
-    
-    self.loginPortal = lvc;
-    
-    self.loginPortal.delegate = self;
-    
-    self.loginViewController = [[UIViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    
-    
-    
-        if (!self.userData)
+    NSLog(@"self.userData inside viewDidAppear: %@",[self.userData description]);
+ 
+        
+    if (!self.userData)
+    {
+        
+        if (!self.loginPortal)
         {
-            //NSLog(@"Inside !self.userData for the POSTerminalViewController");
             UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
             
-            lvc.delegate = self;
             
+            self.loginPortal = lvc;
             
+            self.loginPortal.delegate = self;
             
-            self.loginViewController = lvc;
-            
-            
-            
-            
-            [self presentViewController:self.loginViewController animated:YES completion:nil];
-            
-           
+            self.loginViewController = [[UIViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         }
+        
+        
+        //NSLog(@"Inside !self.userData for the POSTerminalViewController");
+        UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        
+        lvc.delegate = self;
+        
+        
+        
+        self.loginViewController = lvc;
+        
+        
+        
+        
+        [self presentViewController:self.loginViewController animated:YES completion:nil];
+        
+       
+    }
     
     
 }

@@ -70,7 +70,7 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"DRAWRECT WAS CALLED");
+    //NSLog(@"DRAWRECT WAS CALLED");
     // Drawing code
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:CORNER_RADIUS];
     
@@ -97,7 +97,7 @@
     
     if (faceImage)
     {
-        NSLog(@"inside faceImage with image: %@",[faceImage description]);
+     //   NSLog(@"inside faceImage with image: %@",[faceImage description]);
         
         CGRect imageRect = CGRectInset(self.bounds,
                                        0,
@@ -142,7 +142,7 @@
 
 - (void)drawCorners
 {
-    NSLog(@"DRAW CORNERS WAS CALLED....");
+    //NSLog(@"DRAW CORNERS WAS CALLED....");
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
     

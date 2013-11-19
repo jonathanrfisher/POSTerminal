@@ -12,7 +12,8 @@
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *type;
-@property (strong, nonatomic) NSString *productDescription;
+@property (nonatomic) NSString *productDescription;
+@property (nonatomic) NSString *cost;
 
 
 //- (void)pinch:(UIPinchGestureRecognizer *)gesture;

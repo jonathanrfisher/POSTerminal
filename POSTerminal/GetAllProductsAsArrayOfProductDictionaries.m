@@ -71,7 +71,7 @@
     }
     else
     {
-        NSLog(@"Nothing was returned! Matches was nil!!");
+        //NSLog(@"Nothing was returned! Matches was nil!!");
     }
     
 //    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -105,8 +105,8 @@
                   if (success) {
                       self.document = document;
                       self.managedObjectContext = document.managedObjectContext;
-                      NSLog(@"if: self.document: %@", [self.document description]);
-                      NSLog(@"if: self.managedObjectContext: %@", [self.managedObjectContext description]);
+                      //NSLog(@"if: self.document: %@", [self.document description]);
+                      //NSLog(@"if: self.managedObjectContext: %@", [self.managedObjectContext description]);
                       [self getProducts];
                       //[self refresh];
                   }
@@ -117,8 +117,8 @@
                 if (success) {
                     self.document = document;
                     self.managedObjectContext = document.managedObjectContext;
-                    NSLog(@"else if: self.document: %@", [self.document description]);
-                    NSLog(@"else if: self.managedObjectContext: %@", [self.managedObjectContext description]);
+                    //NSLog(@"else if: self.document: %@", [self.document description]);
+                    //NSLog(@"else if: self.managedObjectContext: %@", [self.managedObjectContext description]);
                     [self getProducts];
                     
                 }
@@ -128,8 +128,8 @@
         else {
             self.document = document;
             self.managedObjectContext = document.managedObjectContext;
-            NSLog(@"else: self.document: %@", [self.document description]);
-            NSLog(@"else: self.managedObjectContext: %@", [self.managedObjectContext description]);
+            //NSLog(@"else: self.document: %@", [self.document description]);
+            //NSLog(@"else: self.managedObjectContext: %@", [self.managedObjectContext description]);
             [self getProducts];
         }
         
