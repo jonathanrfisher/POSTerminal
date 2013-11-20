@@ -12,7 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *resultField;
 @property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
-@property (nonatomic, weak) NSString *previousNumber;
+@property (nonatomic, strong) NSString *previousNumber;
+@property (nonatomic, strong) NSString *operation;
 
 @end
 
@@ -44,23 +45,46 @@
 
 - (IBAction)clearButtonPressed:(UIButton *)sender
 {
+    NSLog(@"CLEAR BUTTON PRESSED");
     self.userIsInTheMiddleOfEnteringANumber = NO;
     self.resultField.text = @"0.00";
+    self.previousNumber = nil;
     
 }
 
 - (IBAction)equalsButtonPressed:(UIButton *)sender
 {
+    NSLog(@"equalsPressed with previous number: %@\nand self.resultField.text: %@",self.previousNumber,self.resultField.text);
     
-    
+    if (self.previousNumber)
+    {
+    self.resultField.text = [self CalculateResultWithLeftNumber: self.previousNumber andWithRightNumber: self.resultField.text];
+    self.previousNumber = self.resultField.text;
+    self.userIsInTheMiddleOfEnteringANumber = NO;
+    }
 }
 
 - (IBAction)operationButtonPressed:(UIButton *)sender
 {
-    //NSLog(@"Operation Pressed");
+    NSLog(@"self.previousNumber: %@",self.previousNumber);
+    NSLog(@"self.operation: %@",self.operation);
+    self.userIsInTheMiddleOfEnteringANumber = NO;
+
     if(self.previousNumber)
-        self.previousNumber = [self CalculateResultWith: self.resultField.text andWith: self.previousNumber];
-    
+    {
+        NSLog(@"Inside self.previousNumber of operationButtonPressed with:\nself.operation: %@\nself.resultField.text: %@\nself.previousNumber: %@",self.operation, self.resultField.text,self.previousNumber);
+        self.operation = [sender currentTitle];
+        self.resultField.text = [self CalculateResultWithLeftNumber: self.previousNumber andWithRightNumber: self.resultField.text];
+        self.previousNumber = nil;
+    }
+    else
+    {
+        NSLog(@"Inside operationButtonPressed else statement");
+        self.previousNumber = self.resultField.text;
+        self.operation = [sender currentTitle];
+        self.resultField.text = [self.resultField.text stringByAppendingString:[NSString stringWithFormat:@" %@",self.operation]];
+        NSLog(@"value for self.previousNumber in the operation else statement: %@",self.previousNumber);
+    }
     
     //if (self.userIsInTheMiddleOfEnteringANumber) [self enterPressed];
     //double result = [self.brain performOperation:sender.currentTitle];
@@ -74,11 +98,45 @@
 }
                                
                                
--(NSString *) CalculateResultWith: (NSString *) firstNumber
-                andWith: (NSString *) secondNumber
+-(NSString *) CalculateResultWithLeftNumber: (NSString *) firstNumber
+                          andWithRightNumber: (NSString *) secondNumber
 {
     NSString *result;
+    self.previousNumber = nil;
     
+    NSLog(@"CalculateResult called with:\n%@\n%@",firstNumber,secondNumber);
+    
+    if([self.operation isEqualToString:@"+"])
+    {
+        float leftNumber = [firstNumber floatValue];
+        float rightNumber = [secondNumber floatValue];
+        
+        result = [NSString stringWithFormat:@"%.4f",(leftNumber + rightNumber)];
+    }
+    else if([self.operation isEqualToString:@"-"])
+    {
+        float leftNumber = [firstNumber floatValue];
+        float rightNumber = [secondNumber floatValue];
+        
+        result = [NSString stringWithFormat:@"%.4f",(leftNumber - rightNumber)];
+    }
+    else if([self.operation isEqualToString:@"*"])
+    {
+        float leftNumber = [firstNumber floatValue];
+        float rightNumber = [secondNumber floatValue];
+        
+        result = [NSString stringWithFormat:@"%.4f",(leftNumber * rightNumber)];
+    }
+    else if([self.operation isEqualToString:@"/"])
+    {
+        float leftNumber = [firstNumber floatValue];
+        float rightNumber = [secondNumber floatValue];
+        
+        result = [NSString stringWithFormat:@"%.4f",(leftNumber / rightNumber)];
+    }
+    
+    NSLog(@"With result: %@",result);
+    self.operation = nil;
     return result;
 }
 

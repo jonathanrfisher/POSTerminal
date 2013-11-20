@@ -1012,8 +1012,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clearButtonPressed:" destination="jEr-VU-lv1" eventType="touchUpInside" id="72g-BO-kQl"/>
-                                    <action selector="equalsButtonPressed:" destination="jEr-VU-lv1" eventType="touchUpInside" id="atV-fO-HOX"/>
+                                    <action selector="equalsButtonPressed:" destination="jEr-VU-lv1" eventType="touchUpInside" id="1cv-Xf-KBY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hh-7n-bkI">
