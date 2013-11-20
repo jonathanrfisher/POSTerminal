@@ -10,6 +10,7 @@
 		04125EB71833361C00946556 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04125EB61833361C00946556 /* CreditCardViewController.m */; };
 		0495CC15183C346F00015C42 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0495CC13183C346E00015C42 /* BeginT_Background.jpg */; };
 		0495CC16183C346F00015C42 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0495CC14183C346E00015C42 /* Background_Brown.jpg */; };
+		0495CC1C183C671A00015C42 /* CCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495CC1B183C671A00015C42 /* CCTableViewController.m */; };
 		7C0FD529180475370028FC3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD528180475370028FC3D /* Foundation.framework */; };
 		7C0FD52B180475370028FC3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52A180475370028FC3D /* CoreGraphics.framework */; };
 		7C0FD52D180475370028FC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52C180475370028FC3D /* UIKit.framework */; };
@@ -84,6 +85,8 @@
 		04125EB61833361C00946556 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
 		0495CC13183C346E00015C42 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BeginT_Background.jpg; path = ../../../../../Desktop/BeginT_Background.jpg; sourceTree = "<group>"; };
 		0495CC14183C346E00015C42 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background_Brown.jpg; path = ../../../../../Desktop/Background_Brown.jpg; sourceTree = "<group>"; };
+		0495CC1A183C671A00015C42 /* CCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewController.h; sourceTree = "<group>"; };
+		0495CC1B183C671A00015C42 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewController.m; sourceTree = "<group>"; };
 		7C0FD525180475370028FC3D /* POSTerminal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POSTerminal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0FD528180475370028FC3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C0FD52A180475370028FC3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -390,6 +393,8 @@
 			children = (
 				04125EB51833361C00946556 /* CreditCardViewController.h */,
 				04125EB61833361C00946556 /* CreditCardViewController.m */,
+				0495CC1A183C671A00015C42 /* CCTableViewController.h */,
+				0495CC1B183C671A00015C42 /* CCTableViewController.m */,
 			);
 			name = CreditCardPortal;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				7CB6B211183663B100E083EE /* TransactionTableViewController.m in Sources */,
 				7C13BA061835A4A8008CB9A4 /* MenuItemsCells.m in Sources */,
 				7CB6B20B183660B300E083EE /* TransactionViewController.m in Sources */,
+				0495CC1C183C671A00015C42 /* CCTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
