@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04125EB71833361C00946556 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04125EB61833361C00946556 /* CreditCardViewController.m */; };
-		0495CC15183C346F00015C42 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0495CC13183C346E00015C42 /* BeginT_Background.jpg */; };
-		0495CC16183C346F00015C42 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0495CC14183C346E00015C42 /* Background_Brown.jpg */; };
 		0495CC1C183C671A00015C42 /* CCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495CC1B183C671A00015C42 /* CCTableViewController.m */; };
 		7C0FD529180475370028FC3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD528180475370028FC3D /* Foundation.framework */; };
 		7C0FD52B180475370028FC3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0FD52A180475370028FC3D /* CoreGraphics.framework */; };
@@ -50,6 +48,9 @@
 		7CB6B20B183660B300E083EE /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B20A183660B300E083EE /* TransactionViewController.m */; };
 		7CB6B211183663B100E083EE /* TransactionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B210183663B100E083EE /* TransactionTableViewController.m */; };
 		7CB6B21B1836AF9100E083EE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB6B21A1836AF9100E083EE /* CoreData.framework */; };
+		7CD3E0DB183D0462007BD2F4 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3E0DA183D0462007BD2F4 /* CalculatorViewController.m */; };
+		7CD8E0B3183CF83000DCC976 /* Background_Brown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8E0B2183CF83000DCC976 /* Background_Brown.jpg */; };
+		7CD8E0B5183CF83800DCC976 /* BeginT_Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CD8E0B4183CF83800DCC976 /* BeginT_Background.jpg */; };
 		7CE27EFB182C3DF80004C76F /* convertXMLtoJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */; };
 		7CFF2BDD183913210004123E /* Coffee-Cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFF2BD7183913210004123E /* Coffee-Cup.png */; };
 		7CFF2BF7183919E00004123E /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFF2BF6183919E00004123E /* Product.m */; };
@@ -83,8 +84,6 @@
 /* Begin PBXFileReference section */
 		04125EB51833361C00946556 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
 		04125EB61833361C00946556 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
-		0495CC13183C346E00015C42 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BeginT_Background.jpg; path = ../../../../../Desktop/BeginT_Background.jpg; sourceTree = "<group>"; };
-		0495CC14183C346E00015C42 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background_Brown.jpg; path = ../../../../../Desktop/Background_Brown.jpg; sourceTree = "<group>"; };
 		0495CC1A183C671A00015C42 /* CCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewController.h; sourceTree = "<group>"; };
 		0495CC1B183C671A00015C42 /* CCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewController.m; sourceTree = "<group>"; };
 		7C0FD525180475370028FC3D /* POSTerminal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POSTerminal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +140,10 @@
 		7CB6B20F183663B100E083EE /* TransactionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionTableViewController.h; path = ../TransactionTableViewController.h; sourceTree = "<group>"; };
 		7CB6B210183663B100E083EE /* TransactionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionTableViewController.m; path = ../TransactionTableViewController.m; sourceTree = "<group>"; };
 		7CB6B21A1836AF9100E083EE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7CD3E0D9183D0462007BD2F4 /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
+		7CD3E0DA183D0462007BD2F4 /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
+		7CD8E0B2183CF83000DCC976 /* Background_Brown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background_Brown.jpg; sourceTree = "<group>"; };
+		7CD8E0B4183CF83800DCC976 /* BeginT_Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BeginT_Background.jpg; sourceTree = "<group>"; };
 		7CE27EF9182C3DF80004C76F /* convertXMLtoJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convertXMLtoJSON.h; sourceTree = "<group>"; };
 		7CE27EFA182C3DF80004C76F /* convertXMLtoJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertXMLtoJSON.m; sourceTree = "<group>"; };
 		7CFF2BD7183913210004123E /* Coffee-Cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee-Cup.png"; sourceTree = "<group>"; };
@@ -214,8 +217,8 @@
 				7CFF2C00183934860004123E /* latte.png */,
 				7CFF2BD7183913210004123E /* Coffee-Cup.png */,
 				7C0FD5E01804CD750028FC3D /* bg_image_grey.jpg */,
-				0495CC13183C346E00015C42 /* BeginT_Background.jpg */,
-				0495CC14183C346E00015C42 /* Background_Brown.jpg */,
+				7CD8E0B4183CF83800DCC976 /* BeginT_Background.jpg */,
+				7CD8E0B2183CF83000DCC976 /* Background_Brown.jpg */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			children = (
 				7CB6B209183660B300E083EE /* TransactionViewController.h */,
 				7CB6B20A183660B300E083EE /* TransactionViewController.m */,
+				7CD3E0DC183D046D007BD2F4 /* Calculator */,
 				7C5C9F2C1838B7B400DF104C /* TableViewOfTransaction */,
 				7C5C9F2B1838B78E00DF104C /* CollectionViewOfMenuItems */,
 			);
@@ -408,6 +412,15 @@
 				7C6D54291829A9B100E8A479 /* SOAPConnection.m */,
 			);
 			name = SoapConnection;
+			sourceTree = "<group>";
+		};
+		7CD3E0DC183D046D007BD2F4 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				7CD3E0D9183D0462007BD2F4 /* CalculatorViewController.h */,
+				7CD3E0DA183D0462007BD2F4 /* CalculatorViewController.m */,
+			);
+			name = Calculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,15 +543,15 @@
 				7CFF2C04183934860004123E /* frappuccino.png in Resources */,
 				7CFF2C08183945050004123E /* orangerec.png in Resources */,
 				7C0FD541180475370028FC3D /* Images.xcassets in Resources */,
+				7CD8E0B5183CF83800DCC976 /* BeginT_Background.jpg in Resources */,
 				7C6D542C1829B17000E8A479 /* Notes in Resources */,
 				7CFF2C03183934860004123E /* cupOfTea.png in Resources */,
-				0495CC16183C346F00015C42 /* Background_Brown.jpg in Resources */,
 				7CFF2C06183934860004123E /* latte.png in Resources */,
 				7CFF2C01183934860004123E /* coffee.png in Resources */,
 				7C0FD5E11804CD750028FC3D /* bg_image_grey.jpg in Resources */,
 				7CFF2C05183934860004123E /* images.jpeg in Resources */,
+				7CD8E0B3183CF83000DCC976 /* Background_Brown.jpg in Resources */,
 				7CFF2C02183934860004123E /* croissant.png in Resources */,
-				0495CC15183C346F00015C42 /* BeginT_Background.jpg in Resources */,
 				7C0FD533180475370028FC3D /* InfoPlist.strings in Resources */,
 				7CFF2BDD183913210004123E /* Coffee-Cup.png in Resources */,
 				7C0FD53C180475370028FC3D /* Main.storyboard in Resources */,
@@ -586,6 +599,7 @@
 				7C5C9F2718389FA600DF104C /* MenuButtonView.m in Sources */,
 				7CAC5B88183BE86C00DC96D1 /* FooterViewForTransactionTable.m in Sources */,
 				7C5C9F2A1838B16C00DF104C /* CollectionOfProducts.m in Sources */,
+				7CD3E0DB183D0462007BD2F4 /* CalculatorViewController.m in Sources */,
 				7CAC5B8B183BEA1C00DC96D1 /* HeaderViewForTransactionTable.m in Sources */,
 				7C5C2EE61836FE8600F65D1F /* MenuItemTableCell.m in Sources */,
 				7CFF2BF7183919E00004123E /* Product.m in Sources */,

@@ -126,7 +126,7 @@
             [tempDict setObject:quant forKey:@"quantity"];
             
             [self.transactionItems replaceObjectAtIndex:transactionItemsIndexForCurrentItem withObject:tempDict];
-            [self calculateTotalQuantity];
+            //[self calculateTotalQuantity];
             [self calculateTotalCost];
             [self.transactionTableView reloadData];
             //[[self.transactionItems objectAtIndex:i] setObject:quant forKey:@"quantity"];
@@ -138,7 +138,7 @@
             
             self.transactionItems = [NSMutableArray arrayWithArray:[self.transactionItems arrayByAddingObject:dict]];
             
-            [self calculateTotalQuantity];
+            //[self calculateTotalQuantity];
             [self calculateTotalCost];
             //self.transactionItems = [self.transactionItems arrayByAddingObjectsFromArray:arrayWithDict];
             //NSLog(@"description of self.transactionItems inside the else statement for tapMenuItem: %@",[self.transactionItems description]);
@@ -170,7 +170,7 @@
     {
         quantity += [[[self.transactionItems objectAtIndex:i] objectForKey:@"quantity"] intValue];
     }
-    self.totalQuantity.text = [NSString stringWithFormat:@"Total: %d",quantity];
+    self.totalQuantity.text = [NSString stringWithFormat:@"%d",quantity];
 }
 
 -(void) calculateTotalCost
