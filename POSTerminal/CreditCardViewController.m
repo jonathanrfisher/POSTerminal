@@ -34,17 +34,12 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     self.cardInfo = nil;
-    //_cardInfo = nil;
     self.creditNumField.text = nil;
-    //_creditNumField.text = nil;
-    //_expDateField.text = nil;
     self.expDateField.text = nil;
-    //_cvvNumField.text = nil;
     self.cvvNumField.text = nil;
+    
     //for SOAP connection
-    //_JSONObject = nil;
     self.JSONObject = nil;
-    //_soap = nil;
     self.soap = nil;
 }
 
@@ -52,21 +47,17 @@
 
 - (IBAction)submitBtn:(UIButton *)sender {
     
-    //if(self.validateInput == YES){
-        
-        //_creditText = _creditNumField.text;
-        //_expText = _expDateField.text;
-        //_cvvText = _cvvNumField.text;
-        //_cardInfo = @[_creditText,_expText,_cvvText];
+    if(self.validateInput == YES){
     
-    self.creditText = self.creditNumField.text;
-    self.expText = self.expDateField.text;
-    self.cvvText = self.cvvNumField.text;
-    self.cardInfo = @[self.creditText,self.expText,self.cvvText];
+    
+        self.creditText = self.creditNumField.text;
+        self.expText = self.expDateField.text;
+        self.cvvText = self.cvvNumField.text;
+        self.cardInfo = @[self.creditText,self.expText,self.cvvText];
     
         NSLog(@"Description of cardInfo: %@", [self.cardInfo description]);
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:[_cardInfo description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:[self.cardInfo description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
         
         
@@ -75,7 +66,7 @@
         //        [self validateCardInfo:_creditText];
         
         
-    //}
+    }
     
 }
 -(BOOL)validateInput{
@@ -83,20 +74,20 @@
     BOOL retvalue=YES;
     NSString *throwmessage;
     
-    if ([self.creditText isEqualToString:@""] || self.creditText.length != 16)
+    if ([self.creditText isEqualToString:@""] || [self.creditNumField.text length] != 16)
         
     {
         throwmessage=@"Enter a valid Credit Card number";
         retvalue=NO;
     }
     
-    else if ([self.expText isEqualToString:@""] || self.expText.length != 4)
+    else if ([self.expText isEqualToString:@""] || [self.expDateField.text length] != 4)
         
     {
         throwmessage=@"Enter a valid expration date (mmyy)";
         retvalue=NO;
     }
-    else if ([self.cvvText isEqualToString:@"" ] || self.cvvText.length != 3)
+    else if ([self.cvvText isEqualToString:@"" ] || [self.cvvNumField.text length] != 3)
         
     {
         throwmessage=@"Enter a valid cvv number";
@@ -120,21 +111,18 @@
     self.JSONObject = [self.soap returnJSON];
     
 
-    NSLog(@"LOGINCODE: %@",cardInfo);
+    NSLog(@"CreditCardInfo: %@",cardInfo);
     
     self.soap = [[SOAPConnection alloc] init];
     
     NSDictionary * cardInfoDict = [NSDictionary dictionaryWithObject:cardInfo forKey:@"cardinfo"];
     
-    //This dictionary will eventually have just one number
-//    NSDictionary *dict = @{@"username" : loginCode,
-//                           @"password" : loginCode,
-//                           };
     
-    //NSDictionary *dict = @{@"password" : [NSNumber numberWithInt:2546],
-    //                       @"username" : [NSNumber numberWithInt:2546],
-    //                       };
-    
+//    NSDictionary *cardDict = @{@"credit" : cardInfo,
+//                           @"exp" : cardInfo,
+//                           @"cvv" : cardInfo
+//                          };
+  
     NSArray *paramOrder = @[@"cardinfo"];
 
     
@@ -187,19 +175,19 @@
             }
             else
             {
-                NSDictionary *userInfo = [[self.JSONObject objectForKey:key] objectForKey:@"0"];
-                for (NSString *userKey in userInfo)
+                NSDictionary *cardInfo = [[self.JSONObject objectForKey:key] objectForKey:@"0"];
+                for (NSString *userKey in cardInfo)
                 {
                     NSLog(@"userKey: %@",userKey);
-                    if ([userKey  isEqualToString: @"FirstName"])
+                    if ([userKey  isEqualToString: @"CreditNumber"])
                     {
                         //self.firstName = [userInfo objectForKey:userKey];
                     }
-                    else if ([userKey  isEqualToString: @"LastName"])
+                    else if ([userKey  isEqualToString: @"ExpDate"])
                     {
                         //self.lastName = [userInfo objectForKey:userKey];
                     }
-                    else if ([userKey  isEqualToString: @"UserType"])
+                    else if ([userKey  isEqualToString: @"Cvv"])
                     {
                         //self.position = [userInfo objectForKey:userKey];
                     }
