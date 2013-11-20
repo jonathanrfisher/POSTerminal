@@ -170,7 +170,7 @@
     {
         quantity += [[[self.transactionItems objectAtIndex:i] objectForKey:@"quantity"] intValue];
     }
-    self.totalQuantity.text = [NSString stringWithFormat:@"%d",quantity];
+    self.totalQuantity.text = [NSString stringWithFormat:@"Total: %d",quantity];
 }
 
 -(void) calculateTotalCost
