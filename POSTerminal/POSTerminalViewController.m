@@ -44,11 +44,24 @@
 @property (weak, nonatomic) NSURL *url;
 @property (weak, nonatomic) id JSONObject;
 
+@property (nonatomic)  UIActivityIndicatorView *activity;
 @end
 
 @implementation POSTerminalViewController
 
 @synthesize userData = _userData;
+
+-(UIActivityIndicatorView *)activity
+{
+    if(!_activity)
+    {
+        UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(225, 115, 30, 30)];
+        [activity setBackgroundColor:[UIColor clearColor]];
+        [activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+        [self.view addSubview:activity];
+    }
+    return _activity;
+}
 
 -(UIViewController *)loginViewController
 {
@@ -290,6 +303,7 @@
 
 - (IBAction) UpdatePOS
 {
+    [self.activity startAnimating];
     NSLog(@"<<<<<<<<<<<<<<=============you pressed updatePOS!!======================>>>>>>>>>>>>>>>");
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsWereRemoved) name:@"productsWereRemoved" object:nil];
@@ -300,40 +314,54 @@
 
 -(IBAction)removeAllProducts
 {
+    NSLog(@"Trying to remove all of the products...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"name != nil"];
     
     // Execute the fetch
     
-    if(!self.managedObjectContext)
-        [self getDocumentContext];
+    NSLog(@"[request description]: %@",[request description]);
     
-    NSError *error = nil;
-    NSArray *matches = [self.managedObjectContext executeFetchRequest:request error:&error];
-    //Product *productHolder = [[Product alloc] init];
+  
+
     
-    if (matches)
+    dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
+    dispatch_async(fetchQ, ^
     {
-        for (Product *productItem in matches)
+        NSLog(@"Before [self.managedObjectContext performBlock with self.manageObjectContext: %@",[self.managedObjectContext description]);
+        [self.managedObjectContext performBlock:^
         {
-            //productHolder = [[Product alloc] init];
-            //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
-            //productHolder = productItem;
-            [self.managedObjectContext deleteObject:productItem];
-            NSLog(@"product name: %@ DELETED", [productItem.name description]);
-        }
-    }
-    else
-    {
-        NSLog(@"Nothing was returned! Matches was nil!!");
-    }
-    
-    [self.document updateChangeCount:UIDocumentChangeDone];
-    
+            NSError *error = nil;
+            NSArray *matches = [self.managedObjectContext executeFetchRequest:request error:&error];
+            //Product *productHolder = [[Product alloc] init];
+
+            if (matches)
+            {
+                for (Product *productItem in matches)
+                {
+                    //productHolder = [[Product alloc] init];
+                    //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
+                    //productHolder = productItem;
+                    [self.managedObjectContext deleteObject:productItem];
+                    NSLog(@"product name: %@ DELETED", [productItem.name description]);
+                }
+            }
+            else
+            {
+                NSLog(@"Nothing was returned! Matches was nil!!");
+            }
+
+            [self.document updateChangeCount:UIDocumentChangeDone];
+
+            
+
+            //PRODUCTSWEREREMOVED gets called after the above notification is posted!!!
+        }];
+        
+    });
+    NSLog(@"BEFORE NSnotification: productsWereRemoved: ");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"productsWereRemoved" object:nil];
-    
-    //PRODUCTSWEREREMOVED gets called after the above notification is posted!!!
 }
 
 
@@ -342,9 +370,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:nil];
-    [self getDocumentContext];
+    
+    if(!self.managedObjectContext)
+        [self getDocumentContext];
+    //[self getDocumentContext];
+    
     [self performUpdatePOS];
-
 }
 
 - (void) performUpdatePOS
@@ -357,15 +388,18 @@
     
     //The soap connection notifies ViewController when the JSON is ready, we signed up to notificationCenter using the following:
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:nil];
-    
+    NSLog(@"Making soap call in the performUpdatePOS method.");
     [self.soap makeConnection:self.url withMethodType:SOAPUpdatePOSMethodType withParams:dict  usingParamOrder:paramOrder withSOAPAction:SOAPActionPOSUpdate];
 }
 
 - (void) getJSONandWriteToCoreData:(NSNotification *) notification
 {
+    NSLog(@"Getting the JSON...");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     self.JSONObject = [self.soap returnJSON];
+    
+    NSLog(@"Our JSON inside getJSONandWriteToCoreData: %@",self.JSONObject);
     
     NSDictionary *products;
     
@@ -486,6 +520,7 @@
 //        
 //        NSLog(@"Description of userData: %@", [self.userData description]);
 //    }
+    [self.activity stopAnimating];
 }
 
 
@@ -493,6 +528,9 @@
 -(void) viewDidLoad {
     //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg_image_grey.jpg"]];
     [super viewDidLoad];
+    
+    if(!self.managedObjectContext)
+        [self getDocumentContext];
     
     if (!self.userData)
         self.userDisplayName.text = @"";
@@ -610,7 +648,6 @@
 //    [self.userDisplayName sizeToFit];
     
 }
-
 
 
 

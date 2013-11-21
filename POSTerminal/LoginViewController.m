@@ -27,6 +27,8 @@
 @property (nonatomic) NSString *position;
 @property (weak, nonatomic) POSTerminalAppDelegate *appDelegate;
 
+@property (nonatomic) UIActivityIndicatorView *activity;
+
 @end
 
 @implementation LoginViewController
@@ -35,6 +37,18 @@
 
 @synthesize delegate;
 @synthesize userData = _userData;
+
+-(UIActivityIndicatorView *)activity
+{
+    if(!_activity)
+    {
+        UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(225, 115, 30, 30)];
+        [activity setBackgroundColor:[UIColor clearColor]];
+        [activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+        [self.view addSubview:activity];
+    }
+    return _activity;
+}
 
 -(POSTerminalAppDelegate *) appDelegate
 {
@@ -116,10 +130,11 @@
         
         
         
+        
         [self.delegate addItemViewController:self didFinishEnteringItem:self.userData];
     
         
-        
+        [self.activity stopAnimating];
         [self dismissViewControllerAnimated:YES completion:nil];
         
       
@@ -179,6 +194,12 @@
         if(self.firstName && self.lastName && self.position)
         {
             self.userData = [NSDictionary dictionaryWithObjects:@[self.firstName,self.lastName,self.position] forKeys:@[@"firstname",@"lastname",@"position"]];
+            
+//            [NSTimer scheduledTimerWithTimeInterval:2
+//                                             target:self
+//                                           selector:@selector(returnUserData)
+//                                           userInfo:nil
+//                                            repeats:YES];
             [self returnUserData];
         }
         
@@ -211,6 +232,7 @@
     if(self.userID.length == 4)
     {
         [self performUserValidation:self.userID];
+        [self.activity startAnimating];
     }
 
 }
