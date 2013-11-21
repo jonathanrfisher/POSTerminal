@@ -246,24 +246,32 @@
 
 - (IBAction)longPressOnMenuItem:(UILongPressGestureRecognizer *)gesture
 {
-    CGPoint tapLocation = [gesture locationInView:self.menuItemsCollectionView];
-    NSIndexPath *indexPath = [self.menuItemsCollectionView indexPathForItemAtPoint:tapLocation];
-    
-    if (indexPath)
+    //NSLog(@"Long Press called!!!");
+
+    if (gesture.state == UIGestureRecognizerStateBegan)
     {
-        UICollectionViewCell *cell = [self collectionView:self.menuItemsCollectionView cellForItemAtIndexPath:indexPath];
-        
-        MenuButtonView *menuButtonView = ((MenuItemsCells *)cell).menuButtonView;
-        
-        NSString *name = menuButtonView.name;
-        NSString *descriptionString = menuButtonView.productDescription;
-        
-        NSString *cost = menuButtonView.cost;
-        
-        descriptionString = [descriptionString stringByAppendingString:[NSString stringWithFormat:@"\n%@",cost]];
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:name message:descriptionString delegate:self cancelButtonTitle:@"Groove On" otherButtonTitles:nil, nil];
-        [alert show];
+        //NSLog(@"Long press detected.");
+
+
+        CGPoint tapLocation = [gesture locationInView:self.menuItemsCollectionView];
+        NSIndexPath *indexPath = [self.menuItemsCollectionView indexPathForItemAtPoint:tapLocation];
+
+        if (indexPath)
+        {
+            UICollectionViewCell *cell = [self collectionView:self.menuItemsCollectionView cellForItemAtIndexPath:indexPath];
+
+            MenuButtonView *menuButtonView = ((MenuItemsCells *)cell).menuButtonView;
+
+            NSString *name = menuButtonView.name;
+            NSString *descriptionString = menuButtonView.productDescription;
+
+            NSString *cost = menuButtonView.cost;
+
+            descriptionString = [descriptionString stringByAppendingString:[NSString stringWithFormat:@"\n%@",cost]];
+
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:name message:descriptionString delegate:self cancelButtonTitle:@"Groove On" otherButtonTitles:nil, nil];
+            [alert show];
+        }
     }
 }
 

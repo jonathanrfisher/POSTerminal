@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="hc7-0w-HwB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -359,16 +359,16 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="hc7-0w-HwB" id="ASO-yc-7G9"/>
+                                    <outlet property="dataSource" destination="hc7-0w-HwB" id="KdB-fX-0EN"/>
                                     <outlet property="delegate" destination="hc7-0w-HwB" id="f8v-xC-WaW"/>
                                     <outletCollection property="gestureRecognizers" destination="nYL-7c-X8X" appends="YES" id="Qks-t0-Taa"/>
-                                    <outletCollection property="gestureRecognizers" destination="USH-nM-isz" appends="YES" id="3Q4-rI-B9y"/>
+                                    <outletCollection property="gestureRecognizers" destination="USH-nM-isz" appends="YES" id="PC0-5B-sXI"/>
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="J4S-MQ-yiB">
                                 <rect key="frame" x="0.0" y="20" width="326" height="748"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.2588235438" green="0.1764705926" blue="0.12549020350000001" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="separatorColor" red="0.88928970029999999" green="0.76523877529999995" blue="0.50236400169999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.88928970029999999" green="0.76523877529999995" blue="0.50236400169999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="sgb-rN-Glf" customClass="HeaderViewForTransactionTable">
@@ -466,6 +466,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.2588235438" green="0.1764705926" blue="0.12549020350000001" alpha="1" colorSpace="deviceRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductTableCell" id="zli-YO-Yc2" customClass="MenuItemTableCell">
@@ -497,7 +498,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.2588235438" green="0.1764705926" blue="0.12549020350000001" alpha="1" colorSpace="deviceRGB"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.2588235438" green="0.1764705926" blue="0.12549020350000001" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <outlet property="cost" destination="J2F-HA-fGv" id="aiD-8o-HD4"/>
                                             <outlet property="name" destination="PzH-ca-Mw5" id="EmH-qd-Cxh"/>
@@ -588,9 +591,9 @@
                         <action selector="tapMenuItem:" destination="hc7-0w-HwB" id="qhN-S1-drk"/>
                     </connections>
                 </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="USH-nM-isz">
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" delaysTouchesEnded="NO" allowableMovement="10" minimumPressDuration="0.20000000000000004" id="USH-nM-isz">
                     <connections>
-                        <action selector="longPressOnMenuItem:" destination="hc7-0w-HwB" id="tkW-V3-KUa"/>
+                        <action selector="longPressOnMenuItem:" destination="hc7-0w-HwB" id="8Cy-6N-ovM"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
