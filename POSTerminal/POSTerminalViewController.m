@@ -65,7 +65,7 @@
 
 -(UIViewController *)loginViewController
 {
-    NSLog(@"custom loginViewController getter called...");
+    //NSLog(@"custom loginViewController getter called...");
     if(!_loginViewController)
     {
         UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -304,7 +304,7 @@
 - (IBAction) UpdatePOS
 {
     [self.activity startAnimating];
-    NSLog(@"<<<<<<<<<<<<<<=============you pressed updatePOS!!======================>>>>>>>>>>>>>>>");
+    //NSLog(@"<<<<<<<<<<<<<<=============you pressed updatePOS!!======================>>>>>>>>>>>>>>>");
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsWereRemoved) name:@"productsWereRemoved" object:nil];
     
@@ -314,14 +314,14 @@
 
 -(IBAction)removeAllProducts
 {
-    NSLog(@"Trying to remove all of the products...");
+    //NSLog(@"Trying to remove all of the products...");
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"name != nil"];
     
     // Execute the fetch
     
-    NSLog(@"[request description]: %@",[request description]);
+    //NSLog(@"[request description]: %@",[request description]);
     
   
 
@@ -329,7 +329,7 @@
     dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
     dispatch_async(fetchQ, ^
     {
-        NSLog(@"Before [self.managedObjectContext performBlock with self.manageObjectContext: %@",[self.managedObjectContext description]);
+        //NSLog(@"Before [self.managedObjectContext performBlock with self.manageObjectContext: %@",[self.managedObjectContext description]);
         [self.managedObjectContext performBlock:^
         {
             NSError *error = nil;
@@ -344,12 +344,12 @@
                     //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
                     //productHolder = productItem;
                     [self.managedObjectContext deleteObject:productItem];
-                    NSLog(@"product name: %@ DELETED", [productItem.name description]);
+                    //NSLog(@"product name: %@ DELETED", [productItem.name description]);
                 }
             }
             else
             {
-                NSLog(@"Nothing was returned! Matches was nil!!");
+                //NSLog(@"Nothing was returned! Matches was nil!!");
             }
 
             [self.document updateChangeCount:UIDocumentChangeDone];
@@ -360,7 +360,7 @@
         }];
         
     });
-    NSLog(@"BEFORE NSnotification: productsWereRemoved: ");
+    //NSLog(@"BEFORE NSnotification: productsWereRemoved: ");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"productsWereRemoved" object:nil];
 }
 
@@ -388,18 +388,18 @@
     
     //The soap connection notifies ViewController when the JSON is ready, we signed up to notificationCenter using the following:
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getJSONandWriteToCoreData:) name:@"isTheJSONReady" object:nil];
-    NSLog(@"Making soap call in the performUpdatePOS method.");
+    //NSLog(@"Making soap call in the performUpdatePOS method.");
     [self.soap makeConnection:self.url withMethodType:SOAPUpdatePOSMethodType withParams:dict  usingParamOrder:paramOrder withSOAPAction:SOAPActionPOSUpdate];
 }
 
 - (void) getJSONandWriteToCoreData:(NSNotification *) notification
 {
-    NSLog(@"Getting the JSON...");
+    //NSLog(@"Getting the JSON...");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     self.JSONObject = [self.soap returnJSON];
     
-    NSLog(@"Our JSON inside getJSONandWriteToCoreData: %@",self.JSONObject);
+    //NSLog(@"Our JSON inside getJSONandWriteToCoreData: %@",self.JSONObject);
     
     NSDictionary *products;
     
@@ -418,22 +418,22 @@
         [productsArray addObject:[products objectForKey:key]];
     }
     
-    NSLog(@"productsArray: %@", [productsArray description]);
+    //NSLog(@"productsArray: %@", [productsArray description]);
     
   
     
     dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
     dispatch_async(fetchQ, ^
                    {
-                       NSLog(@"Before [self.managedObjectContext performBlock with self.manageObjectContext: %@",[self.managedObjectContext description]);
+                       //NSLog(@"Before [self.managedObjectContext performBlock with self.manageObjectContext: %@",[self.managedObjectContext description]);
                        [self.managedObjectContext performBlock:^
                         {
                             NSEnumerator *innerKeys;
                             NSMutableDictionary *temp;
                             NSString *tempKey;
                             
-                            NSLog(@"Before the for (NSDictionary *product in products) loop.");
-                            NSLog(@"Contents of products: %@", [productsArray description]);
+                            //NSLog(@"Before the for (NSDictionary *product in products) loop.");
+                            //NSLog(@"Contents of products: %@", [productsArray description]);
                             
                             for (NSDictionary *product in productsArray)
                             {
@@ -449,26 +449,26 @@
                                     if([tempKey isEqual:@"productid"])
                                         tempKey = @"productID";
                                     
-                                    NSLog(@"key: %@\nobject: %@",key,[product objectForKey:key]);
+                                    //NSLog(@"key: %@\nobject: %@",key,[product objectForKey:key]);
                                     [temp setObject:[product objectForKey:key] forKey:tempKey];
                                 }
-                                NSLog(@"trying to insert: %@",[temp description]);
+                                //NSLog(@"trying to insert: %@",[temp description]);
                                 [Product productWithDictionary:temp inManagedObjectContext:self.managedObjectContext];
                             }
-                            NSLog(@"After our for loop that is supposed to create our products.");
+                            //NSLog(@"After our for loop that is supposed to create our products.");
                             //              dispatch_async(dispatch_get_main_queue(), ^{
                             //              [self.refreshControl endRefreshing];
                             //              });
                             //                 NSError *error;
                             //                [self.managedObjectContext save:&error];
-                            NSLog(@"self.document description: %@",[self.document description]);
+                            //NSLog(@"self.document description: %@",[self.document description]);
                             [self.document updateChangeCount:UIDocumentChangeDone];
-                            NSLog(@"Data Saved.");
+                            //NSLog(@"Data Saved.");
                         }];
-                       NSLog(@"AFTER the [self.mana....]");
+                       //NSLog(@"AFTER the [self.mana....]");
                    });
     
-    NSLog(@"AFTER the dispatch queue.");
+    //NSLog(@"AFTER the dispatch queue.");
     
     
 //    if([self.JSONObject isKindOfClass:[NSDictionary class]])
@@ -541,7 +541,7 @@
 
 - (IBAction) BeginTransaction
 {
-    NSLog(@"Begin Transaction was pressed!!!");
+    //NSLog(@"Begin Transaction was pressed!!!");
 }
 
 
@@ -578,7 +578,7 @@
 
 - (IBAction) Logout:(id)sender
 {
-    NSLog(@"Logout Bitch.");
+    //NSLog(@"Logout Bitch.");
     self.userData = nil;
     self.userDisplayName.text = @"";
     [self.voidTransactionButton setEnabled:false];

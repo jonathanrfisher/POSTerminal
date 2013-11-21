@@ -29,7 +29,7 @@
     
     Product *product = nil;
     
-    NSLog(@"productDictionary: %@",[productDictionary description]);
+    //NSLog(@"productDictionary: %@",[productDictionary description]);
     
     //We need to query the DB to see if our product is already in there
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];

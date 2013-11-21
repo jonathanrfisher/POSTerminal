@@ -11,7 +11,7 @@
 #import "POSTerminal.h"
 #define URL @"http://jt.serveftp.net/Datacom/Server.asmx"
 
-@interface CreditCardViewController ()
+@interface CreditCardViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *creditNumField;
 @property (weak, nonatomic) IBOutlet UITextField *expDateField;
 @property (weak, nonatomic) IBOutlet UITextField *cvvNumField;
@@ -20,6 +20,7 @@
 @property (nonatomic) NSString *creditText;
 @property (nonatomic) NSString *expText;
 @property (nonatomic) NSString *cvvText;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 
 //For SOAP connection
@@ -41,9 +42,18 @@
     //for SOAP connection
     self.JSONObject = nil;
     self.soap = nil;
+    
+    [self.creditNumField setDelegate:self];
+    [self.expDateField setDelegate:self];
+    [self.cvvNumField setDelegate:self];
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    UIButton * fakeButton;
+    [self submitBtn:fakeButton];
+    return YES;
+}
 
 - (IBAction)submitBtn:(UIButton *)sender {
     
