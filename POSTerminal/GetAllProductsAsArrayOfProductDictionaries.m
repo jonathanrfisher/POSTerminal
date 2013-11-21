@@ -45,7 +45,13 @@
 -(void) getProducts
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Product"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"type" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    
+    //request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES]];
+    
+    request.sortDescriptors = @[sortDescriptor];
+    
     request.predicate = [NSPredicate predicateWithFormat:@"name != nil"];
     
     // Execute the fetch

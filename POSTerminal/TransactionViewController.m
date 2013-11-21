@@ -13,6 +13,8 @@
 #import "FooterViewForTransactionTable.h"
 #import "HeaderViewForTransactionTable.h"
 
+#define taxRate .06
+
 
 @interface TransactionViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate>
 
@@ -23,7 +25,8 @@
 @property (weak, nonatomic) IBOutlet HeaderViewForTransactionTable *tableHeaderView;
 @property (weak, nonatomic) IBOutlet UILabel *totalQuantity;
 @property (weak, nonatomic) IBOutlet UILabel *totalCost;
-
+@property (weak, nonatomic) IBOutlet UILabel *totalTax;
+@property (weak, nonatomic) IBOutlet UILabel *grandTotal;
 
 @property (nonatomic) CollectionOfProducts *products;
 @property (strong, nonatomic) NSMutableArray *transactionItems;
@@ -128,6 +131,9 @@
             [self.transactionItems replaceObjectAtIndex:transactionItemsIndexForCurrentItem withObject:tempDict];
             //[self calculateTotalQuantity];
             [self calculateTotalCost];
+            [self calculateTax];
+            [self calculateGrandTotalCost];
+            
             [self.transactionTableView reloadData];
             //[[self.transactionItems objectAtIndex:i] setObject:quant forKey:@"quantity"];
         }
@@ -140,6 +146,8 @@
             
             //[self calculateTotalQuantity];
             [self calculateTotalCost];
+            [self calculateTax];
+            [self calculateGrandTotalCost];
             //self.transactionItems = [self.transactionItems arrayByAddingObjectsFromArray:arrayWithDict];
             //NSLog(@"description of self.transactionItems inside the else statement for tapMenuItem: %@",[self.transactionItems description]);
             [self.transactionTableView reloadData];
@@ -188,6 +196,50 @@
     }
     
     self.totalCost.text = [NSString stringWithFormat:@"%.2f",cost];
+}
+
+-(void) calculateTax
+{
+    float tax = 0;
+    float currentCost = 0;
+    int quantity = 0;
+    
+    for (int i = 0; i < [self.transactionItems count]; i++)
+    {
+        quantity = [[[self.transactionItems objectAtIndex:i] objectForKey:@"quantity"] intValue];
+        currentCost = [[[self.transactionItems objectAtIndex:i] objectForKey:@"cost"] floatValue];
+        
+        if (currentCost > 0)
+        {
+            tax += (currentCost * quantity) * taxRate;
+        }
+    }
+    
+    self.totalTax.text = [NSString stringWithFormat:@"%.2f",tax];
+}
+
+-(void) calculateGrandTotalCost
+{
+    float grandTotal = 0;
+    float currentCost = 0;
+    int quantity = 0;
+    
+    for (int i = 0; i < [self.transactionItems count]; i++)
+    {
+        quantity = [[[self.transactionItems objectAtIndex:i] objectForKey:@"quantity"] intValue];
+        currentCost = [[[self.transactionItems objectAtIndex:i] objectForKey:@"cost"] floatValue];
+        
+        if (currentCost > 0)
+        {
+            grandTotal += (1 + taxRate) * (currentCost * quantity);
+        }
+        else
+        {
+            grandTotal += currentCost * quantity;
+        }
+    }
+    
+    self.grandTotal.text = [NSString stringWithFormat:@"%.2f",grandTotal];
 }
 
 

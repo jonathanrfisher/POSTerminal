@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "SOAPConnection.h"
 #import "POSTerminal.h"
+#import "POSTerminalAppDelegate.h"
 #define URL @"http://jt.serveftp.net/Datacom/Server.asmx"
 
 @interface LoginViewController ()
@@ -24,6 +25,7 @@
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;
 @property (nonatomic) NSString *position;
+@property (weak, nonatomic) POSTerminalAppDelegate *appDelegate;
 
 @end
 
@@ -32,6 +34,39 @@
 
 
 @synthesize delegate;
+@synthesize userData = _userData;
+
+-(POSTerminalAppDelegate *) appDelegate
+{
+    if(!_appDelegate)
+    {
+        _appDelegate = (POSTerminalAppDelegate *)[[UIApplication sharedApplication] delegate];
+        //
+    }
+    return _appDelegate;
+}
+
+
+-(void) setUserData:(NSDictionary *)userData
+{
+    if(!_userData)
+    {
+        _userData = self.appDelegate.userData;
+    }
+    self.appDelegate.userData = userData;
+    _userData = self.appDelegate.userData;
+}
+
+-(NSDictionary *) userData
+{
+    if(!_userData)
+    {
+        _userData = self.appDelegate.userData;
+    }
+    return _userData;
+}
+
+
 
 - (void) viewDidAppear:(BOOL)animated
 {
@@ -74,6 +109,7 @@
     //NSLog(@"self.delegate: %@",[self.delegate description]);
     //NSLog(@"self.parentViewController: %@",self.parentViewController);
     //NSLog(@"presentingViewController: %@",self.presentingViewController);
+    //NSLog(@"self.appDelegate: %@",self.appDelegate);
     
     if ([self.delegate isKindOfClass:[UIViewController class]])
     {
@@ -146,7 +182,7 @@
             [self returnUserData];
         }
         
-        //NSLog(@"Description of userData: %@", [self.userData description]);
+        //NSLog(@"Description of userData at the end of getJSON: %@", [self.userData description]);
     }
 
     
@@ -182,7 +218,7 @@
 - (void) performUserValidation:(NSString *)loginCode
 {
     
-    NSLog(@"LOGINCODE: %@",loginCode);
+    //NSLog(@"LOGINCODE: %@",loginCode);
     
     if(!self.soap)
         self.soap = [[SOAPConnection alloc] init];

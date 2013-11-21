@@ -261,6 +261,8 @@
 		7C0FD52E180475370028FC3D /* POSTerminal */ = {
 			isa = PBXGroup;
 			children = (
+				7C0FD537180475370028FC3D /* POSTerminalAppDelegate.h */,
+				7C0FD538180475370028FC3D /* POSTerminalAppDelegate.m */,
 				7C0FD53A180475370028FC3D /* Main.storyboard */,
 				7C0FD53D180475370028FC3D /* POSTerminalViewController.h */,
 				7C0FD53E180475370028FC3D /* POSTerminalViewController.m */,
@@ -279,8 +281,6 @@
 		7C0FD52F180475370028FC3D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7C0FD537180475370028FC3D /* POSTerminalAppDelegate.h */,
-				7C0FD538180475370028FC3D /* POSTerminalAppDelegate.m */,
 				7C0FD5A118049D470028FC3D /* POSTerminal.h */,
 				7C0FD5A218049D470028FC3D /* POSTerminal.m */,
 				7C0FD530180475370028FC3D /* POSTerminal-Info.plist */,

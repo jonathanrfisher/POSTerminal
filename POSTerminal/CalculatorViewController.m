@@ -35,6 +35,7 @@
     }
     else
     {
+        self.previousNumber = self.resultField.text;
         self.resultField.text = digit;
         self.userIsInTheMiddleOfEnteringANumber = YES;
     }
@@ -56,16 +57,20 @@
 {
     NSLog(@"equalsPressed with previous number: %@\nand self.resultField.text: %@",self.previousNumber,self.resultField.text);
     
-    if (self.previousNumber)
-    {
+    
     self.resultField.text = [self CalculateResultWithLeftNumber: self.previousNumber andWithRightNumber: self.resultField.text];
-    self.previousNumber = self.resultField.text;
+    self.previousNumber = nil;
     self.userIsInTheMiddleOfEnteringANumber = NO;
-    }
+    
 }
 
 - (IBAction)operationButtonPressed:(UIButton *)sender
 {
+    if (![self.resultField.text floatValue])
+        return;
+    
+    
+    
     NSLog(@"self.previousNumber: %@",self.previousNumber);
     NSLog(@"self.operation: %@",self.operation);
     self.userIsInTheMiddleOfEnteringANumber = NO;
@@ -74,12 +79,21 @@
     {
         NSLog(@"Inside self.previousNumber of operationButtonPressed with:\nself.operation: %@\nself.resultField.text: %@\nself.previousNumber: %@",self.operation, self.resultField.text,self.previousNumber);
         self.operation = [sender currentTitle];
+        NSLog(@"self.operation inside previousNumber: %@",self.operation);
+        if ([self.previousNumber isEqualToString:@"0.00"])
+        {
+            self.previousNumber = self.resultField.text;
+            return;
+        }
         self.resultField.text = [self CalculateResultWithLeftNumber: self.previousNumber andWithRightNumber: self.resultField.text];
         self.previousNumber = nil;
     }
     else
     {
         NSLog(@"Inside operationButtonPressed else statement");
+        
+        
+        
         self.previousNumber = self.resultField.text;
         self.operation = [sender currentTitle];
         self.resultField.text = [self.resultField.text stringByAppendingString:[NSString stringWithFormat:@" %@",self.operation]];
@@ -90,6 +104,7 @@
     //double result = [self.brain performOperation:sender.currentTitle];
     //NSString *resultString = [NSString stringWithFormat:@"%g",result];
     //self.display.text = resultString;
+    NSLog(@"self.operation at the end of operationPressed: %@",self.operation);
 }
 
 -(void) viewDidLoad
@@ -105,6 +120,7 @@
     self.previousNumber = nil;
     
     NSLog(@"CalculateResult called with:\n%@\n%@",firstNumber,secondNumber);
+    NSLog(@"self.operation in CalculateResult: %@",self.operation);
     
     if([self.operation isEqualToString:@"+"])
     {
@@ -136,7 +152,7 @@
     }
     
     NSLog(@"With result: %@",result);
-    self.operation = nil;
+    //self.operation = nil;
     return result;
 }
 

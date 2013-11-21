@@ -8,7 +8,10 @@
 
 #import "POSTerminalAppDelegate.h"
 
+
+
 @implementation POSTerminalAppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

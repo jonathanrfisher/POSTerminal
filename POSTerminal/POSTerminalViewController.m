@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Jonathan Fisher. All rights reserved.
 //
 
+#import "POSTerminalAppDelegate.h"
 #import "POSTerminalViewController.h"
 #import "POSTerminal.h"
 #import "Product+POSproducts.h"
@@ -27,6 +28,7 @@
 @property (nonatomic, strong, retain) UIViewController *loginViewController;
 
 //User Identifying Properties
+@property (weak, nonatomic) POSTerminalAppDelegate *appDelegate;
 @property (weak, nonatomic) IBOutlet UILabel *userDisplayName;
 @property (nonatomic, strong) NSString *userType;
 @property (nonatomic,strong) NSDictionary *userData;
@@ -45,6 +47,56 @@
 @end
 
 @implementation POSTerminalViewController
+
+@synthesize userData = _userData;
+
+-(UIViewController *)loginViewController
+{
+    NSLog(@"custom loginViewController getter called...");
+    if(!_loginViewController)
+    {
+        UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *lvc = [sb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        
+        lvc.delegate = self;
+        
+        
+        
+        self.loginViewController = lvc;
+    }
+    
+    
+    return _loginViewController;
+}
+
+-(void) setUserData:(NSDictionary *)userData
+{
+    if(!_userData)
+    {
+        _userData = self.appDelegate.userData;
+    }
+    self.appDelegate.userData = userData;
+    _userData = self.appDelegate.userData;
+}
+
+-(NSDictionary *) userData
+{
+    if(!_userData)
+    {
+        _userData = self.appDelegate.userData;
+    }
+    return _userData;
+}
+
+//YourAppDelegate *appDelegate = (YourAppDelegate *)[[UIApplication sharedApplication] delegate];
+-(POSTerminalAppDelegate *) appDelegate
+{
+    if(!_appDelegate)
+    {
+        _appDelegate = (POSTerminalAppDelegate *)[[UIApplication sharedApplication] delegate];
+    }
+    return _appDelegate;
+}
 
 - (NSURL *) url
 {
@@ -75,7 +127,6 @@
     
     // Execute the fetch
     
-    if(!self.managedObjectContext)
         [self getDocumentContext];
     
     NSError *error = nil;
@@ -89,12 +140,12 @@
             //productHolder = [[Product alloc] init];
             //productHolder = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
             //productHolder = productItem;
-            NSLog(@"%@",[productItem description]);
+            //NSLog(@"%@",[productItem description]);
         }
     }
     else
     {
-        NSLog(@"Nothing was returned! Matches was nil!!");
+        NSLog(@"Nothing was returned! Matches was nil inside printProducts!!");
     }
     
     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -109,14 +160,14 @@
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"ProductsDocument"];
         
-        NSLog(@"URL: %@", [url description]);
+        //NSLog(@"URL: %@", [url description]);
         
         UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
         
-        NSLog(@"document: %@",[document description]);
+        //NSLog(@"document: %@",[document description]);
         
-        NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
-        NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
+        //NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
+        //NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
         
         if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
             [document saveToURL:url
@@ -125,8 +176,8 @@
                   if (success) {
                       self.document = document;
                       self.managedObjectContext = document.managedObjectContext;
-                      NSLog(@"if: self.document: %@", [self.document description]);
-                      NSLog(@"if: self.managedObjectContext: %@", [self.managedObjectContext description]);
+                     // NSLog(@"if: self.document: %@", [self.document description]);
+                      //NSLog(@"if: self.managedObjectContext: %@", [self.managedObjectContext description]);
                       [self printProducts];
                       //[self refresh];
                   }
@@ -137,8 +188,8 @@
                 if (success) {
                     self.document = document;
                     self.managedObjectContext = document.managedObjectContext;
-                    NSLog(@"else if: self.document: %@", [self.document description]);
-                    NSLog(@"else if: self.managedObjectContext: %@", [self.managedObjectContext description]);
+                    //NSLog(@"else if: self.document: %@", [self.document description]);
+                   // NSLog(@"else if: self.managedObjectContext: %@", [self.managedObjectContext description]);
                     [self printProducts];
                     
                 }
@@ -148,8 +199,8 @@
         else {
             self.document = document;
             self.managedObjectContext = document.managedObjectContext;
-            NSLog(@"else: self.document: %@", [self.document description]);
-            NSLog(@"else: self.managedObjectContext: %@", [self.managedObjectContext description]);
+           // NSLog(@"else: self.document: %@", [self.document description]);
+           // NSLog(@"else: self.managedObjectContext: %@", [self.managedObjectContext description]);
             [self printProducts];
         }
 
@@ -170,14 +221,14 @@
     NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     url = [url URLByAppendingPathComponent:@"ProductsDocument"];
     
-    NSLog(@"URL: %@", [url description]);
+   // NSLog(@"URL: %@", [url description]);
     
     UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
     
-    NSLog(@"document: %@",[document description]);
+   // NSLog(@"document: %@",[document description]);
     
-    NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
-    NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
+    //NSLog(@"![[NSFileManager defaultManager] fileExistsAtPath:[url path]]: %d",(![[NSFileManager defaultManager] fileExistsAtPath:[url path]]));
+    //NSLog(@"(document.documentState == UIDocumentStateClosed): %d",(document.documentState == UIDocumentStateClosed));
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
         [document saveToURL:url
@@ -202,8 +253,49 @@
         self.managedObjectContext = document.managedObjectContext;
     }
 
-    NSLog(@"self.managedObjectContext: %@", [self.managedObjectContext description]);
+    //NSLog(@"self.managedObjectContext: %@", [self.managedObjectContext description]);
     
+}
+
+
+
+
+
+- (IBAction)printData:(UIButton *)sender
+{
+    
+    NSLog(@"Done Logging in.\nself.userData: %@",[self.userData description]);
+}
+
+
+- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSDictionary *)userData
+{
+    //NSLog(@"This was returned from LoginViewController: %@",[userData description]);
+    self.userData = userData;
+    
+    //[FirstName,LastName,Position]
+    NSString *fullName = [[[self.userData objectForKey:@"firstname"] stringByAppendingString:@" "] stringByAppendingString:[self.userData objectForKey:@"lastname"]];
+    self.userDisplayName.text = fullName;
+    //NSLog(@"didFinishEnteringItem:userData => self.userData: %@",[self.userData description]);
+    
+    self.userType = [self.userData objectForKey:@"position"];
+    
+    if([self.userType  isEqual: @"ADMIN"])
+    {
+        [self.voidTransactionButton setEnabled:true];
+        [self.updatePOSButton setEnabled:true];
+    }
+}
+
+
+- (IBAction) UpdatePOS
+{
+    NSLog(@"<<<<<<<<<<<<<<=============you pressed updatePOS!!======================>>>>>>>>>>>>>>>");
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsWereRemoved) name:@"productsWereRemoved" object:nil];
+    
+    [self removeAllProducts];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
 }
 
 -(IBAction)removeAllProducts
@@ -240,115 +332,10 @@
     [self.document updateChangeCount:UIDocumentChangeDone];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"productsWereRemoved" object:nil];
-
     
-//    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"matches" message:[@"Matches count: " stringByAppendingString:[NSString stringWithFormat:@"%d",[matches count]]] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-//    [alert show];
-
+    //PRODUCTSWEREREMOVED gets called after the above notification is posted!!!
 }
 
--(void) createTheProducts
-{
-    NSArray *names = @[@"Coffee",@"Capucino",@"Hot Chocolate",@"Apple Cider",@"Cake",@"Fruit",@"Juice"];
-    NSArray *prices = @[@1.39,@2.49,@1.49,@1.99,@1.99,@.79,@2.49];
-    NSArray *descriptions = @[@"Jamacain cocoa beans",@"Only the best froth!",@"70% Dark Chocolate",@"The perfect sweetness with a touch of caramel",@"Lemon Cake! Yum!",@"Banana, Apple, or Orange",@"Apple, Orange, or Grape"];
-    NSArray *types = @[@"Drink",@"Drink",@"Drink",@"Drink",@"Food",@"Food",@"Drink"];
-    NSArray *IDs = @[@1001,@1002,@1003,@1004,@1005,@1006,@1007];
-    
-    NSMutableArray *products = [[NSMutableArray alloc] init];
-    NSMutableDictionary *productDict = [[NSMutableDictionary alloc] init];
-    
-    NSUInteger i = 0;
-    
-    for (i = 0; i < [IDs count]; i++)
-    {
-        productDict = [[NSMutableDictionary alloc] init];
-        //do something
-        NSLog(@"%u,%@,%@,%@,%@,%@",i,[names objectAtIndex:i],[prices objectAtIndex:i],[descriptions objectAtIndex:i],[types objectAtIndex:i],[IDs objectAtIndex:i]);
-        [productDict setObject:[names objectAtIndex:i] forKey:@"name"];
-        [productDict setObject:[prices objectAtIndex:i] forKey:@"price"];
-        [productDict setObject:[descriptions objectAtIndex:i] forKey:@"productDescription"];
-        [productDict setObject:[types objectAtIndex:i] forKey:@"type"];
-        [productDict setObject:[IDs objectAtIndex:i] forKey:@"productID"];
-        
-        [products addObject:productDict];
-        
-    }
-    
-    
-    
-    NSLog(@"Before the dispatch queue.");
-    NSLog(@"Description of products array: %@",[products description]);
-    
-    dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
-    dispatch_async(fetchQ, ^
-    {
-        //NSArray *photos = [FlickrFetcher latestGeoreferencedPhotos];
-        // put the photos in Core Data
-        NSLog(@"Before [self.managedObjectContext performBlock");
-            [self.managedObjectContext performBlock:^
-             {
-                
-                 NSLog(@"Before the for (NSDictionary *product in products) loop.");
-                 for (NSDictionary *product in products)
-                 {
-                     NSLog(@"trying to insert: %@",[product description]);
-                     [Product productWithDictionary:product inManagedObjectContext:self.managedObjectContext];
-                 }
-                 NSLog(@"After our for loop that is supposed to create our products.");
-//              dispatch_async(dispatch_get_main_queue(), ^{
-//              [self.refreshControl endRefreshing];
-//              });
-//                 NSError *error;
-//                [self.managedObjectContext save:&error];
-                 NSLog(@"self.document description: %@",[self.document description]);
-                 [self.document updateChangeCount:UIDocumentChangeDone];
-                 NSLog(@"Data Saved.");
-             }];
-            NSLog(@"AFTER the [self.mana....]");
-    });
-    
-    NSLog(@"AFTER the dispatch queue.");
-}
-
-
-
-- (IBAction)printData:(UIButton *)sender
-{
-    
-    NSLog(@"Done Logging in.\nself.userData: %@",[self.userData description]);
-}
-
-
-- (void) addItemViewController:(LoginViewController *)controller didFinishEnteringItem:(NSDictionary *)userData
-{
-    //NSLog(@"This was returned from LoginViewController: %@",[userData description]);
-    self.userData = userData;
-    
-    //[FirstName,LastName,Position]
-    NSString *fullName = [[[self.userData objectForKey:@"firstname"] stringByAppendingString:@" "] stringByAppendingString:[self.userData objectForKey:@"lastname"]];
-    self.userDisplayName.text = fullName;
-    NSLog(@"didFinishEnteringItem:userData => self.userData: %@",[self.userData description]);
-    
-    self.userType = [self.userData objectForKey:@"position"];
-    
-    if([self.userType  isEqual: @"ADMIN"])
-    {
-        [self.voidTransactionButton setEnabled:true];
-        [self.updatePOSButton setEnabled:true];
-    }
-}
-
-
-- (IBAction) UpdatePOS
-{
-    NSLog(@"you pressed updatePOS!!");
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productsWereRemoved) name:@"productsWereRemoved" object:nil];
-    
-    [self removeAllProducts];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSong:) name:@"playNotification" object:nil];
-}
 
 -(void) productsWereRemoved
 {
@@ -565,7 +552,7 @@
 {
     [super viewDidAppear:NO];
     
-    NSLog(@"self.userData inside viewDidAppear: %@",[self.userData description]);
+    //NSLog(@"self.userData inside viewDidAppear: %@",[self.userData description]);
  
         
     if (!self.userData)
@@ -603,6 +590,24 @@
        
     }
     
+    NSString *fullName;
+    
+   
+    fullName = [[[self.userData objectForKey:@"firstname"] stringByAppendingString:@" "] stringByAppendingString:[self.userData objectForKey:@"lastname"]];
+    
+    self.userDisplayName.text = fullName;
+    
+    self.userType = [self.userData objectForKey:@"position"];
+    
+    if([self.userType  isEqual: @"ADMIN"])
+    {
+        [self.voidTransactionButton setEnabled:true];
+        [self.updatePOSButton setEnabled:true];
+    }
+    
+//    self.userDisplayName.numberOfLines = 1;
+//    
+//    [self.userDisplayName sizeToFit];
     
 }
 
@@ -616,3 +621,70 @@
 }
 
 @end
+
+
+
+//-(void) createTheProducts
+//{
+//    NSArray *names = @[@"Coffee",@"Capucino",@"Hot Chocolate",@"Apple Cider",@"Cake",@"Fruit",@"Juice"];
+//    NSArray *prices = @[@1.39,@2.49,@1.49,@1.99,@1.99,@.79,@2.49];
+//    NSArray *descriptions = @[@"Jamacain cocoa beans",@"Only the best froth!",@"70% Dark Chocolate",@"The perfect sweetness with a touch of caramel",@"Lemon Cake! Yum!",@"Banana, Apple, or Orange",@"Apple, Orange, or Grape"];
+//    NSArray *types = @[@"Drink",@"Drink",@"Drink",@"Drink",@"Food",@"Food",@"Drink"];
+//    NSArray *IDs = @[@1001,@1002,@1003,@1004,@1005,@1006,@1007];
+//
+//    NSMutableArray *products = [[NSMutableArray alloc] init];
+//    NSMutableDictionary *productDict = [[NSMutableDictionary alloc] init];
+//
+//    NSUInteger i = 0;
+//
+//    for (i = 0; i < [IDs count]; i++)
+//    {
+//        productDict = [[NSMutableDictionary alloc] init];
+//        //do something
+//        NSLog(@"%u,%@,%@,%@,%@,%@",i,[names objectAtIndex:i],[prices objectAtIndex:i],[descriptions objectAtIndex:i],[types objectAtIndex:i],[IDs objectAtIndex:i]);
+//        [productDict setObject:[names objectAtIndex:i] forKey:@"name"];
+//        [productDict setObject:[prices objectAtIndex:i] forKey:@"price"];
+//        [productDict setObject:[descriptions objectAtIndex:i] forKey:@"productDescription"];
+//        [productDict setObject:[types objectAtIndex:i] forKey:@"type"];
+//        [productDict setObject:[IDs objectAtIndex:i] forKey:@"productID"];
+//
+//        [products addObject:productDict];
+//
+//    }
+//
+//
+//
+//    NSLog(@"Before the dispatch queue.");
+//    NSLog(@"Description of products array: %@",[products description]);
+//
+//    dispatch_queue_t fetchQ = dispatch_queue_create("GetProducts", NULL);
+//    dispatch_async(fetchQ, ^
+//    {
+//        //NSArray *photos = [FlickrFetcher latestGeoreferencedPhotos];
+//        // put the photos in Core Data
+//        NSLog(@"Before [self.managedObjectContext performBlock");
+//            [self.managedObjectContext performBlock:^
+//             {
+//
+//                 NSLog(@"Before the for (NSDictionary *product in products) loop.");
+//                 for (NSDictionary *product in products)
+//                 {
+//                     NSLog(@"trying to insert: %@",[product description]);
+//                     [Product productWithDictionary:product inManagedObjectContext:self.managedObjectContext];
+//                 }
+//                 NSLog(@"After our for loop that is supposed to create our products.");
+////              dispatch_async(dispatch_get_main_queue(), ^{
+////              [self.refreshControl endRefreshing];
+////              });
+////                 NSError *error;
+////                [self.managedObjectContext save:&error];
+//                 NSLog(@"self.document description: %@",[self.document description]);
+//                 [self.document updateChangeCount:UIDocumentChangeDone];
+//                 NSLog(@"Data Saved.");
+//             }];
+//            NSLog(@"AFTER the [self.mana....]");
+//    });
+//
+//    NSLog(@"AFTER the dispatch queue.");
+//}
+
